@@ -11,12 +11,11 @@ export default function Homepage() {
       <Navbar />
       <HeroSection />
       <Body>
-        
-        <main className="px-[4%] min-h-[100vh] my-[1rem] sm:w-[95%] sm:mx-auto ">
+        <main className="px-[4%] min-h-[100vh] mt-2 sm:w-[95%] sm:mx-auto ">
           {/* welcome Flavors one */}
           <div
             id="welcomeFlavors"
-            className="min-h-[80vh] sm:flex  sm:mb-[3rem] sm:w-[100%] sm:gap-3  sm:h-[80vh]"
+            className="min-h-[50vh] mb-2  sm:flex  sm:mb-[3rem] sm:w-[100%] sm:gap-3  sm:h-[80vh]"
           >
             <div
               id="heading--text"
@@ -39,31 +38,30 @@ export default function Homepage() {
                 stay organized in the kitchen. Eating well has never been so
                 effortless.
               </p>
-           
             </div>
             {/* imageFlavorOne */}
-            <div
+            <figure
               id="img"
-              className="min-h-[50vh] sm:h-[100%]  sm:rounded-[25px] "
+              className="min-h-[30vh] sm:h-[100%]  sm:rounded-[25px] "
             >
               <img
                 src={flavorDish}
                 alt=""
                 className="h-[100%] w-[100%] sm:rounded-[25px]"
               />
-            </div>
+            </figure>
           </div>
           {/* WelcomeFlavorsTwo */}
           <div
             id="welcomeFlavorsTwo"
-            className="min-h-[80vh] sm:flex  sm:mb-[3rem] sm:w-[100%] sm:gap-8 sm:flex-row-reverse sm:justify-between "
+            className="min-h-[50vh] mb-2 sm:flex  sm:mb-[3rem] sm:w-[100%] sm:gap-8 sm:flex-row-reverse sm:justify-between "
           >
             <div
               id="text"
-              className="flex flex-col gap-3 sm:w-[50%] sm:h-100% sm:gap-0 sm:self-center "
+              className="flex flex-col gap-0 sm:w-[50%] sm:h-100% sm:gap-0 sm:self-center "
             >
               {/* h1 */}
-              <h1 className=" text-center text-[#88633b] font-bold sm:text-[30px] sm:mb-[1rem] sm:text-left">
+              <h1 className=" text-center text-[#88633b] font-bold font-poppinsMedium sm:text-[30px] sm:mb-[1rem] sm:text-left">
                 Explore Our Recipe Collection
               </h1>
               <p className=" text-justify text-[.8rem] sm:text-[21px] sm:text-left">
@@ -81,16 +79,16 @@ export default function Homepage() {
               </p>
             </div>
             {/*  */}
-            <div
+            <figure
               id="img"
-              className="h-[50vh] sm:h-[100%] sm:w-[50%] sm:rounded-[25px]] "
+              className="min-h-[30vh] sm:h-[100%] sm:w-[50%] sm:rounded-[25px]] "
             >
               <img
                 src={flavorDishTwo}
                 alt=""
                 className="h-[100%] w-[100%] sm:rounded-[25px]"
               />
-            </div>
+            </figure>
           </div>
 
           {/*  */}
