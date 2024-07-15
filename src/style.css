@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
+
+@font-face {
+  font-family: "poppins";
+  src: url("../src/Inter_Tight\,Poppins/Poppins/Poppins-Light.ttf");
+}
+@font-face {
+  font-family: "poppinsMedium";
+  src: url("../src/Inter_Tight\,Poppins/Poppins/Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: "inter";
+  font-family: 600;
+  src: url("../src/Inter_Tight\,Poppins/Inter_Tight/static/InterTight-Regular.ttf");
+}
