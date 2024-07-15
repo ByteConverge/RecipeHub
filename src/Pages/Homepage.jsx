@@ -50,12 +50,11 @@ export default function Homepage() {
           id="cards"
           className="px-[4%] min-h-[10vh] my-2 sm:w-[95%] mb-[1rem] flex flex-col gap-2 sm:mx-auto "
         >
-         <HomeCards />
-         <HomeCards />
-         <HomeCards />
-         <HomeCards />
-         <HomeCards />
-          
+          <HomeCards />
+          <HomeCards />
+          <HomeCards />
+          <HomeCards />
+          <HomeCards />
         </div>
 
         {/*  */}
@@ -90,12 +89,12 @@ export default function Homepage() {
             {/* imageFlavorOne */}
             <figure
               id="img"
-              className="min-h-[30vh] sm:h-[100%]  sm:rounded-[25px] "
+              className="min-h-[30vh]  sm:h-[100%]  sm:rounded-[25px] "
             >
               <img
                 src={flavorDish}
                 alt=""
-                className="h-[100%] w-[100%] sm:rounded-[25px]"
+                className="h-[100%] w-[100%] sm:rounded-[25px] rounded-[1rem]"
               />
             </figure>
           </div>
@@ -134,7 +133,7 @@ export default function Homepage() {
               <img
                 src={flavorDishTwo}
                 alt=""
-                className="h-[100%] w-[100%] sm:rounded-[25px]"
+                className="h-[100%] w-[100%] sm:rounded-[25px] rounded-[1rem]"
               />
             </figure>
           </div>
