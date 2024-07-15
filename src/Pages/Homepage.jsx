@@ -23,17 +23,17 @@ export default function Homepage() {
               className="flex flex-col h-[50%] gap-3 sm:w-[50%] sm:h-100% sm:gap-0 "
             >
               {/* h1 */}
-              <h1 className="text-center text-[#88633b] font-bold font-poppins sm:text-[30px] sm:mb-[1rem] sm:text-left">
+              <h1 className="text-center text-[#88633b] font-bold font-poppinsMedium sm:text-[30px] sm:mb-[1rem] sm:text-left">
                 Welcome to the Flavors of Nigeria!
               </h1>
-              <p className="text-center text-[.8rem] sm:text-[19.5px] sm:text-left">
+              <p className="text-justify text-[.8rem] sm:text-[19.5px] sm:text-left">
                 Discover, Cook, and Share Amazing Recipes Welcome to Recidish,
                 your go-to hub for all things culinary! Whether you are a
                 seasoned chef or a kitchen novice, our app is designed to
                 inspire and assist you in creating mouth-watering dishes right
                 from the comfort of your home.
               </p>
-              <p className="text-center text-[.8rem] sm:text-[20px] sm:text-left">
+              <p className="text-justify text-[.8rem] sm:text-[20px] sm:text-left">
                 Plan your meals with ease using our integrated meal planning
                 tool. Select recipes for the week, generate shopping lists, and
                 stay organized in the kitchen. Eating well has never been so
@@ -66,14 +66,14 @@ export default function Homepage() {
               <h1 className=" text-center text-[#88633b] font-bold sm:text-[30px] sm:mb-[1rem] sm:text-left">
                 Explore Our Recipe Collection
               </h1>
-              <p className=" text-center text-[.8rem] sm:text-[21px] sm:text-left">
+              <p className=" text-justify text-[.8rem] sm:text-[21px] sm:text-left">
                 Dive into our extensive collection of recipes from around the
                 world. From classic comfort foods to exotic delicacies, we have
                 got something for every palate. Easily browse by cuisine,
                 dietary preferences, or meal type, and find the perfect recipe
                 to suit any occasion.
               </p>
-              <p className=" text-center text-[.8rem] sm:text-[21px] sm:text-left">
+              <p className=" text-justify text-[.8rem] sm:text-[21px] sm:text-left">
                 Plan your meals with ease using our integrated meal planning
                 tool. Select recipes for the week, generate shopping lists, and
                 stay organized in the kitchen. Eating well has never been so
