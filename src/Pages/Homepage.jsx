@@ -11,14 +11,15 @@ export default function Homepage() {
       <Navbar />
       <HeroSection />
       <Body>
-        <main className="min-h-[100vh] my-[1rem] sm:w-[95%] sm:mx-auto ">
+        
+        <main className="px-[7.2%] min-h-[100vh] my-[1rem] sm:w-[95%] sm:mx-auto ">
           {/* welcome Flavors one */}
           <div
             id="welcomeFlavors"
             className="min-h-[80vh] sm:flex  sm:mb-[3rem] sm:w-[100%] sm:gap-3  sm:h-[80vh]"
           >
             <div
-              id="text"
+              id="heading"
               className="flex flex-col h-[50%] gap-3 sm:w-[50%] sm:h-100% sm:gap-0 "
             >
               {/* h1 */}
