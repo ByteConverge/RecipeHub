@@ -24,11 +24,11 @@ export default function HeroSection() {
     <div
       id="hero"
       style={{ backgroundImage: `url(${bgImg[bgIndex]})` }}
-      className={`bg-center min-h-[60vh] grid place-items-center sm:h-[100dvh]`}
+      className={`bg-center min-h-[60dvh] grid place-items-center sm:h-[100dvh]`}
     >
       <div
         id="hero--texts"
-        className="w-[90%] mx-auto mt-[4%] h-[50vh] rounded-[1rem] bg-black bg-opacity-70 p-9 text-white flex flex-col text-center justify-center gap-4 sm:w-[80%] sm:gap-7"
+        className="w-[90%] mx-auto mt-[4%] h-[50vh] sm:h-[80%] rounded-[1rem] bg-black bg-opacity-70 p-9 text-white flex flex-col text-center justify-center gap-4 sm:w-[80%] sm:gap-7"
       >
         <h1 className=" text-[20px] sm:text-[35px] font-inter  sm:font-normal">
           Discover Delicious Recipes
@@ -43,7 +43,7 @@ export default function HeroSection() {
         </p>
         <Link
           to="/signUp"
-          className=" bg-[#996D3E] text-[white] rounded-[10px] self-center  grid place-items-center w-[50%] h-[2.4rem] font-inter  sm:text-[20px] sm:w-[25%] sm:h-[15%] sm:text-black "
+          className=" bg-[#996D3E] text-[white] rounded-[10px] self-center  grid place-items-center w-[7rem] h-[2.5rem] font-inter  sm:text-[20px] sm:w-[25%] sm:h-[15%] sm:text-black "
         >
           Get Started
         </Link>
