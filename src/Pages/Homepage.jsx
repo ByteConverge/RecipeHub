@@ -4,9 +4,10 @@ import Footer from "../Components/Footer"
 import Body from "../Components/Body"
 import flavorDish from "../Recidish_Images/flavorDish.jpg";
 import flavorDishTwo from "../Recidish_Images/flavorDish2.jpg";
-import blackStar from '../Recidish_Images/blackStar.svg'
-import test from "../Recidish_Images/fried-rice-leaf.png"
-import rice from "../Recidish_Images/Fried-chicken-explore.png"
+
+
+import HomeCards from "../Components/HomeCards";
+
 export default function Homepage() {
   return (
     <>
@@ -44,61 +45,17 @@ export default function Homepage() {
           </div>
           {/*  */}
         </div>
-        {/* Cards */}
+        {/* Cards section */}
         <div
           id="cards"
           className="px-[4%] min-h-[10vh] my-2 sm:w-[95%] mb-[1rem] flex flex-col gap-2 sm:mx-auto "
         >
-          {/* Card */}
-          <div
-            id="card"
-            className="border-[1px] solid border-black rounded-[1rem] h-[45vh]"
-          >
-            <figure className="h-[70%]">
-              <img
-                src={rice}
-                alt=""
-                className="rounded-tr-[1rem] rounded-tl-[1rem] w-[100%] h-[100%]"
-              />
-            </figure>
-            <div id="lowerSection" className="p-2">
-              <div className="flex justify-between w-1/3 gap-3">
-                <h1 className="font-bold">Porridge</h1>
-                <figure className="flex items-center gap-1">
-                  <img src={blackStar} alt="" className="h-4 w-4" />
-                  <p>{4.8}</p>
-                </figure>
-              </div>
-              <p className="text-[10px] w-[60%]">
-                Chicken Pasta is a comforting and creamy dish that combines...
-              </p>
-            </div>
-          </div>
-          {/* card two */}
-          <div
-            id="card"
-            className="border-[1px] solid border-black rounded-[1rem] h-[45vh]"
-          >
-            <figure className="h-[70%]">
-              <img
-                src={test}
-                alt=""
-                className="rounded-tr-[1rem] rounded-tl-[1rem] w-[100%] h-[100%]"
-              />
-            </figure>
-            <div id="lowerSection" className="p-2">
-              <div className="flex justify-between w-1/3 gap-3">
-                <h1 className="font-bold">Porridge</h1>
-                <figure className="flex items-center gap-1">
-                  <img src={blackStar} alt="" className="h-4 w-4" />
-                  <p>{4.8}</p>
-                </figure>
-              </div>
-              <p className="text-[10px] w-[60%]">
-                Chicken Pasta is a comforting and creamy dish that combines...
-              </p>
-            </div>
-          </div>
+         <HomeCards />
+         <HomeCards />
+         <HomeCards />
+         <HomeCards />
+         <HomeCards />
+          
         </div>
 
         {/*  */}
