@@ -28,7 +28,7 @@ export default function HeroSection() {
     >
       <div
         id="hero--texts"
-        className="w-[90%] mx-auto mt-[4%] h-[80%] rounded-[1rem] bg-black bg-opacity-70 p-9 text-white flex flex-col text-center justify-center gap-4 sm:w-[80%] sm:gap-7"
+        className="w-[90%] mx-auto mt-[4%] h-[50vh] rounded-[1rem] bg-black bg-opacity-70 p-9 text-white flex flex-col text-center justify-center gap-4 sm:w-[80%] sm:gap-7"
       >
         <h1 className=" text-[20px] sm:text-[35px] font-inter  sm:font-normal">
           Discover Delicious Recipes
