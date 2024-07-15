@@ -11,7 +11,7 @@ function SignUpPage() {
     // Background Overall
     <div
       id="backgroundOverall"
-      className={` w-[100%] min-h-[100dvh] sm:bg-cover sm:bg-no-repeat sm:grid sm:place-items-center font-poppins `}
+      className={` w-[100%] min-h-[100vh] sm:bg-cover sm:bg-no-repeat sm:grid sm:place-items-center font-poppins `}
       style={{ backgroundImage: `url(${signInImg})` }}
     >
       {/* form wrapper black--cover*/}
