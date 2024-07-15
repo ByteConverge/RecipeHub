@@ -44,7 +44,7 @@ export default function Homepage() {
           </div>
           {/*  */}
         </div>
-        {/* SECTION TWO */}
+        {/* Cards */}
         <div
           id="cards"
           className="px-[4%] min-h-[10vh] my-2 sm:w-[95%] mb-[1rem] flex flex-col gap-2 sm:mx-auto "
@@ -52,7 +52,7 @@ export default function Homepage() {
           {/* Card */}
           <div
             id="card"
-            className="border-[1px] solid border-black rounded-[1rem] h-[39vh]"
+            className="border-[1px] solid border-black rounded-[1rem] h-[45vh]"
           >
             <figure className="h-[70%]">
               <img
@@ -77,7 +77,7 @@ export default function Homepage() {
           {/* card two */}
           <div
             id="card"
-            className="border-[1px] solid border-black rounded-[1rem] h-[39vh]"
+            className="border-[1px] solid border-black rounded-[1rem] h-[45vh]"
           >
             <figure className="h-[70%]">
               <img
