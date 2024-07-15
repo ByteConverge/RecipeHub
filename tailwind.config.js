@@ -8,6 +8,7 @@ export default {
         poppinsMedium: ["poppinsMedium", "sans-serif"],
         inter: ["inter", "sans-serif"],
       },
+    
       animation: {
         spin: "spin 2s linear infinite",
       },

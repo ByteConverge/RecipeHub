@@ -25,13 +25,17 @@ const Navbar = () => {
   return (
     <nav
       className={`flex ${isMenuOpen && "sticky top-0 "} px-[7.2%]
-        bg-[#DEAA72] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter sm:px-[10.5%] sm:absolute sm:w-[100%] sm:pt-6 sm:min-h-[11dvh]`}
+       bg-[#ffffff] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter sm:px-[10.5%] sm:absolute sm:w-[100%] sm:pt-6 sm:min-h-[11dvh]`}
     >
       <div className="flex items-center ">
         {" "}
         {/* Optional: Set logo container width on larger screens */}
-        <NavLink exact to="/" className="text-white text-xl font-bold">
-          Your Logo
+        <NavLink
+          exact
+          to="/"
+          className="text-black text-xl font-bold sm:text-white"
+        >
+          Logo
         </NavLink>
       </div>
 
@@ -40,9 +44,9 @@ const Navbar = () => {
         className={`sm:hidden ml-auto text-white focus:outline-none`}
       >
         {isMenuOpen ? (
-          <AiOutlineClose className="text-2xl" />
+          <AiOutlineClose className="text-2xl text-black" />
         ) : (
-          <AiOutlineMenu className="text-2xl" />
+          <AiOutlineMenu className="text-2xl text-black" />
         )}
       </button>
 
@@ -67,7 +71,10 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="nav-item h-12 w-28 font-inter sm:grid sm:place-items-center sm:bg-[#996D3E] sm:rounded-[5px]  sm:text-[#EAE9E9] sm:text-[20px] sm:font-semibold  ">
-          <Link to="/signUp" ClassName="text-white font-bold sm:h-[100%] sm:w-[100%] ">
+          <Link
+            to="/signUp"
+            ClassName="text-white font-bold sm:h-[100%] sm:w-[100%] "
+          >
             Sign Up
           </Link>
         </li>
