@@ -4,6 +4,7 @@ import Footer from "../Components/Footer"
 import Body from "../Components/Body"
 import flavorDish from "../Recidish_Images/flavorDish.jpg";
 import flavorDishTwo from "../Recidish_Images/flavorDish2.jpg";
+import blackStar from '../Recidish_Images/blackStar.svg'
 
 export default function Homepage() {
   return (
@@ -11,7 +12,39 @@ export default function Homepage() {
       <Navbar />
       <HeroSection />
       <Body>
-        <main className="px-[4%] min-h-[100vh] mt-2 sm:w-[95%] sm:mx-auto ">
+        {/*  */}
+        <div
+          id="numbers"
+          className="px-[4%] min-h-[4vh] my-2 flex  justify-between gap-2 sm:w-[95%] sm:mx-auto"
+        >
+          {/*  */}
+          <div className="flex flex-col">
+            <figure className="flex justify-center gap-2 items-center">
+              <span className="h-[10px] w-[10px] rounded-[50%] bg-red-400"></span>
+              <h1>113k</h1>
+            </figure>
+            <p className="text-[12px]">Original recipes</p>
+          </div>
+          {/*  */}
+          <div className="flex flex-col">
+            <figure className="flex justify-center gap-2 items-center">
+              <span className="h-[10px] w-[10px] rounded-[50%] bg-yellow-400"></span>
+              <h1>113k</h1>
+            </figure>
+            <p className="text-[12px]">Original recipes</p>
+          </div>
+          {/*  */}
+          <div className="flex flex-col">
+            <figure className="flex justify-center gap-2 items-center">
+              <span className="h-[10px] w-[10px] rounded-[50%] bg-blue-400"></span>
+              <h1>113k</h1>
+            </figure>
+            <p className="text-[12px]">Original recipes</p>
+          </div>
+          {/*  */}
+        </div>
+        {/*  */}
+        <main className="px-[4%] min-h-[100vh] my-2 sm:w-[95%] sm:mx-auto ">
           {/* welcome Flavors one */}
           <div
             id="welcomeFlavors"
@@ -64,7 +97,7 @@ export default function Homepage() {
               <h1 className=" text-center text-[#88633b] font-bold font-poppinsMedium sm:text-[30px] sm:mb-[1rem] sm:text-left">
                 Explore Our Recipe Collection
               </h1>
-              <p className=" text-justify text-[.8rem] sm:text-[21px] sm:text-left">
+              <p className=" text-justify font-inter text-[.8rem] sm:text-[21px] sm:text-left">
                 Dive into our extensive collection of recipes from around the
                 world. From classic comfort foods to exotic delicacies, we have
                 got something for every palate. Easily browse by cuisine,
