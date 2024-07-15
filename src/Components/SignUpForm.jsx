@@ -175,7 +175,7 @@ export default function SignUpForm() {
     <>
       <form
         id="form section"
-        className="text-white flex flex-col justify-start gap-2 px-5  items-center h-[100%] w-[100%] sm:h-[90%] sm:w-[70%] sm:justify-start sm:gap-0  sm:py-0"
+        className="text-white flex flex-col justify-start gap-2 px-5  items-center h-[100%] w-[100%] sm:h-[90%] sm:w-[80%] sm:justify-start sm:gap-0  sm:py-0"
         onSubmit={handleSubmit}
       >
         {/* h1{sign Up} */}

@@ -20,7 +20,7 @@ function SignInPage() {
       {/* form wrapper black--cover*/}
       <div
         id="form wrapper"
-        className="w-[100%] min-h-[100vh] bg-black bg-opacity-80 flex flex-col justify-center items-center  sm:w-[57%] sm:min-h-[95vh]  sm:rounded-[100px] sm:px-[59px] sm:py-[15px] "
+        className="w-[100%] min-h-[100vh] bg-black bg-opacity-80 flex flex-col justify-center items-center  sm:w-[50%] sm:min-h-[95vh]  sm:rounded-[100px] sm:px-[59px] sm:py-[15px] "
       >
        <SignInForm /> 
        

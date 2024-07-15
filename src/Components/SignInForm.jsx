@@ -133,7 +133,7 @@ export default function SignInForm() {
     <>
       <form
         id="form section"
-        className="text-white flex flex-col justify-start gap-5 px-5 py-7    items-center h-[100%] w-[98%] -mt-14 sm:h-[90%] sm:w-[70%] sm:justify-start sm:gap-0   sm:font-poppins sm:-mt-0"
+        className="text-white flex flex-col justify-start gap-5 px-5 py-7    items-center h-[100%] w-[98%] -mt-14 sm:h-[90%] sm:w-[80%] sm:justify-start sm:gap-0   sm:font-poppins sm:-mt-0"
         onSubmit={handleSubmit}
       >
         <h1 className="text-[25px]  w-[100%]  flex flex-col justify-en  sm:mb-5 font-poppins  font-bold sm:text-[25px]">
