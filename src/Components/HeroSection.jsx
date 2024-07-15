@@ -23,7 +23,7 @@ export default function HeroSection() {
   return (
     <div
       id="hero"
-      style={{ backgroundImage: `url(${bgImg[bgIndex]})` }}
+      style={{ backgroundImage: `url(${bgImg[0]})` }}
       className={`bg-center min-h-[60vh] grid place-items-center sm:h-[100vh]`}
     >
       <div
