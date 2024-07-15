@@ -206,7 +206,7 @@ export default function SignInForm() {
                 value={formData.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="text-[13px] px-2 block w-full border-white font-poppins border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem] sm:h-[1.7rem] sm:py-1 border-[0.772px]"
+                className="sm:text-[13px] px-2 block w-full border-white font-poppins border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem] sm:h-[1.7rem] sm:py-1 border-[0.772px]"
               />
             </div>
             {/* password */}
@@ -220,7 +220,7 @@ export default function SignInForm() {
                 value={formData.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="text-[13px] px-2 block w-full border-white font-poppins border-[0.772px] border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem] sm:h-[1.7rem] sm:py-1"
+                className="sm:text-[13px] px-2 block w-full border-white font-poppins border-[0.772px] border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem] sm:h-[1.7rem] sm:py-1"
               />
             </div>
 
