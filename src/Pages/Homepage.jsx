@@ -23,7 +23,7 @@ export default function Homepage() {
               className="flex flex-col h-[50%] gap-3 sm:w-[50%] sm:h-100% sm:gap-0 "
             >
               {/* h1 */}
-              <h1 className="text-center text-[#88633b] font-bold sm:text-[30px] sm:mb-[1rem] sm:text-left">
+              <h1 className="text-center text-[#88633b] font-bold font-poppins sm:text-[30px] sm:mb-[1rem] sm:text-left">
                 Welcome to the Flavors of Nigeria!
               </h1>
               <p className="text-center text-[.8rem] sm:text-[19.5px] sm:text-left">
