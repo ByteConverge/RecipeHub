@@ -216,7 +216,7 @@ export default function SignUpForm() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="sm:text-[13px] px-4 block w-full border-white border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem]  border-[0.772px] sm:h-[25px] "
+                className="sm:text-[13px] px-2 block w-full border-white border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem]  border-[0.772px] sm:h-[25px] "
               />
             </div>
             {/* Email */}
@@ -230,7 +230,7 @@ export default function SignUpForm() {
                 value={formData.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="sm:text-[13px] px-4 block w-full border-white  border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem]  border-[0.772px] sm:h-[25px]"
+                className="sm:text-[13px] px-2 block w-full border-white  border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem]  border-[0.772px] sm:h-[25px]"
               />
               {errors.email && (
                 <span className=" pl-4 mt-2 text-red-500 text-[11px] block bg-black ">
@@ -249,7 +249,7 @@ export default function SignUpForm() {
                 value={formData.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="sm:text-[13px] px-4 block w-full border-white  border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem]  border-[0.772px] sm:h-[25px]"
+                className="sm:text-[13px] px-2 block w-full border-white  border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem]  border-[0.772px] sm:h-[25px]"
               />
               {errors.password && (
                 <span className="text-red-500 text-[9px] block bg-black mt-2">
@@ -268,7 +268,7 @@ export default function SignUpForm() {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="sm:text-[13px] px-4 block w-full border-white  border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem]  border-[0.772px] sm:h-[25px] "
+                className="sm:text-[13px] px-2 block w-full border-white  border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem]  border-[0.772px] sm:h-[25px] "
               />
               {errors.confirmPassword && (
                 <span className=" pl-4 mt-2 text-red-500 text-[11px] block bg-black">
