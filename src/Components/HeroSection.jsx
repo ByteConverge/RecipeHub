@@ -33,7 +33,7 @@ export default function HeroSection() {
         <h1 className=" text-[20px] sm:text-[35px] font-inter  sm:font-normal">
           Discover Delicious Recipes
         </h1>
-        <p className="self-center p-1 text-[12px] w-[100%] font-inter md:text-[20px] md:w-[65%] sm:text-[24px]  ">
+        <p className="self-center p-1 text-[13px] text-justify  w-[100%] font-inter md:text-[20px] md:w-[65%] sm:text-[24px]  sm:text-center ">
           Welcome to Recidish - Your ultimate destination for culinary
           inspiration! Explore a world of flavors and discover mouth-watering
           recipes tailored to your taste buds. Whether you are a seasoned chef
