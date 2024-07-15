@@ -17,7 +17,7 @@ function SignUpPage() {
       {/* form wrapper black--cover*/}
       <div
         id="form wrapper"
-        className="w-[100%] min-h-[100dvh] bg-black bg-opacity-80 flex flex-col justify-center items-center  sm:w-[57%] sm:min-h-[95dvh]  sm:rounded-[100px] sm:px-[59px] sm:py-[15px] "
+        className="w-[100%] min-h-[100vh] bg-black bg-opacity-80 flex flex-col justify-center items-center  sm:w-[57%] sm:min-h-[95dvh]  sm:rounded-[100px] sm:px-[59px] sm:py-[15px] "
       >
         {/* Form section */}
         <SignUpForm />
