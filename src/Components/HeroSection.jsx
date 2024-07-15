@@ -43,7 +43,7 @@ export default function HeroSection() {
         </p>
         <Link
           to="/signUp"
-          className=" bg-[#996D3E] text-[white] rounded-[10px] self-center  grid place-items-center w-[50%] h-[10%] font-inter  sm:text-[20px] sm:w-[25%] sm:h-[15%] sm:text-black "
+          className=" bg-[#996D3E] text-[white] rounded-[10px] self-center  grid place-items-center w-[50%] h-[2.4rem] font-inter  sm:text-[20px] sm:w-[25%] sm:h-[15%] sm:text-black "
         >
           Get Started
         </Link>
