@@ -12,7 +12,7 @@ export default function Homepage() {
       <HeroSection />
       <Body>
         
-        <main className="px-[7.2%] min-h-[100vh] my-[1rem] sm:w-[95%] sm:mx-auto ">
+        <main className="px-[4%] min-h-[100vh] my-[1rem] sm:w-[95%] sm:mx-auto ">
           {/* welcome Flavors one */}
           <div
             id="welcomeFlavors"
