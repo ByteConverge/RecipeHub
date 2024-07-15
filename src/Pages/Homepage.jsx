@@ -15,7 +15,7 @@ export default function Homepage() {
         {/*  */}
         <div
           id="numbers"
-          className="px-[4%] min-h-[4vh] my-2 flex  justify-between gap-2 sm:w-[95%] sm:mx-auto"
+          className="px-[6%] min-h-[4vh] my-2 flex  justify-between gap-2 sm:w-[95%] sm:mx-auto"
         >
           {/*  */}
           <div className="flex flex-col">
