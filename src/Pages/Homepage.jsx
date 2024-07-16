@@ -1,10 +1,7 @@
-import Navbar from "../Components/Navbar"
-import HeroSection from "../Components/HeroSection"
-import Footer from "../Components/Footer"
+
 import Body from "../Components/Body"
 import flavorDish from "../Recidish_Images/flavorDish.jpg";
 import flavorDishTwo from "../Recidish_Images/flavorDish2.jpg";
-import NumbersRates from "../Components/NumbersRates";
 import spaghetti from "../Recidish_Images/spaghettiJPEG.jpg"
 import chickenPasta from "../Recidish_Images/ChickenPasta.jpg"
 import porridge from "../Recidish_Images/Porridge.jpg"
@@ -16,39 +13,18 @@ import HomeCards from "../Components/HomeCards";
 export default function Homepage() {
   return (
     <>
-      <Navbar />
-      <HeroSection />
       <Body>
         {/*numbers  */}
-        <div
-          id="numbers"
-          className="px-[6%] min-h-[4vh] my-2 flex  justify-between gap-2 sm:w-[95%] sm:mx-auto sm:my-7"
-        >
-          <NumbersRates />
-          <NumbersRates />
-          <NumbersRates />
-        </div>
+    
         {/* Cards section */}
         <div
           id="cards"
           className="px-[4%] min-h-[10vh] my-2  mb-[1rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] sm:grid sm:grid-cols-2 sm:gap-x-16 sm:gap-y-8 "
         >
-          <HomeCards 
-          title={"Spaghetti"}
-           recipeImg={spaghetti}
-           />
-          <HomeCards
-           title={"Chicken pasta"}
-            recipeImg={chickenPasta}
-            />
-          <HomeCards 
-          title={"Porridge"}
-          recipeImg={porridge}
-           />
-          <HomeCards 
-          title={"Jellof Rice"}
-          recipeImg={jellofRice}
-           />
+          <HomeCards title={"Spaghetti"} recipeImg={spaghetti} />
+          <HomeCards title={"Chicken pasta"} recipeImg={chickenPasta} />
+          <HomeCards title={"Porridge"} recipeImg={porridge} />
+          <HomeCards title={"Jellof Rice"} recipeImg={jellofRice} />
         </div>
 
         {/*  */}
@@ -56,24 +32,25 @@ export default function Homepage() {
           {/* welcome Flavors one */}
           <div
             id="welcomeFlavors"
-            className="min-h-[50vh] mb-2  sm:flex  sm:mb-[3rem] sm:w-[100%] sm:gap-3  sm:h-[80vh]"
+            className="min-h-[50vh] mb-2  sm:flex  sm:mb-[10px] sm:w-[100%] sm:gap-3  sm:h-[80vh] sm:justify-between "
           >
+            {/* texts */}
             <div
               id="heading--text"
-              className="flex flex-col h-[50%] gap-0 mb-1 sm:w-[50%] sm:h-100% sm:gap-0 "
+              className="flex flex-col h-[50%] gap-0 mb-1 sm:w-[50%] sm:h-100% sm:gap-0  "
             >
               {/* h1 */}
-              <h1 className="text-center text-[#88633b] font-bold font-poppinsMedium sm:text-[30px] sm:mb-[1rem] sm:text-left">
+              <h1 className="text-center text-[#996D3E] font-semibold font-inter sm:text-[32px] sm:mb-[1rem] sm:text-left">
                 Welcome to the Flavors of Nigeria!
               </h1>
-              <p className="text-justify text-[.8rem] sm:text-[19.5px] sm:text-left">
+              <p className="text-justify font-inter text-[.8rem]  sm:text-left sm:text-[23px] sm:font-normal ">
                 Discover, Cook, and Share Amazing Recipes Welcome to Recidish,
                 your go-to hub for all things culinary! Whether you are a
                 seasoned chef or a kitchen novice, our app is designed to
                 inspire and assist you in creating mouth-watering dishes right
                 from the comfort of your home.
               </p>
-              <p className="text-justify text-[.8rem] sm:text-[20px] sm:text-left">
+              <p className="text-justify font-inter text-[.8rem]  sm:text-left sm:text-[23px] sm:font-normal ">
                 Plan your meals with ease using our integrated meal planning
                 tool. Select recipes for the week, generate shopping lists, and
                 stay organized in the kitchen. Eating well has never been so
@@ -83,12 +60,13 @@ export default function Homepage() {
             {/* imageFlavorOne */}
             <figure
               id="img"
-              className="min-h-[30vh]  sm:h-[100%]  sm:rounded-[25px] "
+              className="min-h-[30vh]   sm:rounded-[25px] sm:w-[47%] sm:flex sm:items-center  "
             >
               <img
                 src={flavorDish}
                 alt=""
-                className="h-[100%] w-[100%] sm:rounded-[25px] rounded-[1rem]"
+                className="h-[100%] w-[100%] rounded-[1rem] sm:rounded-[25px]  sm:h-[80%] sm:w-[
+              70%]  "
               />
             </figure>
           </div>
@@ -102,17 +80,17 @@ export default function Homepage() {
               className="flex flex-col gap-0 sm:w-[50%] sm:h-100% sm:gap-0 sm:self-center "
             >
               {/* h1 */}
-              <h1 className=" text-center text-[#88633b] font-bold font-poppinsMedium sm:text-[30px] sm:mb-[1rem] sm:text-left">
+              <h1 className="text-center text-[#996D3E] font-semibold font-inter sm:text-[32px] sm:mb-[1rem] sm:text-left">
                 Explore Our Recipe Collection
               </h1>
-              <p className=" text-justify font-inter text-[.8rem] sm:text-[21px] sm:text-left">
+              <p className=" text-justify font-inter text-[.8rem]  sm:text-left sm:text-[23px] sm:font-normal">
                 Dive into our extensive collection of recipes from around the
                 world. From classic comfort foods to exotic delicacies, we have
                 got something for every palate. Easily browse by cuisine,
                 dietary preferences, or meal type, and find the perfect recipe
                 to suit any occasion.
               </p>
-              <p className=" text-justify text-[.8rem] sm:text-[21px] sm:text-left">
+              <p className=" text-justify font-inter text-[.8rem]  sm:text-left sm:text-[23px] sm:font-normal">
                 Plan your meals with ease using our integrated meal planning
                 tool. Select recipes for the week, generate shopping lists, and
                 stay organized in the kitchen. Eating well has never been so
@@ -122,12 +100,13 @@ export default function Homepage() {
             {/*  */}
             <figure
               id="img"
-              className="min-h-[30vh] sm:h-[100%] sm:w-[50%] sm:rounded-[25px]] "
+              className="min-h-[30vh]   sm:rounded-[25px] sm:w-[47%] sm:flex sm:items-center "
             >
               <img
                 src={flavorDishTwo}
                 alt=""
-                className="h-[100%] w-[100%] sm:rounded-[25px] rounded-[1rem]"
+                className="h-[100%] w-[100%] rounded-[1rem] sm:rounded-[25px]  sm:h-[80%] sm:w-[
+              70%] "
               />
             </figure>
           </div>
@@ -135,7 +114,6 @@ export default function Homepage() {
           {/*  */}
         </main>
       </Body>
-      <Footer />
     </>
   );
 }

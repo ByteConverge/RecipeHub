@@ -101,7 +101,7 @@ export default function SignInForm() {
              setIsModalOpen(true);
              window.localStorage.setItem("isLoggedIn", "true");
              setTimeout(() => {
-               navigate("/loggedInHome");
+               navigate("/loggedIn");
              }, 3000);
            } else {
              setErrors({ api: "Incorrect Email or password" });
