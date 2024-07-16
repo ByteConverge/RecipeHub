@@ -44,7 +44,9 @@ const LoggedInNavbar = () => {
 
       <ul className="hidden sm:flex sm:px-3 sm:self-center sm:justify-start sm:min-w-[50%] sm:gap-5 font-poppins ">
         <li className="sm:text-[20px]">
-          <NavLink className="text-[#fff]">Home</NavLink>
+          <NavLink className="text-[#fff]" to="/loggedIn">
+            Home
+          </NavLink>
         </li>
         <li className="sm:text-[20px] sm:font-normal">
           <NavLink to="/loggedIn/Recipes" className="text-[#fff]">
@@ -96,11 +98,7 @@ const LoggedInNavbar = () => {
           </NavLink>
         </li>
         <li className="nav-item sm:hidden">
-          <NavLink
-            to=""
-            ClassName="text-white font-bold"
-            onClick={toggleMenu}
-          >
+          <NavLink to="" ClassName="text-white font-bold" onClick={toggleMenu}>
             Premium
           </NavLink>
         </li>
