@@ -58,7 +58,9 @@ const Navbar = () => {
         } sm:flex sm:flex-row sm:w-30 sm:gap-[30px] `}
       >
         <li className="nav-item sm:hidden">
-          <NavLink exact to="/" ClassName="text-white font-bold">
+          <NavLink exact to="/" ClassName="text-white font-bold"
+          onClick={toggleMenu}
+          >
             Home
           </NavLink>
         </li>
