@@ -4,6 +4,11 @@ import Footer from "../Components/Footer"
 import Body from "../Components/Body"
 import flavorDish from "../Recidish_Images/flavorDish.jpg";
 import flavorDishTwo from "../Recidish_Images/flavorDish2.jpg";
+import NumbersRates from "../Components/NumbersRates";
+import spaghetti from "../Recidish_Images/spaghettiJPEG.jpg"
+import chickenPasta from "../Recidish_Images/ChickenPasta.jpg"
+import porridge from "../Recidish_Images/Porridge.jpg"
+import jellofRice from "../Recidish_Images/Jellof Rice.jpg"
 
 
 import HomeCards from "../Components/HomeCards";
@@ -14,47 +19,36 @@ export default function Homepage() {
       <Navbar />
       <HeroSection />
       <Body>
-        {/*  */}
+        {/*numbers  */}
         <div
           id="numbers"
-          className="px-[6%] min-h-[4vh] my-2 flex  justify-between gap-2 sm:w-[95%] sm:mx-auto"
+          className="px-[6%] min-h-[4vh] my-2 flex  justify-between gap-2 sm:w-[95%] sm:mx-auto sm:my-7"
         >
-          {/*  */}
-          <div className="flex flex-col">
-            <figure className="flex justify-center gap-2 items-center">
-              <span className="h-[10px] w-[10px] rounded-[50%] bg-red-400"></span>
-              <h1>113k</h1>
-            </figure>
-            <p className="text-[12px]">Original recipes</p>
-          </div>
-          {/*  */}
-          <div className="flex flex-col">
-            <figure className="flex justify-center gap-2 items-center">
-              <span className="h-[10px] w-[10px] rounded-[50%] bg-yellow-400"></span>
-              <h1>113k</h1>
-            </figure>
-            <p className="text-[12px]">Original recipes</p>
-          </div>
-          {/*  */}
-          <div className="flex flex-col">
-            <figure className="flex justify-center gap-2 items-center">
-              <span className="h-[10px] w-[10px] rounded-[50%] bg-blue-400"></span>
-              <h1>113k</h1>
-            </figure>
-            <p className="text-[12px]">Original recipes</p>
-          </div>
-          {/*  */}
+          <NumbersRates />
+          <NumbersRates />
+          <NumbersRates />
         </div>
         {/* Cards section */}
         <div
           id="cards"
-          className="px-[4%] min-h-[10vh] my-2 sm:w-[95%] mb-[1rem] flex flex-col gap-2 sm:mx-auto "
+          className="px-[4%] min-h-[10vh] my-2  mb-[1rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] sm:grid sm:grid-cols-2 sm:gap-x-16 sm:gap-y-8 "
         >
-          <HomeCards />
-          <HomeCards />
-          <HomeCards />
-          <HomeCards />
-          <HomeCards />
+          <HomeCards 
+          title={"Spaghetti"}
+           recipeImg={spaghetti}
+           />
+          <HomeCards
+           title={"Chicken pasta"}
+            recipeImg={chickenPasta}
+            />
+          <HomeCards 
+          title={"Porridge"}
+          recipeImg={porridge}
+           />
+          <HomeCards 
+          title={"Jellof Rice"}
+          recipeImg={jellofRice}
+           />
         </div>
 
         {/*  */}
