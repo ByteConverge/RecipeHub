@@ -7,7 +7,7 @@ export default function HomeCards({title , recipeImg}) {
   return (
     <div
       id="card"
-      className="border-[1px] solid border-black bg-[#F7EEEE] rounded-[1rem] h-[35vh] sm:min-h-[65vh]"
+      className="border-[1px] solid border-black bg-[#F7EEEE] rounded-[1rem] h-[40vh] sm:min-h-[65vh]"
     >
       <figure className="h-[75%] sm:h-[75%]">
         <img
