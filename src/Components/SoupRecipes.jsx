@@ -1,3 +1,5 @@
+
+
 import { Link } from "react-router-dom";
 import Body from "../Components/Body";
 import HomeCards from "../Components/HomeCards";
@@ -7,7 +9,7 @@ import stew from "../Recidish_Images/stew.jpg";
 
 import { useEffect, useState } from "react";
 
-export default function LoggedIn() {
+export default function SoupRecipes() {
   const [Posts, setPosts] = useState([]);
 
   let jwt = localStorage.getItem("token");
@@ -43,7 +45,11 @@ export default function LoggedIn() {
         } sm:gap-x-16 sm:gap-y-8 `}
       >
         {Posts &&
-          [...Posts].reverse().slice(0,4).map((post) => {
+          [...Posts].reverse().filter((post)=>{
+           if(post.category === "soup"){
+              return post
+           }
+          }).map((post) => {
             let slicedSteps = post.text.slice(0, 50);
 
             let img;
@@ -77,3 +83,5 @@ export default function LoggedIn() {
     </Body>
   );
 }
+
+

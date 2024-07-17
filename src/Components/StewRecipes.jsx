@@ -1,3 +1,7 @@
+
+
+
+
 import { Link } from "react-router-dom";
 import Body from "../Components/Body";
 import HomeCards from "../Components/HomeCards";
@@ -7,7 +11,7 @@ import stew from "../Recidish_Images/stew.jpg";
 
 import { useEffect, useState } from "react";
 
-export default function LoggedIn() {
+export default function StewRecipes() {
   const [Posts, setPosts] = useState([]);
 
   let jwt = localStorage.getItem("token");
@@ -43,31 +47,38 @@ export default function LoggedIn() {
         } sm:gap-x-16 sm:gap-y-8 `}
       >
         {Posts &&
-          [...Posts].reverse().slice(0,4).map((post) => {
-            let slicedSteps = post.text.slice(0, 50);
+          [...Posts]
+            .reverse()
+            .filter((post) => {
+              if (post.category === "stew") {
+                return post;
+              }
+            })
+            .map((post) => {
+              let slicedSteps = post.text.slice(0, 50);
 
-            let img;
-            if (!post.img && post.category === "rice") {
-              img = riceGeneral;
-            } else if (!post.img && post.category == "soup") {
-              img = soupGeneral;
-            } else if (!post.img && post.category == "stew") {
-              img = stew;
-            } else if (post.img) {
-              img = post.img;
-            }
+              let img;
+              if (!post.img && post.category === "rice") {
+                img = riceGeneral;
+              } else if (!post.img && post.category == "soup") {
+                img = soupGeneral;
+              } else if (!post.img && post.category == "stew") {
+                img = stew;
+              } else if (post.img) {
+                img = post.img;
+              }
 
-            return (
-              <Link key={post.id} to="">
-                <HomeCards
-                  key={post.id}
-                  title={post.title}
-                  recipeImg={img}
-                  steps={slicedSteps}
-                />
-              </Link>
-            );
-          })}
+              return (
+                <Link key={post.id} to="">
+                  <HomeCards
+                    key={post.id}
+                    title={post.title}
+                    recipeImg={img}
+                    steps={slicedSteps}
+                  />
+                </Link>
+              );
+            })}
         {Posts.length === 0 && (
           <p className="text-center text-[1rem] mt-[1rem] font-poppins block  w-[100%] sm:w-[100%]">
             Loading Posts...
@@ -77,3 +88,5 @@ export default function LoggedIn() {
     </Body>
   );
 }
+
+

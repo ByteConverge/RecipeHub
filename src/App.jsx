@@ -7,27 +7,35 @@ import LoggedInLayout from "./Pages/LoggedInLayout";
 import Recipes from "./Pages/Recipes";
 import LoggedIn from "./Pages/LoggedIn";
 import AddRecipes from "./Pages/AddRecipes";
+import AllRecipes from "./Components/AllRecipes";
+import StewRecipes from "./Components/StewRecipes";
+import SoupRecipes from "./Components/SoupRecipes";
+import RiceRecipes from "./Components/RiceRecipes";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-
           {/*Not logged in */}
           <Route path="/" element={<Layout />}>
-          <Route index element={<Homepage />} />
+            <Route index element={<Homepage />} />
           </Route>
           {/*  */}
 
           {/* logged In */}
           <Route path="/loggedIn" element={<LoggedInLayout />}>
-           <Route index element={<LoggedIn />} />
-           <Route path="/loggedIn/Recipes" element={<Recipes />} />
+            <Route index element={<LoggedIn />} />
+            <Route path="/loggedIn/Recipes" element={<Recipes />}>
+              <Route index element={<AllRecipes />} />
+              <Route path="/loggedIn/Recipes/riceRecipes"  element={<RiceRecipes />}/>
+              <Route path="/loggedIn/Recipes/soupRecipes" element={<SoupRecipes />} />
+              <Route path="/loggedIn/Recipes/stewRecipes" element={<StewRecipes />} />
+            </Route>
           </Route>
           {/*  */}
 
-          <Route  path="/addRecipe" element={<AddRecipes />}/>
+          <Route path="/addRecipe" element={<AddRecipes />} />
 
           <Route path="/signIn" element={<SignInPage />} />
           <Route path="/signUp" element={<SignUpPage />} />

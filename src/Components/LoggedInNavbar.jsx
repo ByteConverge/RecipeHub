@@ -24,6 +24,11 @@ const LoggedInNavbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+    const activeStyles = {
+      fontWeight: "bold",
+      TextDecoration: "underline",
+    };
+
   return (
     <nav
       className={`flex ${isMenuOpen && "sticky top-0 "} px-[4%]
@@ -44,12 +49,20 @@ const LoggedInNavbar = () => {
 
       <ul className="hidden sm:flex sm:px-3 sm:self-center sm:justify-start sm:min-w-[50%] sm:gap-5 font-poppins ">
         <li className="sm:text-[20px]">
-          <NavLink className="text-[#fff]" to="/loggedIn">
+          <NavLink
+            className="text-[#fff]"
+            to="/loggedIn"
+            Style={({ isActive }) => (isActive ? activeStyles : null)}
+          >
             Home
           </NavLink>
         </li>
         <li className="sm:text-[20px] sm:font-normal">
-          <NavLink to="/loggedIn/Recipes" className="text-[#fff]">
+          <NavLink
+            to="/loggedIn/Recipes"
+            className="text-[#fff]"
+            Style={({ isActive }) => (isActive ? activeStyles : null)}
+          >
             Recipes
           </NavLink>
         </li>

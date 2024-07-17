@@ -18,7 +18,7 @@ export default function HomeCards({title , recipeImg , steps}) {
       </figure>
       <div id="lowerSection" className="p-2  ">
         <div id="title-text" className="flex justify-start m-w-1/3 gap-3">
-          <h1 className="font-bold font-poppins sm:text-[24px]">{title}</h1>
+          <h1 className="font-bold font-poppins sm:text-[19px]">{title}</h1>
           <figure className="flex items-center gap-1">
             <img src={blackStar} alt="" className="h-4 w-4" />
             <p>{4.8}</p>
