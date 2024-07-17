@@ -84,13 +84,6 @@ const AddRecipeForm = () => {
 
         if (response.ok) {
           console.log("Recipe submitted successfully");
-          // Clear form data on successful submission
-          // setFormData({
-          //   category: "",
-          //   title: "",
-          //   text: "",
-          //   img: null,
-          // });
           setFormErrors({});
           setAttemptedSubmit(false);
           setShowSuccessModal(true);
@@ -113,104 +106,102 @@ const AddRecipeForm = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className=" text-white flex flex-col justify-start gap-5 px-5 py-7    items-center h-[100%] w-[98%] -mt-14 sm:h-[90%] sm:w-[80%] sm:justify-start sm:gap-0   sm:font-poppins sm:-mt-0 "
+        className="flex flex-col gap-4 p-4 bg-gray-800 text-white rounded-lg shadow-lg w-full max-w-lg mx-auto lg:max-w-3xl lg:gap-6 lg:p-6"
       >
-        <h1 className="font-extralight font-poppins text-2xl  text-center w-[95%] mx-auto">
+        <h1 className="text-2xl font-bold text-center mb-4 lg:mb-6">
           Add Recipe Form
         </h1>
         {attemptedSubmit && Object.keys(formErrors).length > 0 && (
-          <p className="error-message text-red-500  text-center font-inter font-normal w-[95%] mx-auto">
+          <p className="text-red-500 text-center text-sm rounded">
             All fields must be filled
           </p>
         )}
 
         {/* Form input fields */}
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
-            <div className="flex gap-2 justify-center w-[95%] mx-auto">
-              <label className="flex items-center gap-1">
-                <input
-                  type="radio"
-                  name="category"
-                  value="rice"
-                  checked={formData.category === "rice"}
-                  onChange={handleChange}
-                  className="form-radio  text-[#b0906e]"
-                />
-                Rice
-              </label>
-              <label className="flex items-center gap-1">
-                <input
-                  type="radio"
-                  name="category"
-                  value="soup"
-                  checked={formData.category === "soup"}
-                  onChange={handleChange}
-                  className="form-radio text-[#b0906e]"
-                />
-                Soup
-              </label>
-              <label className="flex items-center gap-1">
-                <input
-                  type="radio"
-                  name="category"
-                  value="stew"
-                  checked={formData.category === "stew"}
-                  onChange={handleChange}
-                  className="form-radio text-[#b0906e]"
-                />
-                Stew
-              </label>
-            </div>
-          </div>
-          <div className="flex flex-col gap-2 w-[100%]">
-            <label className="font-poppins w-[95%] mx-auto">
-              Recipe Title:
-            </label>
+        <div className="flex gap-3 w-full justify-center">
+          <label className="flex items-center gap-1">
             <input
-              type="text"
-              name="title"
-              value={formData.title}
+              type="radio"
+              name="category"
+              value="rice"
+              checked={formData.category === "rice"}
               onChange={handleChange}
-              className="p-2 border border-gray-300 rounded-lg bg-transparent focus:outline-none focus:border-black w-[95%] mx-auto "
+              className="form-radio text-[#b0906e]"
             />
-          </div>
-          <div className="flex flex-col gap-2 w-[100%]">
-            <label className="font-poppins w-[95%] mx-auto">
-              Ingredients and Steps:
-            </label>
-            <textarea
-              name="text"
-              value={formData.text}
-              onChange={handleChange}
-              className="p-2 border border-gray-300 rounded-lg bg-transparent focus:outline-none focus:border-white w-[95%] mx-auto height-[60vh]]"
-              rows="10"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label className="font-semibold">Image:</label>
+            Rice
+          </label>
+          <label className="flex items-center gap-1">
             <input
-              type="file"
-              name="img"
+              type="radio"
+              name="category"
+              value="soup"
+              checked={formData.category === "soup"}
               onChange={handleChange}
-              className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-blue-500"
+              className="form-radio text-[#b0906e]"
             />
-          </div>
+            Soup
+          </label>
+          <label className="flex items-center gap-1">
+            <input
+              type="radio"
+              name="category"
+              value="stew"
+              checked={formData.category === "stew"}
+              onChange={handleChange}
+              className="form-radio text-[#b0906e]"
+            />
+            Stew
+          </label>
         </div>
+
+        <div className="flex flex-col gap-2 w-full">
+          <label className="font-semibold">Recipe Title:</label>
+          <input
+            type="text"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+          />
+        </div>
+
+        <div className="flex flex-col gap-2 w-full">
+          <label className="font-semibold">Ingredients and Steps:</label>
+          <textarea
+            name="text"
+            value={formData.text}
+            onChange={handleChange}
+            className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+            rows="5"
+          />
+        </div>
+
+        <div className="flex flex-col gap-2 w-full">
+          <label className="font-semibold">Image:</label>
+          <input
+            type="file"
+            name="img"
+            onChange={handleChange}
+            className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+          />
+        </div>
+
         <button
           type="submit"
           className={`mt-4 py-2 px-4 rounded-lg text-white ${
-            loading ? "bg-[#996D3E] cursor-not-allowed" : "bg-[#b0906e] "
+            loading
+              ? "bg-[#996D3E] cursor-not-allowed"
+              : "bg-[#b0906e] hover:bg-[#a07956]"
           }`}
           disabled={loading || Object.keys(formErrors).length > 0}
         >
           {loading ? "Submitting..." : "Add Recipe"}
         </button>
       </form>
-      {/*  */}
+
       {showSuccessModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+          <div className="bg-white p-8 rounded-lg shadow-lg text-center max-w-xs mx-auto lg:max-w-sm">
             <AiOutlineCheckCircle className="text-green-500 text-6xl mb-4" />
             <h2 className="text-2xl font-bold mb-4">Success!</h2>
             <p>Your recipe has been submitted successfully.</p>
