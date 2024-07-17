@@ -42,16 +42,16 @@ export default function Recipes() {
   return (
     <Body>
       <ul className="px-[6%] min-h-[1vh] my-2 flex  justify-start gap-2 sm:w-[95%] sm:mx-auto sm:my-7 sm:gap-[34px]">
-        <li className="text-[10px] bg-[#DEAA72] rounded-[10px] p-[1px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[28px] lg:py-[8px]">
+        <li className="text-[12px] bg-[#DEAA72] rounded-[10px] p-[1px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[28px] lg:py-[8px]">
           <NavLink to="/loggedIn/Recipes">All Recipes</NavLink>
         </li>
-        <li className="text-[10px] bg-[#DEAA72] rounded-[10px] p-[1px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[25px] lg:py-[8px]">
+        <li className="text-[12px] bg-[#DEAA72] rounded-[10px] p-[1px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[25px] lg:py-[8px]">
           <NavLink to="/loggedIn/Recipes/riceRecipes">Rice Recipes</NavLink>
         </li>
-        <li className="text-[10px] bg-[#DEAA72] rounded-[10px] p-[1px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[25px] lg:py-[8px]">
+        <li className="text-[12px] bg-[#DEAA72] rounded-[10px] p-[1px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[25px] lg:py-[8px]">
           <NavLink to="/loggedIn/Recipes/stewRecipes">Stew Recipes</NavLink>
         </li>
-        <li className="text-[10px] bg-[#DEAA72] rounded-[10px] p-[1px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[25px] lg:py-[8px]">
+        <li className="text-[12px] bg-[#DEAA72] rounded-[10px] p-[1px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[25px] lg:py-[8px]">
           <NavLink to="/loggedIn/Recipes/soupRecipes">Soup Recipes</NavLink>
         </li>
       </ul>
