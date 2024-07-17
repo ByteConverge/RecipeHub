@@ -1,18 +1,11 @@
 /* eslint-disable no-unused-vars */
-import { NavLink , Outlet } from "react-router-dom";
-import Body from "../Components/Body"
-// import HomeCards from "../Components/HomeCards";
-// import riceGeneral from "../Recidish_Images/CoconutRice.jpg"
-// import soupGeneral from "../Recidish_Images/BitterLeafSoup.jpg"
-// import stew from "../Recidish_Images/stew.jpg"
-
+import { NavLink, Outlet } from "react-router-dom";
+import Body from "../Components/Body";
 import { useEffect, useState } from "react";
-
 
 export default function Recipes() {
   const [Posts, setPosts] = useState([]);
- 
-  let jwt = localStorage.getItem("token")
+  let jwt = localStorage.getItem("token");
 
   useEffect(() => {
     async function fetchBored() {
@@ -25,10 +18,7 @@ export default function Recipes() {
         }
       );
 
-    //   console.log(response);
-
       const data = await response.json();
-     
       console.log(data.posts);
       setPosts(data.posts);
     }
@@ -36,23 +26,62 @@ export default function Recipes() {
     fetchBored();
   }, [jwt]);
 
-
-
+  const linkClassNames =
+    "text-[12px] bg-[#DEAA72] rounded-[10px] p-[7px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[28px] lg:py-[8px]";
+  const activeClassNames = "bg-[#806345] text-white";
 
   return (
     <Body>
-      <ul className="px-[6%] min-h-[1vh] my-2 grid grid-cols-2  justify-start gap-2 sm:w-[95%] sm:mx-auto sm:my-7 sm:gap-[34px] sm:flex">
-        <li className="text-[12px] bg-[#DEAA72] rounded-[10px] p-[7px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[28px] lg:py-[8px] ">
-          <NavLink to="/loggedIn/Recipes">All Recipes</NavLink>
+      <ul className="px-[6%] min-h-[1vh] my-2 grid grid-cols-2 justify-start gap-2 sm:w-[95%] sm:mx-auto sm:my-7 sm:gap-[34px] sm:flex ">
+        <li>
+          <NavLink
+            end
+            to="/loggedIn/Recipes"
+            
+            className={({ isActive }) =>
+              isActive
+                ? `${linkClassNames} ${activeClassNames}`
+                : linkClassNames
+            }
+          >
+            All Recipes
+          </NavLink>
         </li>
-        <li className="text-[12px] bg-[#DEAA72] rounded-[10px] p-[7px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[25px] lg:py-[8px]">
-          <NavLink to="/loggedIn/Recipes/riceRecipes">Rice Recipes</NavLink>
+        <li>
+          <NavLink
+            to="/loggedIn/Recipes/riceRecipes"
+            className={({ isActive }) =>
+              isActive
+                ? `${linkClassNames} ${activeClassNames}`
+                : linkClassNames
+            }
+          >
+            Rice Recipes
+          </NavLink>
         </li>
-        <li className="text-[12px] bg-[#DEAA72] rounded-[10px] p-[7px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[25px] lg:py-[8px]">
-          <NavLink to="/loggedIn/Recipes/stewRecipes">Stew Recipes</NavLink>
+        <li>
+          <NavLink
+            to="/loggedIn/Recipes/stewRecipes"
+            className={({ isActive }) =>
+              isActive
+                ? `${linkClassNames} ${activeClassNames}`
+                : linkClassNames
+            }
+          >
+            Stew Recipes
+          </NavLink>
         </li>
-        <li className="text-[12px] bg-[#DEAA72] rounded-[10px] p-[7px] grid place-items-center font-inter lg:rounded-[20px] lg:font-normal lg:text-[20px] lg:px-[25px] lg:py-[8px]">
-          <NavLink to="/loggedIn/Recipes/soupRecipes">Soup Recipes</NavLink>
+        <li>
+          <NavLink
+            to="/loggedIn/Recipes/soupRecipes"
+            className={({ isActive }) =>
+              isActive
+                ? `${linkClassNames} ${activeClassNames}`
+                : linkClassNames
+            }
+          >
+            Soup Recipes
+          </NavLink>
         </li>
       </ul>
 
@@ -60,4 +89,3 @@ export default function Recipes() {
     </Body>
   );
 }
-
