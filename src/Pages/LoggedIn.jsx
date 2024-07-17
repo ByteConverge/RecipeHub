@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import Body from "../Components/Body";
 import HomeCards from "../Components/HomeCards";
+import riceGeneral from "../Recidish_Images/CoconutRice.jpg";
+import soupGeneral from "../Recidish_Images/BitterLeafSoup.jpg";
+import stew from "../Recidish_Images/stew.jpg";
 
 import { useEffect, useState } from "react";
 
@@ -49,13 +52,25 @@ export default function LoggedIn() {
               }
             })
             .map((post) => {
+              let slicedSteps = post.text.slice(0, 50);
+
+              let img;
+              if (!post.img && post.category === "rice") {
+                img = riceGeneral;
+              } else if (!post.img && post.category == "soup") {
+                img = soupGeneral;
+              } else if (!post.img && post.category == "stew") {
+                img = stew;
+              } else if (post.img) {
+                img = post.img;
+              }
               return (
                 <Link key={post.id} to="/signUp">
                   <HomeCards
                     key={post.id}
                     title={post.title}
-                    Img={post.img}
-                    steps={post.text}
+                    recipeImg={img}
+                    steps={slicedSteps}
                   />
                 </Link>
               );
@@ -83,13 +98,25 @@ export default function LoggedIn() {
               }
             })
             .map((post) => {
+                let slicedSteps = post.text.slice(0, 50);
+
+                let img;
+                if (!post.img && post.category === "rice") {
+                  img = riceGeneral;
+                } else if (!post.img && post.category == "soup") {
+                  img = soupGeneral;
+                } else if (!post.img && post.category == "stew") {
+                  img = stew;
+                } else if (post.img) {
+                  img = post.img;
+                }
               return (
                 <Link key={post.id} to="/signUp">
                   <HomeCards
                     key={post.id}
                     title={post.title}
-                    Img={post.img}
-                    steps={post.text}
+                    recipeImg={img}
+                    steps={slicedSteps}
                   />
                 </Link>
               );
