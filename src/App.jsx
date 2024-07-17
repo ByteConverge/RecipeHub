@@ -6,6 +6,7 @@ import Layout from "./Pages/Layout";
 import LoggedInLayout from "./Pages/LoggedInLayout";
 import Recipes from "./Pages/Recipes";
 import LoggedIn from "./Pages/LoggedIn";
+import AddRecipes from "./Pages/AddRecipes";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
            <Route path="/loggedIn/Recipes" element={<Recipes />} />
           </Route>
           {/*  */}
+
+          <Route  path="/addRecipe" element={<AddRecipes />}/>
 
           <Route path="/signIn" element={<SignInPage />} />
           <Route path="/signUp" element={<SignUpPage />} />

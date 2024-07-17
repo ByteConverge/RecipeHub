@@ -3,7 +3,7 @@
 
 import blackStar from "../Recidish_Images/blackStar.svg";
 
-export default function HomeCards({title , recipeImg}) {
+export default function HomeCards({title , recipeImg , steps}) {
   return (
     <div
       id="card"
@@ -25,7 +25,7 @@ export default function HomeCards({title , recipeImg}) {
           </figure>
         </div>
         <p className="text-[10px] w-[60%] font-inter font-light sm:text-[14px] ">
-          Chicken Pasta is a comforting and creamy dish that combines...
+         {steps}
         </p>
       </div>
     </div>

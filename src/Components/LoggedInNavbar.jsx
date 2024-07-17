@@ -57,7 +57,9 @@ const LoggedInNavbar = () => {
           <NavLink className="text-[#fff]">Premium</NavLink>
         </li>
         <li className="sm:text-[20px] ">
-          <NavLink className="text-[#fff] sm:font-normal ">Add Recipes</NavLink>
+          <NavLink to="/addRecipe" className="text-[#fff] sm:font-normal ">
+            Add Recipes
+          </NavLink>
         </li>
       </ul>
       {/*  */}
@@ -104,7 +106,7 @@ const LoggedInNavbar = () => {
         </li>
         <li className="nav-item sm:hidden">
           <NavLink
-            to="/premium"
+            to="/addRecipe"
             ClassName="text-white font-bold"
             onClick={toggleMenu}
           >

@@ -1,21 +1,104 @@
+import { Link } from "react-router-dom";
 import Body from "../Components/Body";
 import HomeCards from "../Components/HomeCards";
-import spaghetti from "../Recidish_Images/spaghettiJPEG.jpg";
-import chickenPasta from "../Recidish_Images/ChickenPasta.jpg";
-import porridge from "../Recidish_Images/Porridge.jpg";
-import jellofRice from "../Recidish_Images/Jellof Rice.jpg";
+
+import { useEffect, useState } from "react";
 
 export default function LoggedIn() {
+  const [Posts, setPosts] = useState([]);
+
+  let jwt = localStorage.getItem("token");
+
+  useEffect(() => {
+    async function fetchBored() {
+      const response = await fetch(
+        `https://recidishbackend.onrender.com/api/post/`,
+        {
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
+        }
+      );
+
+      //   console.log(response);
+
+      const data = await response.json();
+
+      console.log(data.posts);
+      setPosts(data.posts);
+    }
+
+    fetchBored();
+  }, [jwt]);
+
   return (
     <Body>
+      <h1 className="text-[4rem]">Rice</h1>
       <div
         id="cards"
-        className="px-[4%] min-h-[10vh] my-2  mb-[1rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] sm:grid sm:grid-cols-2 sm:gap-x-16 sm:gap-y-8 "
+        className={`px-[4%] min-h-[10vh] my-2  mb-[1rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] sm:grid ${
+          Posts.length === 0 ? "sm:grid-cols-1" : "sm:grid-cols-2"
+        } sm:gap-x-16 sm:gap-y-8 `}
       >
-        <HomeCards title={"Spaghetti"} recipeImg={spaghetti} />
-        <HomeCards title={"Chicken pasta"} recipeImg={chickenPasta} />
-        <HomeCards title={"Porridge"} recipeImg={porridge} />
-        <HomeCards title={"Jellof Rice"} recipeImg={jellofRice} />
+        {Posts &&
+          [...Posts]
+            .reverse()
+            .filter((post) => {
+              if (post.category === "rice") {
+                return post;
+              }
+            })
+            .map((post) => {
+              return (
+                <Link key={post.id} to="/signUp">
+                  <HomeCards
+                    key={post.id}
+                    title={post.title}
+                    Img={post.img}
+                    steps={post.text}
+                  />
+                </Link>
+              );
+            })}
+        {Posts.length === 0 && (
+          <p className="text-center text-[2rem] font-poppins block  w-[100%] sm:w-[100%]">
+            Loading Posts...
+          </p>
+        )}
+      </div>
+      {/* soups */}
+      <h1 className="text-[4rem]">Soups</h1>
+      <div
+        id="cards"
+        className={`px-[4%] min-h-[10vh] my-2  mb-[1rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] sm:grid ${
+          Posts.length === 0 ? "sm:grid-cols-1" : "sm:grid-cols-2"
+        } sm:gap-x-16 sm:gap-y-8 `}
+      >
+        {Posts &&
+          [...Posts]
+            .reverse()
+            .filter((post) => {
+              if (post.category === "soup") {
+                return post;
+              }
+            })
+            .map((post) => {
+              return (
+                <Link key={post.id} to="/signUp">
+                  <HomeCards
+                    key={post.id}
+                    title={post.title}
+                    Img={post.img}
+                    steps={post.text}
+                  />
+                </Link>
+              );
+            })}
+        {Posts.length === 0 && (
+          <p className="text-center text-[2rem] font-poppins block  w-[100%] sm:w-[100%]">
+            Loading Posts...
+          </p>
+        )}
       </div>
     </Body>
   );

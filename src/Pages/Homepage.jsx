@@ -15,16 +15,40 @@ export default function Homepage() {
     <>
       <Body>
         {/*numbers  */}
-    
+
         {/* Cards section */}
         <div
           id="cards"
           className="px-[4%] min-h-[10vh] my-2  mb-[1rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] sm:grid sm:grid-cols-2 sm:gap-x-16 sm:gap-y-8 "
         >
-          <HomeCards title={"Spaghetti"} recipeImg={spaghetti} />
-          <HomeCards title={"Chicken pasta"} recipeImg={chickenPasta} />
-          <HomeCards title={"Porridge"} recipeImg={porridge} />
-          <HomeCards title={"Jellof Rice"} recipeImg={jellofRice} />
+          <HomeCards
+            title={"Spaghetti"}
+            recipeImg={spaghetti}
+            steps={
+              " Chicken Pasta is a comforting and creamy dish that combines..."
+            }
+          />
+          <HomeCards
+            title={"Chicken pasta"}
+            recipeImg={chickenPasta}
+            steps={
+              " Chicken Pasta is a comforting and creamy dish that combines..."
+            }
+          />
+          <HomeCards
+            title={"Porridge"}
+            recipeImg={porridge}
+            steps={
+              " Chicken Pasta is a comforting and creamy dish that combines..."
+            }
+          />
+          <HomeCards
+            title={"Jellof Rice"}
+            recipeImg={jellofRice}
+            steps={
+              " Chicken Pasta is a comforting and creamy dish that combines..."
+            }
+          />
         </div>
 
         {/*  */}

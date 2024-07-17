@@ -3,7 +3,7 @@
 
 export default function Body({children}) {
   return (
-    <main className="min-h-[100vh] w-[100%]">
+    <main className="min-h-[5vh] w-[100%]">
      {children}
     </main>
   )
