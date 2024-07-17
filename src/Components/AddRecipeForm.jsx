@@ -106,7 +106,7 @@ const AddRecipeForm = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-4 p-4 bg-gray-800 text-white rounded-lg shadow-lg w-full max-w-lg mx-auto lg:max-w-3xl lg:gap-6 lg:p-6"
+        className="flex flex-col gap- p-4 bg-gray-800 text-white rounded-lg shadow-lg w-full max-w-lg mx-auto lg:max-w-3xl lg:gap-1 lg:pt-3 font-inter font-light"
       >
         <h1 className="text-2xl font-bold text-center mb-4 lg:mb-6">
           Add Recipe Form
