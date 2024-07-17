@@ -111,18 +111,9 @@ const AddRecipeForm = () => {
 
   return (
     <>
-      {showSuccessModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-            <AiOutlineCheckCircle className="text-green-500 text-6xl mb-4" />
-            <h2 className="text-2xl font-bold mb-4">Success!</h2>
-            <p>Your recipe has been submitted successfully.</p>
-          </div>
-        </div>
-      )}
       <form
         onSubmit={handleSubmit}
-        className=" text-white flex flex-col gap-2 mx-auto font-poppins font-normal height-[95vh] bg-green-60 "
+        className=" text-white flex flex-col justify-start gap-5 px-5 py-7    items-center h-[100%] w-[98%] -mt-14 sm:h-[90%] sm:w-[80%] sm:justify-start sm:gap-0   sm:font-poppins sm:-mt-0 "
       >
         <h1 className="font-extralight font-poppins text-2xl  text-center w-[95%] mx-auto">
           Add Recipe Form
@@ -216,6 +207,16 @@ const AddRecipeForm = () => {
           {loading ? "Submitting..." : "Add Recipe"}
         </button>
       </form>
+      {/*  */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+            <AiOutlineCheckCircle className="text-green-500 text-6xl mb-4" />
+            <h2 className="text-2xl font-bold mb-4">Success!</h2>
+            <p>Your recipe has been submitted successfully.</p>
+          </div>
+        </div>
+      )}
     </>
   );
 };
