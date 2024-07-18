@@ -62,7 +62,7 @@ export default function LoggedIn() {
           {Post.title}
         </h1>
         <p
-          className="text-center font-poppins text-[1rem]  sm:text-[1.5rem] sm:text-center
+          className="text-justify font-poppins text-[1rem]  sm:text-[1.5rem] sm:text-center
          "
         >
           {Post.text}
