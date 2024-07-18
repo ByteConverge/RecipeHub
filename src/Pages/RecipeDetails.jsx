@@ -44,18 +44,29 @@ export default function LoggedIn() {
     <Body>
       <div
         id="cards"
-        className={`px-[6%] min-h-[10vh] my-2  mb-[1rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] sm:grid ${
-          Post.length === 0 ? "sm:grid-cols-1" : "sm:grid-cols-3"
-        } sm:gap-x-16 sm:gap-y-8 `}
+        className={`px-[6%] min-h-[10vh] my-2  mt-[2.5rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] sm:grid 
+         sm:grid-cols-1 bg-[#DEAA72] sm:rounded-[3rem] py-[1rem] sm:py-[2rem]
+       `}
       >
-        <figure >
-            <img src={Post.img} alt="" />
+        <p className="text-[30px]  text-center font-poppins  sm:text-[3rem]  ">
+          Recipe
+        </p>
+        <figure className="w-[100%] h-[60vh] sm:h-[70vh] sm:w-[60%] sm:mx-auto ">
+          <img
+            src={Post.img}
+            alt=""
+            className="w-[100%] h-[100%] rounded-[16px] "
+          />
         </figure>
-        <h1  className=" text-[1.6rem] text-center">
+        <h1 className=" text-[1.5rem] text-center font-inter font-bold  sm:text-[40px]">
           {Post.title}
         </h1>
-         <p className="text-justify
-         ">{Post.text}</p>
+        <p
+          className="text-center font-poppins text-[1rem]  sm:text-[1.5rem] sm:text-center
+         "
+        >
+          {Post.text}
+        </p>
       </div>
     </Body>
   );
