@@ -79,9 +79,9 @@ const LoggedInNavbar = () => {
         className={`sm:hidden ml-auto text-white focus:outline-none`}
       >
         {isMenuOpen ? (
-          <AiOutlineClose className="text-2xl text-black" />
+          <AiOutlineClose className="text-2xl text-[#b33f05]" />
         ) : (
-          <AiOutlineMenu className="text-2xl text-black" />
+          <AiOutlineMenu className="text-2xl text-[#b33f05]" />
         )}
       </button>
 
