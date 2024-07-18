@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="bg-black p-6 md:p-12 flex flex-col items-center md:items-start border-t border-gray-800 min-h-[50vh] md:min-h-[45vh]">
       <div className="flex w-full flex-col md:flex-row items-center justify-between sm md:pl-16 gap-4 md:gap-4 mb-6">
         <figure className="w-16 md:w-28 h-auto md:h-full grid place-items-center">
-          <img src={logoWhite} alt="Recidish Logo" className="h-full w-full sm:w-[7rem] sm:h-[5rem]" />
+          <img src={logoWhite} alt="Recidish Logo" className="h-[3ren] w-[4rem] sm:w-[7rem] sm:h-[5rem]" />
         </figure>
         <div className="flex gap-6 md:gap-8">
           <Link to="/communities" className="text-white text-base md:text-lg">
