@@ -34,7 +34,7 @@ const LoggedInNavbar = () => {
   return (
     <nav
       className={`flex ${isMenuOpen && "sticky top-0 "} px-[4%]
-       bg-[#ffffff] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter  sm:px-[10.5%] sm:absolute sm:w-[100%] sm:pt-6 sm:min-h-[11dvh] sm:py-2 z-30`}
+       bg-[#ffffff] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter  sm:px-[10.5%] sm:absolute sm:w-[100%] sm:pt-6 sm:min-h-[11dvh] sm:py-2 z-30 shadow-sm shadow-black sm:shadow-none`}
     >
       <div className="flex items-center ">
         <figure className="h-[3rem] w-[3.4rem] sm:h-[5rem] sm:w-[7rem] sm:hidden">
