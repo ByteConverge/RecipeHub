@@ -32,7 +32,7 @@ const Navbar = () => {
         <figure className="h-[3rem] w-[3.4rem] sm:h-[5rem] sm:w-[7rem] sm:hidden">
           <img src={logo} alt="" className="h-[100%] w-[100%] " />
         </figure>
-        <figure className="h-[3rem] w-[3.4rem] sm:h-[5rem] sm:w-[7rem] sm:block hidden">
+        <figure className="h-[3rem] w-[3.4rem] sm:h-[4.1rem] sm:w-[6rem] sm:block hidden">
           <img src={logo2} alt="" className="h-[100%] w-[100%] " />
         </figure>
       </div>

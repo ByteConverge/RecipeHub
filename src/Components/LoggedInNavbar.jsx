@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import profile from "../Recidish_Images/ProfileIcon.svg"
 import logo from "../Recidish_Images/RecidishLogo.png";
-import logo2 from "../Recidish_Images/recipeHub.png";
+import logo2 from "../Recidish_Images/logoWhite.png";
 
 
 const LoggedInNavbar = () => {
@@ -40,7 +40,7 @@ const LoggedInNavbar = () => {
         <figure className="h-[3rem] w-[3.4rem] sm:h-[5rem] sm:w-[7rem] sm:hidden">
           <img src={logo} alt="" className="h-[100%] w-[100%] " />
         </figure>
-        <figure className="h-[3rem] w-[3.4rem] sm:h-[5rem] sm:w-[7rem] sm:block hidden">
+        <figure className="h-[3rem] w-[3.4rem] sm:h-[4.1rem] sm:w-[6rem] sm:block hidden">
           <img src={logo2} alt="" className="h-[100%] w-[100%] " />
         </figure>
       </div>
@@ -88,7 +88,7 @@ const LoggedInNavbar = () => {
       <ul
         className={`${
           isMenuOpen
-            ? "flex flex-col items-center text-[20px] gap-5 pt-4 px-2 fixedbg-[#f6dec5]  top-[10dvh] left-0 h-[90dvh] w-screen sm:hidden  h-90vh"
+            ? "flex flex-col items-center text-[20px] gap-5 pt-4 px-2 fixed bg-[#f6dec5]  top-[10dvh] left-0 h-[90dvh] w-screen sm:hidden  h-90vh"
             : "hidden"
         } sm:flex sm:flex-row sm:w-30 sm:gap-[30px]  `}
       >
