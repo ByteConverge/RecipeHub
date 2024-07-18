@@ -37,7 +37,7 @@ const LoggedInNavbar = () => {
        bg-[#ffffff] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter  sm:px-[10.5%] sm:absolute sm:w-[100%] sm:pt-6 sm:min-h-[11dvh] sm:py-2 z-30 shadow-sm shadow-black sm:shadow-none`}
     >
       <div className="flex items-center ">
-        <figure className="h-[3rem] w-[3.4rem] sm:h-[5rem] sm:w-[7rem] sm:hidden">
+        <figure className="h-[3rem] w-[3.4rem]  sm:h-[5rem] sm:w-[7rem] relative right-[20%] sm:hidden">
           <img src={logo} alt="" className="h-[100%] w-[100%] " />
         </figure>
         <figure className="h-[3rem] w-[3.4rem] sm:h-[4.1rem] sm:w-[6rem] sm:block hidden">
