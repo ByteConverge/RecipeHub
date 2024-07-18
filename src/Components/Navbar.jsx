@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-
+import logo from "../Recidish_Images/RecidishLogo.png"
+import logo2 from "../Recidish_Images/recipeHub.png"
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -28,15 +29,12 @@ const Navbar = () => {
        bg-[#ffffff] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter sm:px-[10.5%] sm:absolute sm:w-[100%] sm:pt-6 sm:min-h-[11dvh] sm:py-2`}
     >
       <div className="flex items-center ">
-        {" "}
-        {/* Optional: Set logo container width on larger screens */}
-        <NavLink
-          exact
-          to="/"
-          className="text-black text-xl font-bold sm:text-white"
-        >
-          Logo
-        </NavLink>
+        <figure className="h-[3rem] w-[3.4rem] sm:h-[5rem] sm:w-[7rem] sm:hidden">
+          <img src={logo} alt="" className="h-[100%] w-[100%] " />
+        </figure>
+        <figure className="h-[3rem] w-[3.4rem] sm:h-[5rem] sm:w-[7rem] sm:block hidden">
+          <img src={logo2} alt="" className="h-[100%] w-[100%] " />
+        </figure>
       </div>
 
       <button
@@ -44,22 +42,25 @@ const Navbar = () => {
         className={`sm:hidden ml-auto text-white focus:outline-none`}
       >
         {isMenuOpen ? (
-          <AiOutlineClose className="text-2xl text-black" />
+          <AiOutlineClose className="text-2xl text-[#b33f05]" />
         ) : (
-          <AiOutlineMenu className="text-2xl text-black" />
+          <AiOutlineMenu className="text-2xl text-[#b33f05]" />
         )}
       </button>
 
       <ul
         className={`${
           isMenuOpen
-            ? "flex flex-col gap-5 pt-4 px-2 fixed bg-red-300  top-[10dvh] left-0 h-[90dvh] w-screen sm:hidden  h-90vh"
+            ? "flex flex-col text-center gap-5 pt-4 px-2 fixed bg-[#f6dec5]  top-[10dvh] left-0 h-[90dvh] w-screen sm:hidden  h-90vh"
             : "hidden"
         } sm:flex sm:flex-row sm:w-30 sm:gap-[30px] `}
       >
         <li className="nav-item sm:hidden">
-          <NavLink exact to="/" ClassName="text-white font-bold"
-          onClick={toggleMenu}
+          <NavLink
+            exact
+            to="/"
+            ClassName="text-white font-bold"
+            onClick={toggleMenu}
           >
             Home
           </NavLink>
@@ -72,10 +73,10 @@ const Navbar = () => {
             Login
           </Link>
         </li>
-        <li className="nav-item h-12 w-28 font-inter sm:grid sm:place-items-center sm:bg-[#996D3E] sm:rounded-[5px]  sm:text-[#EAE9E9] sm:text-[20px] sm:font-semibold  ">
+        <li className="nav-item h-12 w-[100%] sm:w-28 font-inter sm:grid sm:place-items-center sm:bg-[#996D3E] sm:rounded-[5px]  sm:text-[#EAE9E9] sm:text-[20px] sm:font-semibold  ">
           <Link
             to="/signUp"
-            ClassName="text-white font-bold sm:h-[100%] sm:w-[100%] "
+            ClassName="text-white font-bold sm:h-[100%] sm:w-[100%] text-center w-[100%]"
           >
             Sign Up
           </Link>

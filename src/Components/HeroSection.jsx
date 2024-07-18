@@ -6,9 +6,11 @@ import friedRice from "../Recidish_Images/Fried-Rice-two.png";
 import pounded from "../Recidish_Images/PoundedYam-Soup.png";
 import riceStew from "../Recidish_Images/Rice-Stew.png";
 import crisp from "../Recidish_Images/Crisp-.png";
+import CoconutRice from '../Recidish_Images/CoconutRice.jpg'
+import bgChicken from '../Recidish_Images/bgImgChciken.jpg'
 
 export default function HeroSection() {
-  let bgImg = [friedRice, pounded, riceStew, crisp];
+  let bgImg = [friedRice, pounded, riceStew, crisp , CoconutRice , bgChicken];
   const [bgIndex, setBgIndex] = useState(1);
   const intervalDuration = 2500;
 
@@ -24,7 +26,7 @@ export default function HeroSection() {
     <div
       id="hero"
       style={{ backgroundImage: `url(${bgImg[0]})` }}
-      className={`bg-center min-h-[60vh] grid place-items-center sm:h-[100vh]`}
+      className={`bg-center min-h-[60vh] grid place-items-center sm:h-[100vh] `}
     >
       <div
         id="hero--texts"
