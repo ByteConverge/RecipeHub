@@ -11,6 +11,7 @@ import AllRecipes from "./Components/AllRecipes";
 import StewRecipes from "./Components/StewRecipes";
 import SoupRecipes from "./Components/SoupRecipes";
 import RiceRecipes from "./Components/RiceRecipes";
+import RecipeDetails from "./Pages/RecipeDetails";
 
 function App() {
   return (
@@ -28,12 +29,22 @@ function App() {
             <Route index element={<LoggedIn />} />
             <Route path="/loggedIn/Recipes" element={<Recipes />}>
               <Route index element={<AllRecipes />} />
-              <Route path="/loggedIn/Recipes/riceRecipes"  element={<RiceRecipes />}/>
-              <Route path="/loggedIn/Recipes/soupRecipes" element={<SoupRecipes />} />
-              <Route path="/loggedIn/Recipes/stewRecipes" element={<StewRecipes />} />
+              <Route
+                path="/loggedIn/Recipes/riceRecipes"
+                element={<RiceRecipes />}
+              />
+              <Route
+                path="/loggedIn/Recipes/soupRecipes"
+                element={<SoupRecipes />}
+              />
+              <Route
+                path="/loggedIn/Recipes/stewRecipes"
+                element={<StewRecipes />}
+              />
+              <Route path="/loggedIn/Recipes/:id" element={<RecipeDetails />} />
             </Route>
           </Route>
-          {/*  */}
+          {/*pages details  */}
 
           <Route path="/addRecipe" element={<AddRecipes />} />
 

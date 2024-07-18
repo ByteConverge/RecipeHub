@@ -58,8 +58,10 @@ export default function AllRecipes() {
                 img = post.img;
               }
 
+              console.log(post._id);
+
               return (
-                <Link key={post.id} to="">
+                <Link key={post._id} to={`/loggedIn/Recipes/${post._id}`}>
                   <HomeCards
                     key={post.id}
                     title={post.title}

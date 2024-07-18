@@ -64,7 +64,7 @@ export default function SoupRecipes() {
             }
 
             return (
-              <Link key={post.id} to="">
+              <Link key={post._id} to={`/loggedIn/Recipes/${post._id}`}>
                 <HomeCards
                   key={post.id}
                   title={post.title}
