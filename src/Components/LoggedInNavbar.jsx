@@ -72,6 +72,7 @@ const LoggedInNavbar = () => {
             Add Recipes
           </NavLink>
         </li>
+       
       </ul>
       {/*  */}
       <button
@@ -124,6 +125,7 @@ const LoggedInNavbar = () => {
             Add Recipes
           </NavLink>
         </li>
+     
 
         <li
           id="navItem"

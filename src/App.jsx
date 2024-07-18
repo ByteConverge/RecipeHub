@@ -13,6 +13,7 @@ import SoupRecipes from "./Components/SoupRecipes";
 import RiceRecipes from "./Components/RiceRecipes";
 import RecipeDetails from "./Pages/RecipeDetails";
 
+
 function App() {
   return (
     <>
@@ -41,6 +42,7 @@ function App() {
                 path="/loggedIn/Recipes/stewRecipes"
                 element={<StewRecipes />}
               />
+           
               <Route path="/loggedIn/Recipes/:id" element={<RecipeDetails />} />
             </Route>
           </Route>

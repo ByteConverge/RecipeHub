@@ -40,7 +40,7 @@ export default function SoupRecipes() {
     <Body>
       <div
         id="cards"
-        className={`px-[4%] min-h-[10vh] my-2  mb-[1rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] sm:grid ${
+        className={`px-[4%] min-h-[10vh] my-2  mb-[1rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] mx-auto sm:grid ${
           Posts.length === 0 ? "sm:grid-cols-1" : "sm:grid-cols-3"
         } sm:gap-x-16 sm:gap-y-8 `}
       >

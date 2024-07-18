@@ -33,7 +33,7 @@ export default function LoggedInHeroSection() {
         className="w-[90%] mx-auto mt-[4%] h-[50vh] sm:h-[80%] rounded-[1rem] bg-black bg-opacity-70 p-9 text-white flex flex-col text-center justify-center gap-4 sm:w-[80%] sm:gap-7"
       >
         <h1 className=" text-[20px] sm:text-[35px] font-inter  sm:font-normal">
-          Discover Delicious Recipes
+          Explore Recipes
         </h1>
         <p className="self-center p-1 text-[13px]   w-[100%] font-inter md:text-[20px] md:w-[65%] sm:text-[24px]  sm:text-center ">
           Welcome to Recidish - Your ultimate destination for culinary

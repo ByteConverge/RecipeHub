@@ -202,9 +202,11 @@ const AddRecipeForm = () => {
       {showSuccessModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-8 rounded-lg shadow-lg text-center max-w-xs mx-auto lg:max-w-sm">
-            <AiOutlineCheckCircle className="text-green-500 text-6xl mb-4" />
-            <h2 className="text-2xl font-bold mb-4">Success!</h2>
-            <p>Your recipe has been submitted successfully.</p>
+            <div className="flex justify-center">
+              <AiOutlineCheckCircle className="text-green-500 text-[2rem] " />
+              <h2 className="text-2xl font-bold mb-4">Success!</h2>
+            </div>
+            <p>Your recipe has been Uploaded</p>
           </div>
         </div>
       )}

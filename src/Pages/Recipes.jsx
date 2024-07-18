@@ -37,7 +37,6 @@ export default function Recipes() {
           <NavLink
             end
             to="/loggedIn/Recipes"
-            
             className={({ isActive }) =>
               isActive
                 ? `${linkClassNames} ${activeClassNames}`
@@ -83,6 +82,7 @@ export default function Recipes() {
             Soup Recipes
           </NavLink>
         </li>
+       
       </ul>
 
       <Outlet />
