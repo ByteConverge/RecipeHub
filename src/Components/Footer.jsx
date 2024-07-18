@@ -56,13 +56,13 @@ export default function Footer() {
           <h3 className="text-white text-base md:text-lg sm:text-center">Contact Us</h3>
           <div className="flex gap-4 md:gap-2">
             <Link
-              to="/contact/x"
+              
               className="grid place-items-center w-10 h-10 md:w-12 md:h-12"
             >
               <img src={Xlogo} alt="X" className="h-8 w-8 md:h-10 md:w-10" />
             </Link>
             <Link
-              to="/contact/facebook"
+             
               className="grid place-items-center w-10 h-10 md:w-12 md:h-12"
             >
               <img
@@ -72,7 +72,7 @@ export default function Footer() {
               />
             </Link>
             <Link
-              to="/contact/google"
+              
               className="grid place-items-center w-10 h-10 md:w-12 md:h-12"
             >
               <img
