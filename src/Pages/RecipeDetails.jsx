@@ -1,26 +1,16 @@
-
-import Body from "../Components/Body";
-// import HomeCards from "../Components/HomeCards";
-// import riceGeneral from "../Recidish_Images/CoconutRice.jpg";
-// import soupGeneral from "../Recidish_Images/BitterLeafSoup.jpg";
-// import stew from "../Recidish_Images/stew.jpg";
-
-import { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Body from "../Components/Body";
 
 export default function LoggedIn() {
-
-  const [Post, setPost] = useState([]);
-  let param  = useParams()
-
-  console.log(param.id);
-
+  const [Post, setPost] = useState({});
+  let { id } = useParams();
   let jwt = localStorage.getItem("token");
 
   useEffect(() => {
-    async function fetchBored() {
+    async function fetchPost() {
       const response = await fetch(
-        `https://recidishbackend.onrender.com/api/post/id/${param.id}`,
+        `https://recidishbackend.onrender.com/api/post/id/${id}`,
         {
           headers: {
             Authorization: `Bearer ${jwt}`,
@@ -28,43 +18,33 @@ export default function LoggedIn() {
         }
       );
 
-      //   console.log(response);
-
       const data = await response.json();
-
-      console.log(data);
-      console.log(data.post);
       setPost(data.post);
     }
 
-    fetchBored();
-  }, [jwt , param.id]);
+    fetchPost();
+  }, [jwt, id]);
 
   return (
     <Body>
       <div
         id="cards"
-        className={`px-[6%] min-h-[10vh] my-2  mt-[2.5rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] sm:grid 
-         sm:grid-cols-1 bg-[#DEAA72] sm:rounded-[3rem] py-[1rem] sm:py-[2rem]
-       `}
+        className="px-4 sm:px-8 lg:px-24 min-h-[10vh] my-4 mt-10 flex flex-col gap-4 sm:gap-6 bg-[#DEAA72] rounded-2xl py-6 sm:py-8 lg:py-12 sm:w-[90%] lg:w-[95%] mx-auto"
       >
-        <p className="text-[30px]  text-center font-poppins  sm:text-[3rem]  ">
+        <p className="text-3xl sm:text-4xl lg:text-5xl text-center font-poppins font-semibold">
           Recipe
         </p>
-        <figure className="w-[100%] h-[60vh] sm:h-[70vh] sm:w-[60%] sm:mx-auto ">
+        <figure className="w-full h-60 sm:h-80 lg:h-96 flex justify-center">
           <img
             src={Post.img}
-            alt=""
-            className="w-[100%] h-[100%] rounded-[16px] "
+            alt={Post.title}
+            className="w-full h-full rounded-2xl object-cover"
           />
         </figure>
-        <h1 className=" text-[1.5rem] text-center font-inter font-bold  sm:text-[40px]">
+        <h1 className="text-xl sm:text-2xl lg:text-4xl text-center font-inter font-bold mt-4 sm:mt-6">
           {Post.title}
         </h1>
-        <p
-          className="text-justify font-poppins text-[1rem]  sm:text-[1.5rem] sm:text-center
-         "
-        >
+        <p className="text-base sm:text-lg lg:text-xl text-justify sm:text-center font-poppins px-4 sm:px-0 mt-4 sm:mt-6">
           {Post.text}
         </p>
       </div>
