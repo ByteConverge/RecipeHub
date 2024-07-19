@@ -34,7 +34,7 @@ export default function LoggedIn() {
         <p className="text-3xl sm:text-4xl lg:text-5xl text-center font-poppins font-semibold">
           Recipe
         </p>
-        <figure className="w-full h-60 sm:h-80 lg:h-96 flex justify-center">
+        <figure className="w-full h-60 sm:h-80 lg:h-96 flex justify-center sm:w-[50%]  sm:mx-auto">
           <img
             src={Post.img}
             alt={Post.title}

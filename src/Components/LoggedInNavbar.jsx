@@ -132,7 +132,7 @@ const LoggedInNavbar = () => {
           className="nav-item  flex gap-2 sm:w-[8rem] sm:h-[3rem]sm:items-center "
         >
           <Link
-            to=""
+            
             ClassName="font-bold  flex h-[100%] w-[100%] sm:h-[100%] sm:w-[100%]  "
           >
             <img src={profile} alt="" className="sm:w-[100%] sm:h-[100%]" />

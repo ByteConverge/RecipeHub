@@ -45,7 +45,7 @@ export default function AllRecipes() {
 
   return (
     <Body>
-      <div className="px-[6%] min-h-[1vh] my-3 flex  justify-start gap-2 sm:w-[95%] sm:mx-auto sm:my-7 sm:gap-[2px] sm:flex ">
+      <div className="px-[6%] min-h-[1vh] my-3 flex  justify-start gap-2 sm:w-[95%] sm:mx-auto sm:my-7 sm:gap-[7px] sm:flex ">
         <input
           type="text"
           placeholder="Search recipes..."
@@ -55,7 +55,7 @@ export default function AllRecipes() {
         />
         <button
           onClick={handleSearch}
-          className="px-4 py-2 bg-[#966d59] text-white rounded-md shadow-sm hover:bg-[#966d59] focus:outline-none sm:h-[5vh]  focus:ring-2 focus:ring-[#5a3d2f] sm:text-[1rem] sm:grid place-items-center font-poppins font-extralight sm:h-[8vh]"
+          className="px-4 py-2 bg-[#966d59] text-white rounded-md shadow-sm hover:bg-[#966d59] focus:outline-none   focus:ring-2 focus:ring-[#5a3d2f] sm:w-[10rem] sm:text-[1rem] sm:grid place-items-center font-poppins font-extralight sm:h-[8vh]"
         >
           Search
         </button>
