@@ -7,9 +7,10 @@ import {
   FaCheckCircle,
   FaExclamationCircle,
 } from "react-icons/fa";
+import ForgotPasswordModal from "./ForgotPasswordModal";
 import Modal from "./Modal";
 import googleImg from "../Recidish_Images/googleLogo.svg";
-import facebookImg from "../Recidish_Images/fb-sign.svg";
+// import facebookImg from "../Recidish_Images/fb-sign.svg";
 
 export default function SignInForm() {
   const [formData, setFormData] = useState({
@@ -27,6 +28,8 @@ export default function SignInForm() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isForgotPwdModal , setisForgotPwdModal] = useState(false)
+
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -226,7 +229,7 @@ export default function SignInForm() {
                   Show password
                 </label>
               </span>
-              <span className="font-poppins text-[13px]">Forgot password?</span>
+              <span className="font-poppins text-[13px] cursor-pointer" onClick={()=>{setisForgotPwdModal(true)}}>Forgot password?</span>
             </div>
           </div>
           {/* Sign Up button */}
@@ -258,6 +261,8 @@ export default function SignInForm() {
          message="Login successful."
        />
 
+     }
+     {isForgotPwdModal && <ForgotPasswordModal />
      }
       
     </>
