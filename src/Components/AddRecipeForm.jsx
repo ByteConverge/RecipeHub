@@ -6,7 +6,8 @@ const AddRecipeForm = () => {
   const [formData, setFormData] = useState({
     category: "",
     title: "",
-    text: "",
+    ingredients: "",
+    steps: "",
     img: null,
   });
 
@@ -22,7 +23,8 @@ const AddRecipeForm = () => {
     let error = "";
     if (name === "category" && !value) error = "Category is required";
     if (name === "title" && !value) error = "Title is required";
-    if (name === "text" && !value) error = "Ingredients and steps are required";
+    if (name === "ingredients" && !value) error = "Ingredients are required";
+    if (name === "steps" && !value) error = "Steps are required";
     return error;
   };
 
@@ -65,7 +67,8 @@ const AddRecipeForm = () => {
       const formDataToSend = new FormData();
       formDataToSend.append("category", formData.category);
       formDataToSend.append("title", formData.title);
-      formDataToSend.append("text", formData.text);
+      formDataToSend.append("ingredients", formData.ingredients);
+      formDataToSend.append("steps", formData.text);
       if (formData.img) {
         formDataToSend.append("img", formData.img);
       }
@@ -106,11 +109,9 @@ const AddRecipeForm = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap- p-4 bg-gray-800 text-white rounded-lg shadow-lg w-full max-w-lg mx-auto lg:max-w-3xl lg:gap-1 lg:pt-3 font-inter font-light"
+        className="flex flex-col gap-1 p-6 text-white rounded-lg shadow-lg w-full max-w-3xl mx-auto font-inter font-light"
       >
-        <h1 className="text-2xl font-bold text-center mb-4 lg:mb-6">
-          Add Recipe Form
-        </h1>
+        <h1 className="text-2xl font-poppins text-center ">Add Recipe Form</h1>
         {attemptedSubmit && Object.keys(formErrors).length > 0 && (
           <p className="text-red-500 text-center text-sm rounded">
             All fields must be filled
@@ -118,72 +119,108 @@ const AddRecipeForm = () => {
         )}
 
         {/* Form input fields */}
-        <div className="flex gap-3 w-full justify-center">
-          <label className="flex items-center gap-1">
-            <input
-              type="radio"
-              name="category"
-              value="rice"
-              checked={formData.category === "rice"}
-              onChange={handleChange}
-              className="form-radio text-[#b0906e]"
-            />
-            Rice
-          </label>
-          <label className="flex items-center gap-1">
-            <input
-              type="radio"
-              name="category"
-              value="soup"
-              checked={formData.category === "soup"}
-              onChange={handleChange}
-              className="form-radio text-[#b0906e]"
-            />
-            Soup
-          </label>
-          <label className="flex items-center gap-1">
-            <input
-              type="radio"
-              name="category"
-              value="stew"
-              checked={formData.category === "stew"}
-              onChange={handleChange}
-              className="form-radio text-[#b0906e]"
-            />
-            Stew
-          </label>
-        </div>
+        <div className="flex flex-col gap-4">
+          <div className="flex gap-3 w-full justify-center">
+            <label className="flex items-center gap-1">
+              <input
+                type="radio"
+                name="category"
+                value="rice"
+                checked={formData.category === "rice"}
+                onChange={handleChange}
+                className="form-radio text-[#b0906e]"
+              />
+              Rice
+            </label>
+            <label className="flex items-center gap-1">
+              <input
+                type="radio"
+                name="category"
+                value="snacks"
+                checked={formData.category === "snacks"}
+                onChange={handleChange}
+                className="form-radio text-[#b0906e]"
+              />
+              Snacks
+            </label>
+            <label className="flex items-center gap-1">
+              <input
+                type="radio"
+                name="category"
+                value="soup"
+                checked={formData.category === "soup"}
+                onChange={handleChange}
+                className="form-radio text-[#b0906e]"
+              />
+              Soup
+            </label>
+            <label className="flex items-center gap-1">
+              <input
+                type="radio"
+                name="category"
+                value="stew"
+                checked={formData.category === "stew"}
+                onChange={handleChange}
+                className="form-radio text-[#b0906e]"
+              />
+              Stew
+            </label>
+          </div>
 
-        <div className="flex flex-col gap-2 w-full">
-          <label className="font-semibold">Recipe Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
-          />
-        </div>
+          <div className="flex flex-col gap-2">
+            <label className="font-semibold">Recipe Title:</label>
+            <input
+              type="text"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+            />
+            {formErrors.title && (
+              <p className="text-red-500 text-sm">{formErrors.title}</p>
+            )}
+          </div>
 
-        <div className="flex flex-col gap-2 w-full">
-          <label className="font-semibold">Ingredients and Steps:</label>
-          <textarea
-            name="text"
-            value={formData.text}
-            onChange={handleChange}
-            className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
-            rows="5"
-          />
-        </div>
+          <div className="flex flex-col gap-2">
+            <label className="font-semibold">Ingredients:</label>
+            <textarea
+              name="ingredients"
+              value={formData.ingredients}
+              onChange={handleChange}
+              className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+              rows="3" // Reduced the number of rows to make the textarea smaller
+            />
+            {formErrors.ingredients && (
+              <p className="text-red-500 text-sm">{formErrors.ingredients}</p>
+            )}
+          </div>
 
-        <div className="flex flex-col gap-2 w-full">
-          <label className="font-semibold">Image:</label>
-          <input
-            type="file"
-            name="img"
-            onChange={handleChange}
-            className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
-          />
+          <div className="flex flex-col gap-2">
+            <label className="font-semibold">Steps:</label>
+            <textarea
+              name="steps"
+              value={formData.text}
+              onChange={handleChange}
+              className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+              rows="5"
+            />
+            {formErrors.text && (
+              <p className="text-red-500 text-sm">{formErrors.text}</p>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="font-semibold">Image:</label>
+            <input
+              type="file"
+              name="img"
+              onChange={handleChange}
+              className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+            />
+            {formErrors.img && (
+              <p className="text-red-500 text-sm">{formErrors.img}</p>
+            )}
+          </div>
         </div>
 
         <button
@@ -201,11 +238,11 @@ const AddRecipeForm = () => {
 
       {showSuccessModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-lg shadow-lg text-center max-w-xs mx-auto lg:max-w-sm">
-            <div className="flex justify-center">
-              <AiOutlineCheckCircle className="text-green-500 text-[2rem] " />
-              <h2 className="text-2xl font-bold mb-4">Success!</h2>
+          <div className="bg-white p-8 rounded-lg shadow-lg text-center max-w-xs mx-auto">
+            <div className="flex justify-center mb-4">
+              <AiOutlineCheckCircle className="text-green-500 text-[2rem]" />
             </div>
+            <h2 className="text-2xl font-bold mb-4">Success!</h2>
             <p>Your recipe has been Uploaded</p>
           </div>
         </div>

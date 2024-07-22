@@ -12,49 +12,75 @@ import StewRecipes from "./Components/StewRecipes";
 import SoupRecipes from "./Components/SoupRecipes";
 import RiceRecipes from "./Components/RiceRecipes";
 import RecipeDetails from "./Pages/RecipeDetails";
-
+import ProtectedRoute from "./Components/AuthRoutes/ProtectedRoutes";
+import RedirectIfAuthenticated from "./Components/AuthRoutes/RedirectIfAuthenticated";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          {/*Not logged in */}
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Homepage />} />
+    <BrowserRouter>
+      <Routes>
+        {/* Not logged in */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Homepage />} />
+        </Route>
+
+        {/* Logged In */}
+        <Route
+          path="/loggedIn"
+          element={
+            <ProtectedRoute>
+              <LoggedInLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element= { <LoggedIn />} />
+          <Route path="/loggedIn/Recipes" element={<Recipes />}>
+            <Route index element={<AllRecipes />} />
+            <Route
+              path="/loggedIn/Recipes/riceRecipes"
+              element={<RiceRecipes />}
+            />
+            <Route
+              path="/loggedIn/Recipes/soupRecipes"
+              element={<SoupRecipes />}
+            />
+            <Route
+              path="/loggedIn/Recipes/stewRecipes"
+              element={<StewRecipes />}
+            />
+            <Route path="/loggedIn/Recipes/:id" element={<RecipeDetails />} />
           </Route>
-          {/*  */}
+        </Route>
 
-          {/* logged In */}
-          <Route path="/loggedIn" element={<LoggedInLayout />}>
-            <Route index element={<LoggedIn />} />
-            <Route path="/loggedIn/Recipes" element={<Recipes />}>
-              <Route index element={<AllRecipes />} />
-              <Route
-                path="/loggedIn/Recipes/riceRecipes"
-                element={<RiceRecipes />}
-              />
-              <Route
-                path="/loggedIn/Recipes/soupRecipes"
-                element={<SoupRecipes />}
-              />
-              <Route
-                path="/loggedIn/Recipes/stewRecipes"
-                element={<StewRecipes />}
-              />
-           
-              <Route path="/loggedIn/Recipes/:id" element={<RecipeDetails />} />
-            </Route>
-          </Route>
-          {/*pages details  */}
+        {/* Pages details */}
+        <Route
+          path="/addRecipe"
+          element={
+            <ProtectedRoute>
+              <AddRecipes />
+            </ProtectedRoute>
+          }
+        />
 
-          <Route path="/addRecipe" element={<AddRecipes />} />
-
-          <Route path="/signIn" element={<SignInPage />} />
-          <Route path="/signUp" element={<SignUpPage />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+        {/* Redirect if authenticated */}
+        <Route
+          path="/signIn"
+          element={
+            <RedirectIfAuthenticated>
+              <SignInPage />
+            </RedirectIfAuthenticated>
+          }
+        />
+        <Route
+          path="/signUp"
+          element={
+            <RedirectIfAuthenticated>
+              <SignUpPage />
+            </RedirectIfAuthenticated>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

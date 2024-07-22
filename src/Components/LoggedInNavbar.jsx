@@ -72,7 +72,16 @@ const LoggedInNavbar = () => {
             Add Recipes
           </NavLink>
         </li>
-       
+
+        <li className="sm:text-[20px] ">
+          <NavLink
+            onClick={() => localStorage.setItem("isLoggedIn", "false")}
+            className="text-[#fff] sm:font-normal "
+          >
+            Log out
+          </NavLink>
+          
+        </li>
       </ul>
       {/*  */}
       <button
@@ -125,16 +134,12 @@ const LoggedInNavbar = () => {
             Add Recipes
           </NavLink>
         </li>
-     
 
         <li
           id="navItem"
           className="nav-item  flex gap-2 sm:w-[8rem] sm:h-[3rem]sm:items-center "
         >
-          <Link
-            
-            ClassName="font-bold  flex h-[100%] w-[100%] sm:h-[100%] sm:w-[100%]  "
-          >
+          <Link ClassName="font-bold  flex h-[100%] w-[100%] sm:h-[100%] sm:w-[100%]  ">
             <img src={profile} alt="" className="sm:w-[100%] sm:h-[100%]" />
           </Link>
           <p className="inline font-inter sm:text-[20px] sm:text-white ">

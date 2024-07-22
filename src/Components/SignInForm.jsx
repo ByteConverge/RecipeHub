@@ -2,153 +2,145 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  FaFacebook,
+  FaCheckCircle,
+  FaExclamationCircle,
+} from "react-icons/fa";
+import Modal from "./Modal";
 import googleImg from "../Recidish_Images/googleLogo.svg";
 import facebookImg from "../Recidish_Images/fb-sign.svg";
-import Modal from "./Modal";
-
 
 export default function SignInForm() {
-    const [formData, setFormData] = useState({
-      password: "",
-      email: "",
-    });
- 
-    
+  const [formData, setFormData] = useState({
+    password: "",
+    email: "",
+  });
+
   const handleChange = (e) => {
     let { name, value } = e.target;
-
     setFormData({ ...formData, [name]: value });
   };
 
-    const [errors, setErrors] = useState({});
-    const [isSubmitted, setIsSubmitted] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [disable, setDisable] = useState(true);
-    const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
+  const validateEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
 
-     const validateEmail = (email) => {
-       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-       return emailPattern.test(email);
-     };
+  const validatePassword = (password) => {
+    const passwordPattern =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/;
+    return passwordPattern.test(password);
+  };
 
-     const validatePassword = (password) => {
-       const passwordPattern =
-         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/;
-       return passwordPattern.test(password);
-     };
+  const validate = () => {
+    let tempErrors = {};
+    if (!validateEmail(formData.email)) {
+      tempErrors.email = "Email is not valid.";
+    }
+    if (!validatePassword(formData.password)) {
+      tempErrors.password = "Password is not valid.";
+    }
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
 
-     const validate = () => {
-       let tempErrors = {};
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    let tempErrors = { ...errors };
+    if (name === "email" && !validateEmail(value)) {
+      tempErrors.email = "Email is not valid.";
+    } else {
+      delete tempErrors.email;
+    }
+    setErrors(tempErrors);
+  };
 
-       setErrors(tempErrors);
-       return Object.keys(tempErrors).length === 0;
-     };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { email, password } = formData;
+    if (!email || !password) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        form: "All fields are required",
+      }));
+      setTimeout(() => {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          form: "",
+        }));
+      }, 2000);
+      return;
+    }
 
-     const handleBlur = (e) => {
-       const { name, value } = e.target;
-       let tempErrors = { ...errors };
-
-       if (name === "email" && !validateEmail(value)) {
-         tempErrors.email = "Email is not valid.";
-       } else {
-         delete tempErrors.email;
-       }
-
-       setErrors(tempErrors);
-     };
-
-     const handleSubmit = async (e) => {
-       e.preventDefault();
-       const { email, password } = formData;
-
-       // Basic validation
-       if (!email || !password) {
-         setErrors((prevErrors) => ({
-           ...prevErrors,
-           form: "All fields are required",
-         }));
-
-         setTimeout(() => {
-           setErrors((prevErrors) => ({
-             ...prevErrors,
-             form: "",
-           }));
-         }, 2000);
-         return;
-       }
-
-       if (validate()) {
-         setIsLoading(true);
-         try {
-           const response = await fetch(
-             "https://recidishbackend.onrender.com/api/auth/login",
-             {
-               method: "POST",
-               headers: {
-                 "Content-Type": "application/json",
-               },
-               body: JSON.stringify(formData),
-             }
-           );
-
-           setIsLoading(false);
-
-           if (response.ok) {
-             setIsSubmitted(true);
-             setIsModalOpen(true);
-             window.localStorage.setItem("isLoggedIn", "true");
-             setTimeout(() => {
-               navigate("/loggedIn");
-             }, 3000);
-           } else {
-             setErrors({ api: "Incorrect Email or password" });
-             setTimeout(() => {
-               setErrors({ api: "" });
-             }, 6000);
-             console.log(response);
-           }
-
-           const data = await response.json();
-           console.log(data);
-           localStorage.setItem("token", data.accessToken);
-         } catch (error) {
-           setIsLoading(false);
-           setErrors({ api: "Poor Network. Try again! " });
-           setTimeout(() => {
-             setErrors({ api: " " });
-           }, 3000);
-           
-           console.log(error);
-         }
-       }
-     };
-
-
-
+    if (validate()) {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          "https://recidishbackend.onrender.com/api/auth/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
+        setIsLoading(false);
+        if (response.ok) {
+          setIsSubmitted(true);
+          setIsModalOpen(true);
+          window.localStorage.setItem("isLoggedIn", "true");
+          setTimeout(() => {
+            navigate("/loggedIn");
+          }, 3000);
+        } else {
+          setErrors({ api: "Incorrect Email or password" });
+          setTimeout(() => {
+            setErrors({ api: "" });
+          }, 6000);
+          console.log(response);
+        }
+        const data = await response.json();
+        localStorage.setItem("token", data.accessToken);
+      } catch (error) {
+        setIsLoading(false);
+        setErrors({ api: "Poor Network. Try again! " });
+        setTimeout(() => {
+          setErrors({ api: " " });
+        }, 3000);
+        console.log(error);
+      }
+    }
+  };
 
   return (
     <>
       <form
         id="form section"
-        className="text-white flex flex-col justify-start gap-5 px-5 py-7    items-center h-[100%] w-[98%] -mt-14 sm:h-[90%] sm:w-[80%] sm:justify-start sm:gap-0   sm:font-poppins sm:-mt-0"
+        className="text-white flex flex-col justify-start gap-5 px-5 py-7 items-center h-[100%] w-[98%] -mt-14 sm:h-[90%] sm:w-[80%] sm:justify-start sm:gap-0 sm:font-poppins sm:-mt-0"
         onSubmit={handleSubmit}
       >
-        <h1 className="text-[25px]  w-[100%]  flex flex-col justify-en  sm:mb-5 font-poppins  font-bold sm:text-[25px]">
+        <h1 className="text-[25px] w-[100%] flex flex-col justify-en sm:mb-5 font-poppins font-bold sm:text-[25px]">
           Sign In
         </h1>
-        {/*social-media-signin  */}
+        {/* social-media-signin */}
         <div id="SocialMediaSignings" className="flex flex-col gap-3 w-full">
           {/* google signing */}
           <a
             id="google-signin"
             href="#"
-            className=" flex items-center bg-white text-black justify-center gap-1 p-1 rounded-3xl"
+            className="flex items-center bg-white text-black justify-center gap-1 p-1 rounded-3xl"
           >
-            <img src={googleImg} alt="" className="h-[1.3rem]" />
-            <h1 className="sm:text-[14px] ">Continue with Google</h1>
+            <img src={googleImg} alt="" className="h-[1.5rem]" />
+            <h1 className="sm:text-[14px]">Continue with Google</h1>
           </a>
           {/* facebook sign in */}
           <a
@@ -156,44 +148,35 @@ export default function SignInForm() {
             href="#"
             className="flex items-center bg-white text-black justify-center gap-1 p-1 rounded-3xl font-poppins"
           >
-            <img
-              src={facebookImg}
-              alt=""
-              className="h-[1.5rem] translate-y-1"
-            />
+            <FaFacebook className="text-blue-600 text-xl mr-2" />
             <h1 className="sm:text-[14px]">Continue with Facebook</h1>
           </a>
         </div>
         {/* Or */}
-        <div className="flex gap-1 justify-center items-center my-2 w-[100%] font-poppins ">
+        <div className="flex gap-1 justify-center items-center my-2 w-[100%] font-poppins">
           <span className="w-[50%] h-[1px] bg-white"></span> OR
           <span className="w-[50%] h-[1px] bg-white"></span>
         </div>
-        {/* h1{sign Up} */}
-
         {/* form content */}
         <div
           id="form-content"
-          className=" w-[100%] h-[90%] flex flex-col gap-1 sm:gap-0  "
+          className="w-[100%] h-[90%] flex flex-col gap-1 sm:gap-0"
         >
-          {/* error messages top*/}
+          {/* error messages top */}
           {errors.form && (
-            <p className=" text-red-500 text-center text-[10px] rounded font-poppins ">
+            <p className="text-red-500 text-center text-[10px] rounded font-poppins">
               {errors.form}
             </p>
           )}
           {errors.api && (
-            <p className=" text-red-500 text-center rounded font-poppins text-[10px] ">
+            <p className="text-red-500 text-center rounded font-poppins text-[10px]">
               {errors.api}
             </p>
           )}
-
-          {/* check */}
-
-          {/*Name Email Password div  */}
+          {/* Email and Password */}
           <div
             id="NameEmailPassword"
-            className="flex flex-col font-poppins gap-1 mb-4 sm:gap-0 "
+            className="flex flex-col font-poppins gap-1 mb-4 sm:gap-0"
           >
             {/* Email */}
             <div className="mb-2 sm:mb-1">
@@ -208,8 +191,11 @@ export default function SignInForm() {
                 onBlur={handleBlur}
                 className="sm:text-[13px] px-2 block w-full border-white font-poppins border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem] sm:h-[1.7rem] sm:py-1 border-[0.772px]"
               />
+              {errors.email && (
+                <p className="text-red-500 text-[10px] mt-1">{errors.email}</p>
+              )}
             </div>
-            {/* password */}
+            {/* Password */}
             <div className="mb-2 sm:mb-1">
               <label htmlFor="password" className="text-[13px]">
                 Password
@@ -222,8 +208,12 @@ export default function SignInForm() {
                 onBlur={handleBlur}
                 className="sm:text-[13px] px-2 block w-full border-white font-poppins border-[0.772px] border-solid bg-black bg-opacity-50 focus:outline-none focus:border-white rounded-xl h-[2.5rem] sm:h-[1.7rem] sm:py-1"
               />
+              {errors.password && (
+                <p className="text-red-500 text-[10px] mt-1">
+                  {errors.password}
+                </p>
+              )}
             </div>
-
             {/* Show password */}
             <div className="flex w-full justify-between font-poppins sm:relative sm:bottom-2 sm:min-h-[10%] sm:mt-4 sm:px-1">
               <span className="pl-1 sm:pl-0 flex gap-1">
@@ -238,14 +228,13 @@ export default function SignInForm() {
               </span>
               <span className="font-poppins text-[13px]">Forgot password?</span>
             </div>
-            {/*  */}
           </div>
           {/* Sign Up button */}
           <div className="signin w-full sm:mx-auto font-poppins">
             <button
               className={`signin-button w-full ${
                 isLoading ? "bg-[#6a614b]" : "bg-[#996D3E]"
-              } rounded-3xl h-[3rem] mb-2  sm:h-[27px] font-poppinsMedium sm:text-[12px]`}
+              } rounded-3xl h-[3rem] mb-2 sm:h-[27px] font-poppinsMedium sm:text-[12px]`}
               id="signUp"
               type="submit"
               disabled={isLoading}
@@ -256,16 +245,21 @@ export default function SignInForm() {
                 "Sign In"
               )}
             </button>
-            {/*  */}
             <p className="w-full font-poppins pl-[1.5%] text-[13px]">
               Have an account? <Link to="/signUp">Sign Up</Link>
             </p>
           </div>
         </div>
       </form>
-      {isModalOpen && (
-        <Modal topMessage="Success!" message="Login successful." />
-      )}
+     { isModalOpen &&
+
+       <Modal
+         topMessage="Success"
+         message="Login successful."
+       />
+
+     }
+      
     </>
   );
 }
