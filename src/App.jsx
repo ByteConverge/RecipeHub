@@ -12,8 +12,6 @@ import StewRecipes from "./Components/StewRecipes";
 import SoupRecipes from "./Components/SoupRecipes";
 import RiceRecipes from "./Components/RiceRecipes";
 import RecipeDetails from "./Pages/RecipeDetails";
-import ProtectedRoute from "./Components/AuthRoutes/ProtectedRoutes";
-import RedirectIfAuthenticated from "./Components/AuthRoutes/RedirectIfAuthenticated";
 import ResetPassword from "./Pages/ResetPassword";
 
 function App() {
@@ -29,9 +27,9 @@ function App() {
         <Route
           path="/loggedIn"
           element={
-            <ProtectedRoute>
+           
               <LoggedInLayout />
-            </ProtectedRoute>
+         
           }
         >
           <Route index element= { <LoggedIn />} />
@@ -57,9 +55,9 @@ function App() {
         <Route
           path="/addRecipe"
           element={
-            <ProtectedRoute>
+            
               <AddRecipes />
-            </ProtectedRoute>
+            
           }
         />
 
@@ -67,17 +65,17 @@ function App() {
         <Route
           path="/signIn"
           element={
-            <RedirectIfAuthenticated>
+          
               <SignInPage />
-            </RedirectIfAuthenticated>
+          
           }
         />
         <Route
           path="/signUp"
           element={
-            <RedirectIfAuthenticated>
+          
               <SignUpPage />
-            </RedirectIfAuthenticated>
+          
           }
         />
         <Route path="/:reset"  element={<ResetPassword />}/>
