@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
@@ -6,6 +7,9 @@ const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  let jwt  = useParams()
+  console.log(jwt.reset);
+  let reset = jwt.reset;
 
   const validatePassword = (password) => {
     const passwordRegex =
@@ -30,7 +34,7 @@ const ResetPassword = () => {
 
     try {
       const response = await fetch(
-        `https://recidishbackend.onrender.com/api/auth/resetpassword/`,
+        `https://recidishbackend.onrender.com/api/auth/resetpassword/${reset}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
