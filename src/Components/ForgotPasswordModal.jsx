@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
-import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
+import { FaCheckCircle, FaExclamationCircle, FaTimes } from "react-icons/fa";
 
-const ForgotPasswordModal = () => {
+const ForgotPasswordModal = ({closeModal}) => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -42,8 +43,16 @@ const ForgotPasswordModal = () => {
 
   return (
     <div className="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 sm:p-8">
-      <div className="min-h-screen flex items-center justify-center ">
-        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md relative">
+          <button
+            onClick={() => {
+              closeModal(false);
+            }}
+            className="absolute top-2 right-2 text-red-500 hover:text-red-700"
+          >
+            <FaTimes className="text-xl" />
+          </button>
           <h3 className="text-2xl font-bold mb-6 text-center text-teal-600">
             Forgot Password
           </h3>

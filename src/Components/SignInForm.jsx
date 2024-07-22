@@ -262,7 +262,8 @@ export default function SignInForm() {
        />
 
      }
-     {isForgotPwdModal && <ForgotPasswordModal />
+     {isForgotPwdModal &&
+      <ForgotPasswordModal closeModal={setisForgotPwdModal} />
      }
       
     </>
