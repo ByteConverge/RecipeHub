@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineCheckCircle, AiOutlineCamera } from "react-icons/ai";
@@ -71,6 +72,11 @@ const AddRecipeForm = () => {
       formDataToSend.append("text", formData.text);
       if (formData.img) {
         formDataToSend.append("img", formData.img);
+      }
+
+      // Log form data for debugging
+      for (let pair of formDataToSend.entries()) {
+        console.log(pair[0] + ", " + pair[1]);
       }
 
       try {
@@ -176,9 +182,6 @@ const AddRecipeForm = () => {
               onChange={handleChange}
               className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
             />
-            {formErrors.title && (
-              <p className="text-red-500 text-sm">{formErrors.title}</p>
-            )}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -188,11 +191,8 @@ const AddRecipeForm = () => {
               value={formData.ingredients}
               onChange={handleChange}
               className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
-              rows="3" // Reduced the number of rows to make the textarea smaller
+              rows="3"
             />
-            {formErrors.ingredients && (
-              <p className="text-red-500 text-sm">{formErrors.ingredients}</p>
-            )}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -204,30 +204,15 @@ const AddRecipeForm = () => {
               className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
               rows="5"
             />
-            {formErrors.text && (
-              <p className="text-red-500 text-sm">{formErrors.text}</p>
-            )}
           </div>
-
-          <div className="flex flex-col gap-2 items-center bg-[#f7d3b3]">
+          <div className="flex flex-col gap-2 w-full">
+            <label className="font-semibold">Image:</label>
             <input
               type="file"
               name="img"
-              id="imgInput"
               onChange={handleChange}
-              className="hidden"
+              className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
             />
-            <label
-              htmlFor="imgInput"
-              className="cursor-pointer p-2 border border-gray-300 rounded-full bg-[#f7d3b3] text-white hover:bg-gray-600"
-            >
-              <button type="button" className="p-2 bg-gray-700 rounded-full">
-                <AiOutlineCamera className="text-xl" />
-              </button>
-            </label>
-            {formErrors.img && (
-              <p className="text-red-500 text-sm">{formErrors.img}</p>
-            )}
           </div>
         </div>
 

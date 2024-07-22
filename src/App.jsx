@@ -14,6 +14,7 @@ import RiceRecipes from "./Components/RiceRecipes";
 import RecipeDetails from "./Pages/RecipeDetails";
 import ProtectedRoute from "./Components/AuthRoutes/ProtectedRoutes";
 import RedirectIfAuthenticated from "./Components/AuthRoutes/RedirectIfAuthenticated";
+import ResetPassword from "./Pages/ResetPassword";
 
 function App() {
   return (
@@ -79,6 +80,7 @@ function App() {
             </RedirectIfAuthenticated>
           }
         />
+        <Route path="/:reset"  element={<ResetPassword />}/>
       </Routes>
     </BrowserRouter>
   );
