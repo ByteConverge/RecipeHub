@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams , useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
@@ -8,6 +8,7 @@ const ResetPassword = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   let jwt  = useParams()
+  let navigate = useNavigate()
   console.log(jwt.reset);
   let reset = jwt.reset;
 
@@ -46,6 +47,9 @@ const ResetPassword = () => {
         setPassword("");
         setConfirmPassword("");
         setError("");
+        setTimeout(() => {
+          navigate("/signIn")  
+        }, 2000);
       } else {
         setError("Error resetting password");
         console.log(response);
