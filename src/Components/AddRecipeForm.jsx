@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineCheckCircle } from "react-icons/ai";
+import { AiOutlineCheckCircle, AiOutlineCamera } from "react-icons/ai";
 
 const AddRecipeForm = () => {
   const [formData, setFormData] = useState({
     category: "",
     title: "",
     ingredients: "",
-    steps: "",
+    text: "",
     img: null,
   });
 
@@ -24,7 +24,7 @@ const AddRecipeForm = () => {
     if (name === "category" && !value) error = "Category is required";
     if (name === "title" && !value) error = "Title is required";
     if (name === "ingredients" && !value) error = "Ingredients are required";
-    if (name === "steps" && !value) error = "Steps are required";
+    if (name === "text" && !value) error = "Steps are required";
     return error;
   };
 
@@ -68,7 +68,7 @@ const AddRecipeForm = () => {
       formDataToSend.append("category", formData.category);
       formDataToSend.append("title", formData.title);
       formDataToSend.append("ingredients", formData.ingredients);
-      formDataToSend.append("steps", formData.text);
+      formDataToSend.append("text", formData.text);
       if (formData.img) {
         formDataToSend.append("img", formData.img);
       }
@@ -109,9 +109,9 @@ const AddRecipeForm = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-1 p-6 text-white rounded-lg shadow-lg w-full max-w-3xl mx-auto font-inter font-light"
+        className="flex flex-col gap-4 p-6 bg-gray-800 text-white rounded-lg shadow-lg w-full max-w-3xl mx-auto font-inter font-light"
       >
-        <h1 className="text-2xl font-poppins text-center ">Add Recipe Form</h1>
+        <h1 className="text-2xl font-bold text-center mb-4">Add Recipe Form</h1>
         {attemptedSubmit && Object.keys(formErrors).length > 0 && (
           <p className="text-red-500 text-center text-sm rounded">
             All fields must be filled
@@ -198,7 +198,7 @@ const AddRecipeForm = () => {
           <div className="flex flex-col gap-2">
             <label className="font-semibold">Steps:</label>
             <textarea
-              name="steps"
+              name="text"
               value={formData.text}
               onChange={handleChange}
               className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
@@ -209,14 +209,22 @@ const AddRecipeForm = () => {
             )}
           </div>
 
-          <div className="flex flex-col gap-2">
-            <label className="font-semibold">Image:</label>
+          <div className="flex flex-col gap-2 items-center bg-[#f7d3b3]">
             <input
               type="file"
               name="img"
+              id="imgInput"
               onChange={handleChange}
-              className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+              className="hidden"
             />
+            <label
+              htmlFor="imgInput"
+              className="cursor-pointer p-2 border border-gray-300 rounded-full bg-[#f7d3b3] text-white hover:bg-gray-600"
+            >
+              <button type="button" className="p-2 bg-gray-700 rounded-full">
+                <AiOutlineCamera className="text-xl" />
+              </button>
+            </label>
             {formErrors.img && (
               <p className="text-red-500 text-sm">{formErrors.img}</p>
             )}
@@ -243,7 +251,7 @@ const AddRecipeForm = () => {
               <AiOutlineCheckCircle className="text-green-500 text-[2rem]" />
             </div>
             <h2 className="text-2xl font-bold mb-4">Success!</h2>
-            <p>Your recipe has been Uploaded</p>
+            <p>Your recipe has been uploaded</p>
           </div>
         </div>
       )}

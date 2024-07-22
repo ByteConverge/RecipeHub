@@ -20,6 +20,7 @@ export default function LoggedIn() {
 
       const data = await response.json();
       setPost(data.post);
+      console.log(data.post)
     }
 
     fetchPost();
@@ -45,7 +46,11 @@ export default function LoggedIn() {
           {Post.title}
         </h1>
         <p className="text-base sm:text-lg lg:text-xl text-justify lg:text-left sm:text-center font-poppins px-4 sm:px-0 mt-2 sm:mt-4 lg:mt-4 text-gray-700">
-          {Post.text}
+         Ingredients: {Post.ingredients}
+        </p>
+      
+        <p className="text-base sm:text-lg lg:text-xl text-justify lg:text-left sm:text-center font-poppins px-4 sm:px-0 mt-2 sm:mt-4 lg:mt-4 text-gray-700">
+         Steps: {Post.text}
         </p>
       </div>
     </Body>
