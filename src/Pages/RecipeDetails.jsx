@@ -20,11 +20,21 @@ export default function LoggedIn() {
 
       const data = await response.json();
       setPost(data.post);
-      console.log(data.post)
+      console.log(data.post);
     }
 
     fetchPost();
   }, [jwt, id]);
+
+  const getStepsArray = (text) => {
+    if (!text) return [];
+    return text
+      .split(/\d+\.\s|\.\s|\n/)
+      .filter(Boolean)
+      .map((step) => step.trim());
+  };
+
+  const stepsArray = getStepsArray(Post.text);
 
   return (
     <Body>
@@ -46,12 +56,19 @@ export default function LoggedIn() {
           {Post.title}
         </h1>
         <p className="text-base sm:text-lg lg:text-xl text-justify lg:text-left sm:text-center font-poppins px-4 sm:px-0 mt-2 sm:mt-4 lg:mt-4 text-gray-700">
-         Ingredients: {Post.ingredients}
+          Ingredients: {Post.ingredients}
         </p>
-      
-        <p className="text-base sm:text-lg lg:text-xl text-justify lg:text-left sm:text-center font-poppins px-4 sm:px-0 mt-2 sm:mt-4 lg:mt-4 text-gray-700">
-         Steps: {Post.text}
-        </p>
+
+        <div className="text-base sm:text-lg lg:text-xl text-justify lg:text-left sm:text-center font-poppins px-4 sm:px-0 mt-2 sm:mt-4 lg:mt-4 text-gray-700">
+          <h2 className="font-bold">Steps:</h2>
+          <ol className="list-decimal pl-5">
+            {stepsArray.map((step, index) => (
+              <li key={index} className="mt-2">
+                {step}
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </Body>
   );
