@@ -25,8 +25,8 @@ export default function LoggedInHeroSection() {
   return (
     <div
       id="hero"
-      style={{ backgroundImage: `url(${bgImg[bgIndex]})` }}
-      className={`bg-center min-h-[60vh] grid place-items-center sm:min-h-[80vh] bg-cover `}
+      style={{ backgroundImage: `url(${bgImg[1]})` }}
+      className={`bg-center min-h-[60vh] grid place-items-center sm:min-h-[90vh] bg-cover `}
     >
       {/* <div
         id="hero--texts"

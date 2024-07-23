@@ -80,7 +80,6 @@ const LoggedInNavbar = () => {
           >
             Log out
           </NavLink>
-          
         </li>
       </ul>
       {/*  */}
@@ -140,7 +139,11 @@ const LoggedInNavbar = () => {
           className="nav-item  flex gap-2 sm:w-[8rem] sm:h-[3rem]sm:items-center "
         >
           <Link ClassName="font-bold  flex h-[100%] w-[100%] sm:h-[100%] sm:w-[100%]  ">
-            <img src={profile} alt="" className="sm:w-[100%] sm:h-[100%]" />
+            <img
+              src={profile}
+              alt=""
+              className="sm:w-[100%] sm:h-[100%] sm:bg-white sm:rounded-[50%] "
+            />
           </Link>
           <p className="inline font-inter sm:text-[20px] sm:text-white ">
             Profile
