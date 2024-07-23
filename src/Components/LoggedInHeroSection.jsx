@@ -25,10 +25,10 @@ export default function LoggedInHeroSection() {
   return (
     <div
       id="hero"
-      style={{ backgroundImage: `url(${bgImg[5]})` }}
-      className={`bg-center min-h-[60vh] grid place-items-center sm:h-[100vh] bg-cover `}
+      style={{ backgroundImage: `url(${bgImg[bgIndex]})` }}
+      className={`bg-center min-h-[60vh] grid place-items-center sm:min-h-[80vh] bg-cover `}
     >
-      <div
+      {/* <div
         id="hero--texts"
         className="w-[90%] mx-auto mt-[4%] h-[50vh] sm:h-[80%] rounded-[1rem] bg-black bg-opacity-70 p-9 text-white flex flex-col text-center justify-center gap-4 sm:w-[80%] sm:gap-7"
       >
@@ -44,7 +44,7 @@ export default function LoggedInHeroSection() {
           preference.
         </p>
        
-      </div>
+      </div> */}
       {/* */}
     </div>
   );

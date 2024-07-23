@@ -32,17 +32,17 @@ export default function Homepage() {
               className="flex flex-col h-[50%] gap-0 mb-1 sm:w-[50%] sm:h-100% sm:gap-0  "
             >
               {/* h1 */}
-              <h1 className="text-center text-[#996D3E] font-semibold font-poppins sm:text-[32px] sm:mb-[1rem] sm:text-left">
+              <h1 className="text-center text-[#996D3E] font-semibold font-poppins  sm:text-[30px] sm:mb-[1rem] sm:text-left">
                 Welcome to the Flavors of Nigeria!
               </h1>
-              <p className="text-justify font-poppins text-[.8rem]  sm:text-left sm:text-[23px] sm:font-normal sm:leading-[35px] ">
+              <p className="text-justify font-poppins text-[.8rem]  sm:text-left sm:text-[21px] sm:font-normal sm:leading-[35px] ">
                 Discover, Cook, and Share Amazing Recipes Welcome to Recidish,
                 your go-to hub for all things culinary! Whether you are a
                 seasoned chef or a kitchen novice, our app is designed to
                 inspire and assist you in creating mouth-watering dishes right
                 from the comfort of your home.
               </p>
-              <p className="text-justify font-poppins text-[.8rem]  sm:text-left sm:text-[23px] sm:font-normal sm:leading-[35px]mb-3  ">
+              <p className="text-justify font-poppins text-[.8rem]  sm:text-left sm:text-[21px] sm:font-normal sm:leading-[35px]mb-3  ">
                 Plan your meals with ease using our integrated meal planning
                 tool. Select recipes for the week, generate shopping lists, and
                 stay organized in the kitchen. Eating well has never been so
@@ -72,17 +72,17 @@ export default function Homepage() {
               className="flex flex-col gap-0 sm:w-[50%] sm:h-100% sm:gap-0 sm:self-center "
             >
               {/* h1 */}
-              <h1 className="text-center text-[#996D3E] font-semibold font-poppins sm:text-[32px] sm:mb-[1rem] sm:text-left">
+              <h1 className="text-center text-[#996D3E] font-semibold font-poppins sm:text-[30px]  sm:mb-[1rem] sm:text-left">
                 Explore Our Recipe Collection
               </h1>
-              <p className=" text-justify font-poppins text-[.8rem]  sm:text-left sm:text-[23px] sm:font-normal sm:leading-[35px]">
+              <p className=" text-justify font-poppins text-[.8rem]  sm:text-left sm:text-[21px] sm:font-normal sm:leading-[35px]">
                 Dive into our extensive collection of recipes from around the
                 world. From classic comfort foods to exotic delicacies, we have
                 got something for every palate. Easily browse by cuisine,
                 dietary preferences, or meal type, and find the perfect recipe
                 to suit any occasion.
               </p>
-              <p className=" text-justify font-poppins text-[.8rem] mb-3  sm:text-left sm:text-[23px] sm:font-normal sm:leading-[35px] ">
+              <p className=" text-justify font-poppins text-[.8rem] mb-3  sm:text-left sm:text-[21px] sm:font-normal sm:leading-[35px] ">
                 We believe that anyone can cook, and our step-by-step
                 instructions make it easy. Each recipe includes detailed
                 directions, ingredient lists, and cooking tips to ensure your

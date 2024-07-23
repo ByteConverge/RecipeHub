@@ -36,6 +36,20 @@ const Navbar = () => {
           <img src={logo2} alt="" className="h-[100%] w-[100%] " />
         </figure>
       </div>
+      {/* Links */}
+      <ul className="hidden sm:flex sm:px-3 sm:self-center sm:justify-start sm:min-w-[50%] sm:gap-5 font-poppins ">
+        <li className="sm:text-[20px] font-semibold">
+          <NavLink className="text-[#fff]" to="/">
+            Home
+          </NavLink>
+        </li>
+
+        <li className="sm:text-[20px] sm:font-semibold ">
+          <NavLink to="/addRecipe" className="text-[#fff]   ">
+            About
+          </NavLink>
+        </li>
+      </ul>
 
       <button
         onClick={toggleMenu}
