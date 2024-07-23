@@ -45,7 +45,7 @@ const Navbar = () => {
         </li>
 
         <li className="sm:text-[20px] sm:font-semibold ">
-          <NavLink to="/addRecipe" className="text-[#fff]   ">
+          <NavLink to="/about" className="text-[#fff]   ">
             About
           </NavLink>
         </li>
@@ -77,6 +77,16 @@ const Navbar = () => {
             onClick={toggleMenu}
           >
             Home
+          </NavLink>
+        </li>
+        <li className="nav-item sm:hidden">
+          <NavLink
+            exact
+            to="/about"
+            ClassName="text-white font-bold"
+            onClick={toggleMenu}
+          >
+          About
           </NavLink>
         </li>
         <li className="nav-item font-inter  sm:py-[12px] sm:px-[32px] sm:h-12 sm:w-28   sm:grid sm:place-items-center sm:bg-[#DEAA72] sm:rounded-[5px]  sm:text-[#000] sm:text-[20px] sm:font-semibold  ">

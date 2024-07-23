@@ -13,7 +13,7 @@ import SoupRecipes from "./Components/SoupRecipes";
 import RiceRecipes from "./Components/RiceRecipes";
 import RecipeDetails from "./Pages/RecipeDetails";
 import ResetPassword from "./Pages/ResetPassword";
-
+import AboutPage from "./Pages/AboutPage";
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +21,7 @@ function App() {
         {/* Not logged in */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Route>
 
         {/* Logged In */}
@@ -78,7 +79,7 @@ function App() {
           
           }
         />
-        <Route path="/:reset"  element={<ResetPassword />}/>
+        <Route path="/reset/:reset"  element={<ResetPassword />}/>
       </Routes>
     </BrowserRouter>
   );
