@@ -16,18 +16,22 @@ export default function RiceRecipes() {
   useEffect(() => {
     async function fetchBored() {
       setLoading(true); // Start loading
-      const response = await fetch(
-        `https://recidishbackend.onrender.com/api/post/`,
-        {
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-          },
-        }
-      );
+      try {
+        const response = await fetch(
+          `https://recidishbackend.onrender.com/api/post/`,
+          {
+            headers: {
+              Authorization: `Bearer ${jwt}`,
+            },
+          }
+        );
 
-      const data = await response.json();
-      setPosts(data.posts);
-      setLoading(false); // End loading
+        const data = await response.json();
+        setPosts(data.posts);
+        setLoading(false); // End loading
+      } catch (error) {
+        setLoading(false);
+      }
     }
 
     fetchBored();
@@ -45,12 +49,15 @@ export default function RiceRecipes() {
           <div className="flex justify-center items-center min-h-[20vh]">
             <ClipLoader size={50} color={"black"} loading={loading} />
           </div>
+        ) : Posts.length === 0 ? (
+          <p className="text-center text-black text-[1rem] mt-[1rem] font-poppins block w-[100%] sm:w-[100%] sm:text-[50rem]">
+            No Recipe found
+          </p>
         ) : (
           <>
-            {Posts && Posts.length > 0 ? (
-              [...Posts]
+            {Posts.filter((post) => post.category === "rice").length > 0 ? (
+              Posts.filter((post) => post.category === "rice")
                 .reverse()
-                .filter((post) => post.category === "rice")
                 .map((post) => {
                   let slicedSteps = post.text.slice(0, 50);
 
@@ -77,7 +84,7 @@ export default function RiceRecipes() {
                   );
                 })
             ) : (
-              <p className="text-center text-black text-[1rem] mt-[1rem] font-poppins block w-[100%] sm:w-[100%]">
+              <p className="text-center text-black md:text-[2rem] mt-[1rem] font-poppins  sm:w-[100%]">
                 No Recipe found
               </p>
             )}

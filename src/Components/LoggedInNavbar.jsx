@@ -103,11 +103,7 @@ const LoggedInNavbar = () => {
         <li className="nav-item sm:hidden">
           <NavLink
             to="/loggedIn"
-            className={({ isActive }) =>
-              isActive
-                ? "text-black font-bold underline"
-                : "text-white font-bold"
-            }
+           
             onClick={toggleMenu}
           >
             Home
@@ -116,11 +112,7 @@ const LoggedInNavbar = () => {
         <li className="nav-item sm:hidden">
           <NavLink
             to="/loggedIn/Recipes"
-            className={({ isActive }) =>
-              isActive
-                ? "text-black font-bold underline"
-                : "text-white font-bold"
-            }
+           
             onClick={toggleMenu}
           >
             Recipes
@@ -128,12 +120,8 @@ const LoggedInNavbar = () => {
         </li>
         <li className="nav-item sm:hidden">
           <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "text-black font-bold underline"
-                : "text-white font-bold"
-            }
-            onClick={toggleMenu}
+           
+            // onClick={toggleMenu}
           >
             Premium
           </NavLink>

@@ -44,7 +44,7 @@ export default function LoggedInHeroSection() {
           preference.
         </p>
        
-      </div> */}
+      </div> 
       {/* */}
     </div>
   );
