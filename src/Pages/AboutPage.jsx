@@ -19,7 +19,7 @@ export default function AboutPage() {
             recreate the flavors of Nigeria in your own kitchen, no matter where
             you are in the world.
           </p>
-          <ul className="sm:text-[24px] sm:font-[400] list-inside font-inter pl-5">
+          <ul className="sm:text-[24px] sm:font-[400] list-inside font-inter pl-5 ">
             <li className="list-disc text-justify">
               Authentic Recipes: Each recipe on our site is carefully curated to
               ensure authenticity and taste. From traditional classics to modern

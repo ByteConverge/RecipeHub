@@ -26,25 +26,25 @@ const Navbar = () => {
   return (
     <nav
       className={`flex ${isMenuOpen && "sticky top-0 "} px-[4%]
-       bg-[#ffffff] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter sm:px-[10.5%] sm:absolute sm:w-[100%] sm:pt-6 sm:min-h-[11dvh] sm:py-2 shadow-sm shadow-black sm:shadow-none`}
+       bg-[#ffffff] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter md:px-[10.5%] md:absolute md:w-[100%] md:pt-6 md:min-h-[11dvh] md:py-2 shadow-sm shadow-black md:shadow-none`}
     >
       <div className="flex items-center ">
-        <figure className="h-[3rem] w-[3.4rem] sm:h-[5rem] sm:w-[7rem] relative right-[20%]  sm:hidden ">
+        <figure className="h-[3rem] w-[3.4rem] md:h-[5rem] md:w-[7rem] relative right-[20%]  md:hidden ">
           <img src={logo} alt="" className="h-[100%] w-[100%] " />
         </figure>
-        <figure className="h-[3rem] w-[3.4rem] sm:h-[4.1rem] sm:w-[6rem] sm:block hidden">
+        <figure className="h-[3rem] w-[3.4rem] md:h-[4.1rem] md:w-[6rem] sm:block hidden">
           <img src={logo2} alt="" className="h-[100%] w-[100%] " />
         </figure>
       </div>
       {/* Links */}
-      <ul className="hidden sm:flex sm:px-3 sm:self-center sm:justify-start sm:min-w-[50%] sm:gap-5 font-poppins ">
-        <li className="sm:text-[20px] font-semibold">
+      <ul className="hidden md:flex md:px-3 md:self-center md:justify-start md:min-w-[50%] md:gap-5 font-poppins ">
+        <li className="md:text-[20px] font-semibold">
           <NavLink className="text-[#fff]" to="/">
             Home
           </NavLink>
         </li>
 
-        <li className="sm:text-[20px] sm:font-semibold ">
+        <li className="md:text-[20px] md:font-semibold ">
           <NavLink to="/about" className="text-[#fff]   ">
             About
           </NavLink>
@@ -53,7 +53,7 @@ const Navbar = () => {
 
       <button
         onClick={toggleMenu}
-        className={`sm:hidden ml-auto text-white focus:outline-none`}
+        className={`md:hidden ml-auto text-white focus:outline-none`}
       >
         {isMenuOpen ? (
           <AiOutlineClose className="text-2xl text-[#b33f05]" />
@@ -65,42 +65,45 @@ const Navbar = () => {
       <ul
         className={`${
           isMenuOpen
-            ? "flex flex-col text-center gap-5 pt-4 px-2 fixed bg-[#f6dec5]  top-[10dvh] left-0 h-[90dvh] w-screen sm:hidden  h-90vh"
+            ? "flex flex-col text-center gap-5 pt-4 px-2 fixed bg-[#f6dec5]  top-[10dvh] left-0 h-[90dvh] w-screen md:hidden  h-90vh"
             : "hidden"
-        } sm:flex sm:flex-row sm:w-30 sm:gap-[30px] `}
+        } md:flex md:flex-row sm:w-30 md:gap-[30px] `}
       >
-        <li className="nav-item sm:hidden">
+        <li className="nav-item md:hidden">
           <NavLink
-            exact
+            end
             to="/"
-            ClassName="text-white font-bold"
+            className={({ isActive }) =>
+              isActive ? "text-white underline" : "text-white "
+            }
             onClick={toggleMenu}
           >
             Home
           </NavLink>
         </li>
-        <li className="nav-item sm:hidden">
+        <li className="nav-item md:hidden">
           <NavLink
-            exact
             to="/about"
-            ClassName="text-white font-bold"
+            className={({ isActive }) =>
+              isActive ? "text-white underline" : "text-white "
+            }
             onClick={toggleMenu}
           >
-          About
+            About
           </NavLink>
         </li>
-        <li className="nav-item font-inter  sm:py-[12px] sm:px-[32px] sm:h-12 sm:w-28   sm:grid sm:place-items-center sm:bg-[#DEAA72] sm:rounded-[5px]  sm:text-[#000] sm:text-[20px] sm:font-semibold  ">
+        <li className="nav-item font-inter  md:py-[12px] md:px-[32px] md:h-12 md:w-28   md:grid md:place-items-center md:bg-[#DEAA72] md:rounded-[5px]  md:text-[#000] md:text-[20px] md:font-semibold  ">
           <Link
             to="/signIn"
-            ClassName="text-white font-bold sm:h-[100%] sm:w-[100%]"
+            ClassName="text-white font-bold md:h-[100%] sm:w-[100%]"
           >
             Login
           </Link>
         </li>
-        <li className="nav-item h-12 w-[100%] sm:w-28 font-inter sm:grid sm:place-items-center sm:bg-[#996D3E] sm:rounded-[5px]  sm:text-[#EAE9E9] sm:text-[20px] sm:font-semibold  ">
+        <li className="nav-item h-12 w-[100%] md:w-28 font-inter md:grid md:place-items-center md:bg-[#996D3E] md:rounded-[5px]  md:text-[#EAE9E9] md:text-[20px] md:font-semibold  ">
           <Link
             to="/signUp"
-            ClassName="text-white font-bold sm:h-[100%] sm:w-[100%] text-center w-[100%]"
+            ClassName="text-white font-bold md:h-[100%] sm:w-[100%] text-center w-[100%]"
           >
             Sign Up
           </Link>

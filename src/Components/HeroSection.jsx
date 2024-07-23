@@ -30,12 +30,12 @@ export default function HeroSection() {
     >
       <div
         id="hero--texts"
-        className="w-[90%] mx-auto mt-[4%] h-[50vh] sm:h-[80%] rounded-[1rem] bg-black bg-opacity-70 p-9 text-white flex flex-col text-center justify-center gap-4 sm:w-[80%] sm:gap-7"
+        className="w-[90%] mx-auto mt-[4%] h-[50vh] md:h-[80%] rounded-[1rem] bg-black bg-opacity-70 p-9 text-white flex flex-col text-center justify-center gap-4 md:w-[80%] md:gap-7"
       >
-        <h1 className=" text-[20px] sm:text-[35px] font-inter  sm:font-normal">
+        <h1 className=" text-[20px] sm:text-[35px] font-inter  md:font-normal">
           Discover Delicious Recipes
         </h1>
-        <p className="self-center p-1 text-[13px]   w-[100%] font-inter md:text-[20px] md:w-[65%] sm:text-[24px]  sm:text-center ">
+        <p className="self-center p-1 text-[13px]   w-[100%] font-inter md:text-[20px] md:w-[65%] sm:text-[24px]  md:text-center ">
           Welcome to Recidish - Your ultimate destination for culinary
           inspiration! Explore a world of flavors and discover mouth-watering
           recipes tailored to your taste buds. Whether you are a seasoned chef
@@ -45,7 +45,7 @@ export default function HeroSection() {
         </p>
         <Link
           to="/signUp"
-          className=" bg-[#996D3E] text-[white] rounded-[10px] self-center  grid place-items-center w-[7rem] h-[2.5rem] font-inter  sm:text-[20px] sm:w-[25%] sm:h-[15%] sm:text-black "
+          className=" bg-[#996D3E] text-[white] rounded-[10px] self-center  grid place-items-center w-[7rem] h-[2.5rem] font-inter  md:text-[20px] md:w-[25%] md:h-[15%] md:text-black "
         >
           Get Started
         </Link>

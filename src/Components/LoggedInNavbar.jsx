@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import profile from "../Recidish_Images/ProfileIcon.svg"
+import profile from "../Recidish_Images/ProfileIcon.svg";
 import logo from "../Recidish_Images/RecidishLogo.png";
 import logo2 from "../Recidish_Images/logoWhite.png";
-
 
 const LoggedInNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // This effect can be removed if you don't need the menu to close on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
@@ -26,66 +24,67 @@ const LoggedInNavbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-    const activeStyles = {
-      fontWeight: "bold",
-      TextDecoration: "underline",
-    };
-
   return (
     <nav
       className={`flex ${isMenuOpen && "sticky top-0 "} px-[4%]
        bg-[#ffffff] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter  sm:px-[10.5%] sm:absolute sm:w-[100%] sm:pt-6 sm:min-h-[11dvh] sm:py-2 z-30 shadow-sm shadow-black sm:shadow-none`}
     >
-      <div className="flex items-center ">
-        <figure className="h-[3rem] w-[3.4rem]  sm:h-[5rem] sm:w-[7rem] relative right-[20%] sm:hidden">
-          <img src={logo} alt="" className="h-[100%] w-[100%] " />
+      <div className="flex items-center">
+        <figure className="h-[3rem] w-[3.4rem] sm:h-[5rem] sm:w-[7rem] relative right-[20%] sm:hidden">
+          <img src={logo} alt="" className="h-[100%] w-[100%]" />
         </figure>
         <figure className="h-[3rem] w-[3.4rem] sm:h-[4.1rem] sm:w-[6rem] sm:block hidden">
-          <img src={logo2} alt="" className="h-[100%] w-[100%] " />
+          <img src={logo2} alt="" className="h-[100%] w-[100%]" />
         </figure>
       </div>
 
-      <ul className="hidden sm:flex sm:px-3 sm:self-center sm:justify-start sm:min-w-[50%] sm:gap-5 font-poppins ">
+      <ul className="hidden sm:flex sm:px-3 sm:self-center sm:justify-start sm:min-w-[50%] sm:gap-5 font-poppins">
         <li className="sm:text-[20px]">
           <NavLink
-            className="text-[#fff]"
+          end
+            className={({ isActive }) =>
+              isActive ? "text-[#fff]  underline" : "text-[#fff]"
+            }
             to="/loggedIn"
-            Style={({ isActive }) => (isActive ? activeStyles : null)}
           >
             Home
           </NavLink>
         </li>
         <li className="sm:text-[20px] sm:font-normal">
           <NavLink
+            className={({ isActive }) =>
+              isActive ? "text-[#fff] underline" : "text-[#fff]"
+            }
             to="/loggedIn/Recipes"
-            className="text-[#fff]"
-            Style={({ isActive }) => (isActive ? activeStyles : null)}
           >
             Recipes
           </NavLink>
         </li>
         <li className="sm:text-[20px] sm:font-normal">
-          <NavLink className="text-[#fff]">Premium</NavLink>
+          <NavLink
+          to=""
+            className={ "text-[#fff]"
+            }
+          >
+            Premium
+          </NavLink>
         </li>
-        <li className="sm:text-[20px] ">
-          <NavLink to="/addRecipe" className="text-[#fff] sm:font-normal ">
+        <li className="sm:text-[20px]">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? " text-white underline" : "text-[#fff]"
+            }
+            to="/addRecipe"
+          >
             Add Recipes
           </NavLink>
         </li>
-
-        <li className="sm:text-[20px] ">
-          <NavLink
-            onClick={() => localStorage.setItem("isLoggedIn", "false")}
-            className="text-[#fff] sm:font-normal "
-          >
-            Log out
-          </NavLink>
-        </li>
+        <li className="sm:text-[20px]"></li>
       </ul>
-      {/*  */}
+
       <button
         onClick={toggleMenu}
-        className={`sm:hidden ml-auto text-white focus:outline-none`}
+        className="sm:hidden ml-auto text-white focus:outline-none"
       >
         {isMenuOpen ? (
           <AiOutlineClose className="text-2xl text-[#b33f05]" />
@@ -97,37 +96,52 @@ const LoggedInNavbar = () => {
       <ul
         className={`${
           isMenuOpen
-            ? "flex flex-col items-center text-[20px] gap-5 pt-4 px-2 fixed bg-[#f6dec5]  top-[10dvh] left-0 h-[90dvh] w-screen sm:hidden  h-90vh"
+            ? "flex flex-col items-center text-[20px] gap-5 pt-4 px-2 fixed bg-[#f6dec5] top-[10dvh] left-0 h-[90dvh] w-screen sm:hidden"
             : "hidden"
-        } sm:flex sm:flex-row sm:w-30 sm:gap-[30px]  `}
+        } sm:flex sm:flex-row sm:w-30 sm:gap-[30px]`}
       >
         <li className="nav-item sm:hidden">
-          <Link
+          <NavLink
             to="/loggedIn"
-            ClassName="text-white font-bold"
+            className={({ isActive }) =>
+              isActive
+                ? "text-black font-bold underline"
+                : "text-white font-bold"
+            }
             onClick={toggleMenu}
           >
             Home
-          </Link>
+          </NavLink>
         </li>
         <li className="nav-item sm:hidden">
           <NavLink
             to="/loggedIn/Recipes"
-            ClassName="text-white font-bold"
+            className={({ isActive }) =>
+              isActive
+                ? "text-black font-bold underline"
+                : "text-white font-bold"
+            }
             onClick={toggleMenu}
           >
             Recipes
           </NavLink>
         </li>
         <li className="nav-item sm:hidden">
-          <NavLink to="" ClassName="text-white font-bold" onClick={toggleMenu}>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "text-black font-bold underline"
+                : "text-white font-bold"
+            }
+            onClick={toggleMenu}
+          >
             Premium
           </NavLink>
         </li>
         <li className="nav-item sm:hidden">
           <NavLink
             to="/addRecipe"
-            ClassName="text-white font-bold"
+           
             onClick={toggleMenu}
           >
             Add Recipes
@@ -136,16 +150,16 @@ const LoggedInNavbar = () => {
 
         <li
           id="navItem"
-          className="nav-item  flex gap-2 sm:w-[8rem] sm:h-[3rem]sm:items-center "
+          className="nav-item flex gap-2 sm:w-[8rem] sm:h-[3rem] sm:items-center"
         >
-          <Link ClassName="font-bold  flex h-[100%] w-[100%] sm:h-[100%] sm:w-[100%]  ">
+          <Link className="font-bold flex h-[100%] w-[100%] sm:h-[2.5rem] sm:w-[2.5rem]">
             <img
               src={profile}
               alt=""
-              className="sm:w-[100%] sm:h-[100%] sm:bg-white sm:rounded-[50%] "
+              className="sm:w-[100%] sm:h-[100%] sm:bg-white sm:rounded-[50%]"
             />
           </Link>
-          <p className="inline font-inter sm:text-[20px] sm:text-white ">
+          <p className="inline font-inter sm:text-[20px] sm:text-white">
             Profile
           </p>
         </li>

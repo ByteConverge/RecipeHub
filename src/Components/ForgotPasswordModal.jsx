@@ -49,33 +49,33 @@ const ForgotPasswordModal = ({closeModal}) => {
             onClick={() => {
               closeModal(false);
             }}
-            className="absolute top-2 right-2 text-red-500 hover:text-red-700"
+            className="absolute top-2 right-3 text-black "
           >
             <FaTimes className="text-xl" />
           </button>
-          <h3 className="text-2xl font-bold mb-6 text-center text-teal-600">
+          <h3 className="text-2xl font-poppinsMedium   mb-4 text-center text-black">
             Forgot Password
           </h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label
                 htmlFor="email"
-                className="block text-gray-700 text-sm font-bold mb-2"
+                className="block  text-sm font-poppins mb-2"
               >
                 Email Address:
               </label>
               <input
                 type="email"
                 id="email"
-                className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-4 py-3 border rounded-lg focus:ring-black focus:outline-black  "
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
+                required 
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-teal-500 text-white py-3 rounded-lg font-semibold hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-[#a18361] text-white py-3 rounded-lg font-semibold hover:bg-[#a18361]focus:outline-none focus:ring-2 focus:ring-[#a18361] disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isLoading}
             >
               {isLoading ? "Sending..." : "Request Password Reset"}

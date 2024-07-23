@@ -63,32 +63,32 @@ const ResetPassword = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#f6dec5]">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-indigo-600">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-[90%] max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center text-black font-poppins">
           Reset Password
         </h2>
-        {error && <p className="text-red-600 mb-4">{error}</p>}
+        {error && <p className="text-red-600 mb-4 font-poppins">{error}</p>}
         {success && <p className="text-green-600 mb-4">{success}</p>}
         <form onSubmit={handleResetPassword}>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block text-gray-700 text-sm font-bold mb-2 font-poppins">
               New Password:
             </label>
             <input
               type={showPassword ? "text" : "password"}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block text-gray-700 text-sm font-bold mb-2 font-poppins">
               Confirm Password:
             </label>
             <input
               type={showPassword ? "text" : "password"}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
@@ -101,13 +101,13 @@ const ResetPassword = () => {
               checked={showPassword}
               onChange={() => setShowPassword(!showPassword)}
             />
-            <label className="ml-2 block text-gray-700 text-sm">
+            <label className="ml-2 block text-gray-700 text-sm font-poppins">
               Show Password
             </label>
           </div>
           <button
             type="submit"
-            className="w-full  text-white py-2 rounded-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-black"
+            className="w-full  text-white py-2 rounded-lg hover:bg-[#6c5742]  focus:outline-none focus:ring-2 focus:ring-black bg-[#7d6348] font-poppins"
           >
             Reset Password
           </button>
