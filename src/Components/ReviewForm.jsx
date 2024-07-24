@@ -39,7 +39,7 @@ export default function ReviewForm({ id }) {
   };
 
   return (
-    <form className="mt-9 mx-auto" onSubmit={handleSubmit}>
+    <form className="mt-9 mx-auto pl-3 " onSubmit={handleSubmit}>
       <textarea
         name="reply"
         id=""

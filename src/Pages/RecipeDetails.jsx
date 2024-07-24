@@ -53,18 +53,21 @@ export default function LoggedIn() {
         {Post.title}
       </h1>
       <div className="font-poppins ">
-        <h1 className="font-bold font-inter">Ingredients:</h1>
+        <h1 className="font-bold font-poppins">Ingredients:</h1>
         <div className="font-poppins md:leading-[30px]  md:px-[6%] ">{Post.ingredients}</div>
       </div>
 
-      <div className="font-inter  ">
+      <div className="font-poppins">
         <h2 className="font-bold font-poppins">How to prepare:</h2>
-        <ul className="list-decimal pl-4 font-poppins md:pl-[2.5rem] md:leading-[30px] ">
+        <ul className="list-disc pl-6 px-4 font-poppins md:pl-[2.5rem] md:leading-[30px] ">
           {stepsArray.map((step, index) => (
             <li key={index} className="mt-2 ">
               {step}
             </li>
           ))}
+          {/* {
+            Post.text
+          } */}
         </ul>
         {/* review */}
         {Post && <ReviewForm id={id} />}
