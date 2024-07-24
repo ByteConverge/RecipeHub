@@ -9,17 +9,17 @@ export default function AboutPage() {
       {/* Homepage body */}
       <main className="px-[4%] min-h-[50vh] my-2 sm:w-[95%] sm:mx-auto">
         <div id="what we offer" className="sm:min-h-[5vh]  ">
-          <h1 className="text-[#996D3E] sm:text-[40px] font-poppins">
+          <h1 className="text-[#996D3E] sm:text-[40px] font-poppins text-[20px] font-medium">
             What we offer
           </h1>
-          <p className="sm:text-[24px] sm:font-[400] font-inter text-justify ">
+          <p className="sm:text-[24px] sm:font-[400] font-poppins text-justify ">
             At Recidish, we provide a comprehensive collection of authentic
             Nigerian recipes, complete with detailed instructions, ingredient
             lists, and cooking tips. Our goal is to make it easy for you to
             recreate the flavors of Nigeria in your own kitchen, no matter where
             you are in the world.
           </p>
-          <ul className="sm:text-[24px] sm:font-[400] list-inside font-inter pl-5 ">
+          <ul className="sm:text-[24px] sm:font-[400] list-inside font-poppins pl-2 pr-3 ">
             <li className="list-disc text-justify">
               Authentic Recipes: Each recipe on our site is carefully curated to
               ensure authenticity and taste. From traditional classics to modern
