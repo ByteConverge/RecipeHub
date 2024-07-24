@@ -115,9 +115,11 @@ const AddRecipeForm = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-4 p-6 bg-gray-800 text-white rounded-lg shadow-lg w-full max-w-3xl mx-auto font-inter font-light"
+        className="flex flex-col gap-2 w-[90%] mx-auto md:w-[40%]"
       >
-        <h1 className="text-2xl font-bold text-center mb-4">Add Recipe Form</h1>
+        <h1 className="text-2xl font-bold text-center  font">
+          Add Recipe Form
+        </h1>
         {attemptedSubmit && Object.keys(formErrors).length > 0 && (
           <p className="text-red-500 text-center text-sm rounded">
             All fields must be filled
@@ -125,31 +127,22 @@ const AddRecipeForm = () => {
         )}
 
         {/* Form input fields */}
-        <div className="flex flex-col gap-4">
-          <div className="flex gap-3 w-full justify-center">
-            <label className="flex items-center gap-1">
+        <div className="flex flex-col gap-2">
+          {/*  */}
+          <div className="flex gap-3 w-full justify-center ">
+            <label className=" h-[2rem] flex items-center gap-1 ">
               <input
                 type="radio"
                 name="category"
                 value="rice"
                 checked={formData.category === "rice"}
                 onChange={handleChange}
-                className="form-radio text-[#b0906e]"
+                className="form-radio text-[#b0906e] self-center"
               />
-              Rice
+              <p className="self-center ">Rice</p>
             </label>
-            <label className="flex items-center gap-1">
-              <input
-                type="radio"
-                name="category"
-                value="snacks"
-                checked={formData.category === "snacks"}
-                onChange={handleChange}
-                className="form-radio text-[#b0906e]"
-              />
-              Snacks
-            </label>
-            <label className="flex items-center gap-1">
+
+            <label className="flex items-center gap-1 h-[2rem]">
               <input
                 type="radio"
                 name="category"
@@ -158,9 +151,9 @@ const AddRecipeForm = () => {
                 onChange={handleChange}
                 className="form-radio text-[#b0906e]"
               />
-              Soup
+              <p className="self-center ">Soup</p>
             </label>
-            <label className="flex items-center gap-1">
+            <label className="flex items-center gap-1 h-[2rem]">
               <input
                 type="radio"
                 name="category"
@@ -169,59 +162,59 @@ const AddRecipeForm = () => {
                 onChange={handleChange}
                 className="form-radio text-[#b0906e]"
               />
-              Stew
+              <p className="self-center ">Stew</p>
             </label>
           </div>
+          {/*  */}
 
-          <div className="flex flex-col gap-2">
-            <label className="font-semibold">Recipe Title:</label>
+          <div className="flex flex-col gap-1">
+            <label className="font-poppins font-bold">Name of Dish:</label>
             <input
               type="text"
               name="title"
               value={formData.title}
               onChange={handleChange}
-              className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+              className="p-2 border  rounded-lg bg-white border-black  focus:outline-none focus:border-black"
             />
           </div>
 
-          <div className="flex flex-col gap-2">
-            <label className="font-semibold">Ingredients:</label>
+          <div className="flex flex-col gap-1">
+            <label className="font-poppins font-bold">Ingredients:</label>
             <textarea
               name="ingredients"
               value={formData.ingredients}
               onChange={handleChange}
-              className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+              className="p-2 border border-black rounded-lg bg-white focus:outline-none focus:border-black h-[3rem]"
               rows="3"
             />
           </div>
 
-          <div className="flex flex-col gap-2">
-            <label className="font-semibold">Steps:</label>
+          <div className="flex flex-col gap-1">
+            <label className="font-poppins font-bold">Steps:</label>
             <textarea
               name="text"
               value={formData.text}
               onChange={handleChange}
-              className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+              className="p-2 border border-black rounded-lg bg-white focus:outline-none focus:border-black"
               rows="5"
             />
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <label className="font-semibold">Image:</label>
             <input
               type="file"
               name="img"
               onChange={handleChange}
-              className="p-2 border border-gray-300 rounded-lg bg-gray-700 focus:outline-none focus:border-white"
+              className="p-2 border border-gray-300 rounded-lg bg-[#DEAA72] focus:outline-none focus:border-white"
             />
           </div>
         </div>
 
         <button
           type="submit"
-          className={`mt-4 py-2 px-4 rounded-lg text-white ${
+          className={`w-[60%] mx-auto mt-2 py-2 px-4 rounded-lg text-white ${
             loading
               ? "bg-[#996D3E] cursor-not-allowed"
-              : "bg-[#b0906e] hover:bg-[#a07956]"
+              : "bg-[#996D3E] hover:bg-[#a07956]"
           }`}
           disabled={loading || Object.keys(formErrors).length > 0}
         >

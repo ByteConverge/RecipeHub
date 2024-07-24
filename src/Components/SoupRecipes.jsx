@@ -50,7 +50,7 @@ export default function RiceRecipes() {
             <ClipLoader size={50} color={"black"} loading={loading} />
           </div>
         ) : Posts.length === 0 ? (
-          <p className="text-center text-black text-[1rem] mt-[1rem] font-poppins block w-[100%] sm:w-[100%]">
+          <p className="text-center text-black text-[1rem]  mt-[1rem] font-poppins font-light block w-[100%]  md:text-[2rem] md:w-[100%]">
             No Recipe found
           </p>
         ) : (
