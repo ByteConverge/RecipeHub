@@ -39,7 +39,7 @@ export default function LoggedIn() {
   return (
     <div
       id="cards"
-      className="px-4 sm:px-8 lg:px-[6%] min-h-[10vh] my-4 mt-10 flex flex-col py-4 md:gap-2   md:py-4 md:w-[95%] mx-auto lg:items-start md:"
+      className="px-[4%] sm:px-8 lg:px-[6%] min-h-[10vh] my-4 mt-10 flex flex-col py-4 md:gap-2   md:py-4 md:w-[95%] mx-auto lg:items-start md:"
     >
       <figure className="w-full h-[15rem] md:h-[20rem] md:w-[30rem]">
         <img
