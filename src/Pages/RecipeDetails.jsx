@@ -52,9 +52,9 @@ export default function LoggedIn() {
       <h1 className="text-xl text-[27px] md:text-[48px]  text-center lg:text-left font-inter font-medium md:font-medium mt-2 sm:mt-4 lg:mt-4 text-gray-800 italic">
         {Post.title}
       </h1>
-      <div className="text-base sm:text-lg lg:text-xl text-justify lg:text-left sm:text-center font-poppins sm:px-0 mt-2 sm:mt-4 lg:mt-4 text-gray-700 ">
+      <div className="    text-justify lg:text-left sm:text-center font-poppins sm:px-[6%] mt-2 sm:mt-4  ">
         <h1 className="font-bold font-poppins">Ingredients:</h1>
-        <div className="md:leading-[30px]">{Post.ingredients}</div>
+        <div className="md:leading-[30px] px-[4%] md:px-[6%]">{Post.ingredients}</div>
       </div>
 
       <div className="text-base sm:text-lg lg:text-xl text-justify lg:text-left sm:text-center font-poppins  sm:px-0 mt-2 sm:mt-4 lg:mt-4 text-gray-700 ">
