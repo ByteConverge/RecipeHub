@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 // import Body from "../Components/Body";
-
+import ReviewForm from "../Components/ReviewForm";
 export default function LoggedIn() {
   const [Post, setPost] = useState({});
   let { id } = useParams();
@@ -66,6 +66,11 @@ export default function LoggedIn() {
             </li>
           ))}
         </ul>
+        {/* review */}
+      
+        <ReviewForm id={id}/>
+
+      
       </div>
     </div>
   );

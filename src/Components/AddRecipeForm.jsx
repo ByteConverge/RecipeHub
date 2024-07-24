@@ -115,11 +115,9 @@ const AddRecipeForm = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-2 w-[90%] mx-auto md:w-[40%]"
+        className="flex flex-col gap-2 w-[93%] mx-auto md:w-[90%]"
       >
-        <h1 className="text-2xl font-bold text-center  font">
-          Add Recipe Form
-        </h1>
+        <h1 className="text-2xl font-bold text-center  ">Add Recipe</h1>
         {attemptedSubmit && Object.keys(formErrors).length > 0 && (
           <p className="text-red-500 text-center text-sm rounded">
             All fields must be filled
@@ -168,7 +166,7 @@ const AddRecipeForm = () => {
           {/*  */}
 
           <div className="flex flex-col gap-1">
-            <label className="font-poppins font-bold">Name of Dish:</label>
+            <label className="font-poppins font-medium">Name of Dish:</label>
             <input
               type="text"
               name="title"
@@ -179,7 +177,7 @@ const AddRecipeForm = () => {
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="font-poppins font-bold">Ingredients:</label>
+            <label className="font-poppins font-medium">Ingredients:</label>
             <textarea
               name="ingredients"
               value={formData.ingredients}
@@ -190,7 +188,7 @@ const AddRecipeForm = () => {
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="font-poppins font-bold">Steps:</label>
+            <label className="font-poppins font-medium">Steps:</label>
             <textarea
               name="text"
               value={formData.text}
