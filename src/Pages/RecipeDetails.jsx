@@ -59,7 +59,7 @@ export default function LoggedIn() {
 
       <div className="font-inter  ">
         <h2 className="font-bold font-poppins">How to prepare:</h2>
-        <ul className="list-decimal pl-5 font-inter md:pl-[2.5rem] md:leading-[30px] ">
+        <ul className="list-decimal px-6 font-inter md:pl-[2.5rem] md:leading-[30px] ">
           {stepsArray.map((step, index) => (
             <li key={index} className="mt-2 ">
               {step}
