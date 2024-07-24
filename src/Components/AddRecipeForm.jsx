@@ -174,7 +174,7 @@ const AddRecipeForm = () => {
               name="title"
               value={formData.title}
               onChange={handleChange}
-              className=" border  rounded-lg bg-white border-black  focus:outline-none focus:border-black"
+              className="p-2 border  rounded-lg bg-white border-black  focus:outline-none focus:border-black"
             />
           </div>
 
@@ -184,7 +184,7 @@ const AddRecipeForm = () => {
               name="ingredients"
               value={formData.ingredients}
               onChange={handleChange}
-              className=" border border-black rounded-lg bg-white focus:outline-none focus:border-black h-[3rem]"
+              className="p-2 border border-black rounded-lg bg-white focus:outline-none focus:border-black h-[3rem]"
               rows="3"
             />
           </div>
@@ -195,7 +195,7 @@ const AddRecipeForm = () => {
               name="text"
               value={formData.text}
               onChange={handleChange}
-              className=" border border-black rounded-lg bg-white focus:outline-none focus:border-black"
+              className="p-2 border border-black rounded-lg bg-white focus:outline-none focus:border-black"
               rows="5"
             />
           </div>
@@ -204,7 +204,7 @@ const AddRecipeForm = () => {
               type="file"
               name="img"
               onChange={handleChange}
-              className=" border border-gray-300 rounded-lg bg-[#DEAA72] focus:outline-none focus:border-white"
+              className="p-2 border border-gray-300 rounded-lg bg-[#DEAA72] focus:outline-none focus:border-white"
             />
           </div>
         </div>
