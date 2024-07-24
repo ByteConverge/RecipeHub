@@ -53,12 +53,12 @@ export default function LoggedIn() {
         {Post.title}
       </h1>
       <div className="text-base sm:text-lg lg:text-xl text-justify lg:text-left sm:text-center font-poppins sm:px-0 mt-2 sm:mt-4 lg:mt-4 text-gray-700 ">
-        <h1 className="font-poppinsMedium">Ingredients:</h1>
+        <h1 className="font-bold font-poppins">Ingredients:</h1>
         <div className="md:leading-[30px]">{Post.ingredients}</div>
       </div>
 
       <div className="text-base sm:text-lg lg:text-xl text-justify lg:text-left sm:text-center font-poppins  sm:px-0 mt-2 sm:mt-4 lg:mt-4 text-gray-700 ">
-        <h2 className="font-poppinsMedium">How to prepare:</h2>
+        <h2 className="font-bold font-poppins">How to prepare:</h2>
         <ul className="list-disc pl-5 md:pl-[2.5rem] md:leading-[30px] ">
           {stepsArray.map((step, index) => (
             <li key={index} className="mt-2">
@@ -67,12 +67,7 @@ export default function LoggedIn() {
           ))}
         </ul>
         {/* review */}
-      {Post  &&
-
-        <ReviewForm id={id}/>
-      }
-
-      
+        {Post && <ReviewForm id={id} />}
       </div>
     </div>
   );
