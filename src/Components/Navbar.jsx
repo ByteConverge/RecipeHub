@@ -39,13 +39,23 @@ const Navbar = () => {
       {/* Links */}
       <ul className="hidden md:flex md:px-3 md:self-center md:justify-start md:min-w-[50%] md:gap-5 font-poppins ">
         <li className="md:text-[20px] font-semibold">
-          <NavLink className="text-[#fff]" to="/">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "text-white underline" : "text-white "
+            }
+            to="/"
+          >
             Home
           </NavLink>
         </li>
 
         <li className="md:text-[20px] md:font-semibold ">
-          <NavLink to="/about" className="text-[#fff]   ">
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? "text-white underline" : "text-white "
+            }
+          >
             About
           </NavLink>
         </li>
@@ -70,23 +80,14 @@ const Navbar = () => {
         } md:flex md:flex-row sm:w-30 md:gap-[30px] `}
       >
         <li className="nav-item md:hidden">
-          <NavLink
-            end
-            to="/"
-            className={({ isActive }) =>
-              isActive ? "text-white underline" : "text-white "
-            }
-            onClick={toggleMenu}
-          >
+          <NavLink end to="/" onClick={toggleMenu}>
             Home
           </NavLink>
         </li>
         <li className="nav-item md:hidden">
           <NavLink
             to="/about"
-            className={({ isActive }) =>
-              isActive ? "text-white underline" : "text-white "
-            }
+           
             onClick={toggleMenu}
           >
             About

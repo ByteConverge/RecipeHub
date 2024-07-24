@@ -6,7 +6,7 @@ export default function LoggedIn() {
   const [Post, setPost] = useState({});
   let { id } = useParams();
   let jwt = localStorage.getItem("token");
-
+    console.log(id);
   useEffect(() => {
     async function fetchPost() {
       const response = await fetch(
@@ -67,8 +67,10 @@ export default function LoggedIn() {
           ))}
         </ul>
         {/* review */}
-      
+      {Post  &&
+
         <ReviewForm id={id}/>
+      }
 
       
       </div>
