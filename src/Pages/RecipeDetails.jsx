@@ -49,17 +49,17 @@ export default function LoggedIn() {
         />
       </figure>
 
-      <h1 className="text-xl text-[27px] md:text-[48px]  text-center lg:text-left font-inter font-medium md:font-medium mt-2 sm:mt-4 lg:mt-4 text-gray-800 italic">
+      <h1 className="text-xl text-[27px] md:text-[48px]  text-center lg:text-left font-poppins font-bold md:font-medium mt-2 sm:mt-4 lg:mt-4 text-gray-800 italic">
         {Post.title}
       </h1>
-      <div className="font-inter ">
+      <div className="font-poppins ">
         <h1 className="font-bold font-inter">Ingredients:</h1>
         <div className="font-poppins md:leading-[30px]  md:px-[6%] ">{Post.ingredients}</div>
       </div>
 
       <div className="font-inter  ">
         <h2 className="font-bold font-poppins">How to prepare:</h2>
-        <ul className="list-decimal px-6 font-inter md:pl-[2.5rem] md:leading-[30px] ">
+        <ul className="list-decimal pl-4 font-poppins md:pl-[2.5rem] md:leading-[30px] ">
           {stepsArray.map((step, index) => (
             <li key={index} className="mt-2 ">
               {step}
