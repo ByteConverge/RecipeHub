@@ -39,7 +39,7 @@ export default function LoggedIn() {
   return (
     <div
       id="cards"
-      className="px-[4%] sm:px-8 lg:px-[6%] min-h-[10vh] my-4 mt-10 flex flex-col py-4 md:gap-2   md:py-[6%] md:w-[95%] mx-auto lg:items-start md:"
+      className="px-[4.5%] sm:px-8 lg:px-[6%] min-h-[10vh] my-4 mt-10 flex flex-col py-4 md:gap-2   md:py-[6%] md:w-[95%] mx-auto lg:items-start md:"
     >
       <figure className="w-full h-[15rem] md:h-[20rem] md:w-[30rem]">
         <img
@@ -52,14 +52,14 @@ export default function LoggedIn() {
       <h1 className="text-xl text-[27px] md:text-[48px]  text-center lg:text-left font-inter font-medium md:font-medium mt-2 sm:mt-4 lg:mt-4 text-gray-800 italic">
         {Post.title}
       </h1>
-      <div className="font-poppins ">
-        <h1 className="font-bold font-poppins">Ingredients:</h1>
+      <div className="font-inter ">
+        <h1 className="font-bold font-inter">Ingredients:</h1>
         <div className="font-poppins md:leading-[30px]  md:px-[6%] ">{Post.ingredients}</div>
       </div>
 
-      <div className="font-poppins ">
+      <div className="font-inter  ">
         <h2 className="font-bold font-poppins">How to prepare:</h2>
-        <ul className="list-disc pl-5 font-poppins md:pl-[2.5rem] md:leading-[30px] ">
+        <ul className="list-decimal pl-5 font-inter md:pl-[2.5rem] md:leading-[30px] ">
           {stepsArray.map((step, index) => (
             <li key={index} className="mt-2 ">
               {step}
