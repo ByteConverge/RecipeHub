@@ -12,7 +12,7 @@ export default function AboutPage() {
           <h1 className="text-[#996D3E] sm:text-[40px] font-poppins text-[20px] font-medium">
             What we offer
           </h1>
-          <p className="sm:text-[24px] sm:font-[400] font-poppins text-justify ">
+          <p className="sm:text-[21px] sm:font-[400] font-poppins text-justify ">
             At Recidish, we provide a comprehensive collection of authentic
             Nigerian recipes, complete with detailed instructions, ingredient
             lists, and cooking tips. Our goal is to make it easy for you to
@@ -32,7 +32,7 @@ export default function AboutPage() {
               Whether you are a novice cook or an experienced chef, you will
               find everything you need to create delicious Nigerian meals.
             </li>
-            <li className="list-disc text-justify">
+            <li className="list-disc text-justify ">
               Community Engagement: We believe that food brings people together.
               Our platform allows you to share your own recipes, rate and review
               others, and connect with fellow Nigerian food enthusiasts. Join
