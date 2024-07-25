@@ -26,6 +26,7 @@ const AddRecipeForm = () => {
     if (name === "title" && !value) error = "Title is required";
     if (name === "ingredients" && !value) error = "Ingredients are required";
     if (name === "text" && !value) error = "Steps are required";
+     if (name === "img" && !value) error = "Image is required";
     return error;
   };
 

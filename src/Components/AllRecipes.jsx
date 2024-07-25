@@ -66,7 +66,7 @@ export default function AllRecipes() {
         } sm:gap-x-16 sm:gap-y-8`}
       >
         {filteredPosts.length > 0 ? (
-          filteredPosts.map((post) => {
+          [...filteredPosts].reverse().map((post) => {
             let slicedSteps = post.text.slice(0, 10);
 
             let img;
