@@ -30,13 +30,13 @@ export default function LoggedIn() {
     fetchPost();
   }, [jwt, id]);
 
-const getStepsArray = (text) => {
-  if (!text) return [];
-  return text
-    .split(/(?<=\d\.)\s|\.\s|\n/)
-    .filter(Boolean)
-    .map((step) => step.trim());
-};
+  const getStepsArray = (text) => {
+    if (!text) return [];
+    return text
+      .split(/\d+\.\s|\.\s|\n/)
+      .filter(Boolean)
+      .map((step) => step.trim());
+  };
 
   const stepsArray = getStepsArray(Post.text);
 
@@ -78,7 +78,7 @@ const getStepsArray = (text) => {
             <h2 className="font-bold font-poppins md:text-[35px] md:font-medium">
               How to prepare:
             </h2>
-            <ul className="list-none pl-6 px-4 font-poppins md:pl-[2.5rem] md:leading-[35px] md:text-[25px] ">
+            <ul className="list-disc pl-6 px-4 font-poppins md:pl-[2.5rem] md:leading-[35px] md:text-[25px] ">
               {stepsArray.map((step, index) => (
                 <li key={index} className="mt-2 ">
                   {step}
