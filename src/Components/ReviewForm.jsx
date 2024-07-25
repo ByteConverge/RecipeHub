@@ -1,14 +1,15 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function ReviewForm({ id }) {
+export default function ReviewForm({ id , modal }) {
   const [text, setReply] = useState("");
+
   let jwt = localStorage.getItem("token");
 
-  useEffect(() => {
-    console.log(id);
-  }, [id]);
+  
+    console.log('Id' , id);
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,14 +17,14 @@ export default function ReviewForm({ id }) {
 
     try {
       const response = await fetch(
-        `https://recidishbackend.onrender.com/post/reply/${id}`,
+        `https://recidishbackend.onrender.com/api/post/reply/${id}`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${jwt}`,
           },
-          body: JSON.stringify({ text : text }), // Directly sending the text
+          body: JSON.stringify({ text : text }), 
         }
       );
 
@@ -31,8 +32,13 @@ export default function ReviewForm({ id }) {
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
+      }else if (response.ok){
+        modal(true)
+        setTimeout(() => {
+          modal(false)
+        }, 4000);
       }
-
+       
       const data = await response.json();
       console.log("Success:", data);
 
@@ -49,7 +55,7 @@ export default function ReviewForm({ id }) {
         name="text"
         id=""
         placeholder="Leave us a review"
-        className="h-[150px] w-[60%] p-3 font-inter bg-[#F7EEEE] rounded-xl md:w-[500px] md:h-[394px] md:rounded-[14px]"
+        className="h-[150px] w-[60%] p-3 font-inter bg-[#F7EEEE] rounded-xl md:w-[500px] md:h-[200px] md:rounded-[14px]"
         value={text}
         onChange={(e) => setReply(e.target.value)}
       ></textarea>
