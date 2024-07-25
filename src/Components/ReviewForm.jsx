@@ -12,7 +12,7 @@ export default function ReviewForm({ id }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(Text);
+    console.log(text);
 
     try {
       const response = await fetch(
@@ -23,7 +23,7 @@ export default function ReviewForm({ id }) {
             "Content-Type": "application/json",
             Authorization: `Bearer ${jwt}`,
           },
-          body: JSON.stringify({ text }), // Directly sending the text
+          body: JSON.stringify({ text : text }), // Directly sending the text
         }
       );
 

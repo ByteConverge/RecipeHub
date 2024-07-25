@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { useParams , useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  let jwt  = useParams()
-  let navigate = useNavigate()
-  console.log(jwt.reset);
-  let reset = jwt.reset;
+
+  let { reset } = useParams();
+  console.log("logged",reset);
+  console.log(useParams());
+  let navigate = useNavigate();
 
   const validatePassword = (password) => {
     const passwordRegex =
@@ -20,6 +22,8 @@ const ResetPassword = () => {
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
+    setError("");
+    setSuccess("");
 
     if (!validatePassword(password)) {
       setError(
@@ -39,25 +43,29 @@ const ResetPassword = () => {
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ password: password }),
+          body: JSON.stringify({
+            passwordtoken: reset,
+            password: password,
+          }),
         }
       );
-      if (response.status === 200) {
-        setSuccess("Password reset successfully");
-        setPassword("");
-        setConfirmPassword("");
-        setError("");
-        setTimeout(() => {
-          navigate("/signIn")  
-        }, 2000);
-      } else {
-        setError("Error resetting password");
-        console.log(response);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Error: ${response.status} - ${errorText}`);
       }
-      //   console.log(response.data);
+
+      const data = await response.json();
+      console.log(data);
+      setSuccess("Password reset successfully");
+      setPassword("");
+      setConfirmPassword("");
+      setTimeout(() => {
+        navigate("/signIn");
+      }, 2000);
     } catch (err) {
-      setError("Error resetting password");
-      console.log(err);
+      console.error("Error resetting password:", err);
+      setError(err.message || "Error resetting password");
     }
   };
 
@@ -107,7 +115,7 @@ const ResetPassword = () => {
           </div>
           <button
             type="submit"
-            className="w-full  text-white py-2 rounded-lg hover:bg-[#6c5742]  focus:outline-none focus:ring-2 focus:ring-black bg-[#7d6348] font-poppins"
+            className="w-full text-white py-2 rounded-lg hover:bg-[#6c5742] focus:outline-none focus:ring-2 focus:ring-black bg-[#7d6348] font-poppins"
           >
             Reset Password
           </button>
