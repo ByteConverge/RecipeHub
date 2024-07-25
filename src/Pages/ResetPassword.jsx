@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -10,7 +11,7 @@ const ResetPassword = () => {
   const [success, setSuccess] = useState("");
 
   let { reset } = useParams();
-  console.log("logged",reset);
+  console.log("logged", reset);
   let navigate = useNavigate();
 
   const validatePassword = (password) => {
@@ -51,14 +52,12 @@ const ResetPassword = () => {
 
       if (!response.ok) {
         const errorText = await response.text();
-        throw new Error(`Error: ${response.status} - ${errorText}`);
       }
 
       const data = await response.json();
       console.log(data);
       setSuccess("Password reset successfully");
-      setPassword("");
-      setConfirmPassword("");
+
       setTimeout(() => {
         navigate("/signIn");
       }, 2000);
@@ -74,8 +73,16 @@ const ResetPassword = () => {
         <h2 className="text-2xl font-bold mb-6 text-center text-black font-poppins">
           Reset Password
         </h2>
-        {error && <p className="text-red-600 mb-4 font-poppins">{error}</p>}
-        {success && <p className="text-green-600 mb-4">{success}</p>}
+        {error && (
+          <p className="text-red-600 mb-4 font-poppins text-[10px] md:text-[12px]">
+            {error}
+          </p>
+        )}
+        {success && (
+          <p className="text-green-600 mb-4 text-[10px] md:text-[12px]">
+            {success}
+          </p>
+        )}
         <form onSubmit={handleResetPassword}>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2 font-poppins">
