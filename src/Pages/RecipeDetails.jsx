@@ -30,13 +30,15 @@ export default function LoggedIn() {
     fetchPost();
   }, [jwt, id]);
 
-const getStepsArray = (text) => {
-  if (!text) return [];
-  return text
-    .split(/(?<=\d\.)\s|\.\s|\n/)
-    .filter(Boolean)
-    .map((step) => step.trim());
-};
+  const getStepsArray = (text) => {
+    if (!text) return [];
+    return text
+      .split(/\d+\.\s|\.\s|\n/)
+      .filter(Boolean)
+      .map((step) => step.trim());
+  };
+
+  
 
   const stepsArray = getStepsArray(Post.text);
 
