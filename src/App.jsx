@@ -14,6 +14,10 @@ import RiceRecipes from "./Components/RiceRecipes";
 import RecipeDetails from "./Pages/RecipeDetails";
 import ResetPassword from "./Pages/ResetPassword";
 import AboutPage from "./Pages/AboutPage";
+import Profile from "./Pages/Profile";
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -81,6 +85,12 @@ function App() {
           }
         />
         <Route path="/reset/:reset"  element={<ResetPassword />}/>
+        {/* profile */}
+        <Route path="/dashboard" element={<Profile />}>
+          
+         </Route>
+
+
       </Routes>
     </BrowserRouter>
   );

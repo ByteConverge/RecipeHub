@@ -140,7 +140,7 @@ const LoggedInNavbar = () => {
           id="navItem"
           className="nav-item flex gap-2 sm:w-[8rem] sm:h-[3rem] sm:items-center"
         >
-          <Link className="font-bold flex h-[100%] w-[100%] sm:h-[2.5rem] sm:w-[2.5rem]">
+          <Link to='/dashboard' className="font-bold flex h-[100%] w-[100%] sm:h-[2.5rem] sm:w-[2.5rem]">
             <img
               src={profile}
               alt=""

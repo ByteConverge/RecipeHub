@@ -67,20 +67,20 @@ export default function LoggedIn() {
           <h1 className="text-xl text-[27px] md:text-[48px]  text-center lg:text-left font-inter font-bold  md:font-bold my-2 sm:mt-4 lg:mt-4 text-gray-800 italic md:mb-[2rem] ">
             {Post.title}
           </h1>
-          <div className="font-poppins ">
-            <h1 className=" font-bold font-poppins md:text-[30px] md:font-medium">
+          <div className="font-inter ">
+            <h1 className=" font-bold font-inter md:text-[30px] md:font-medium">
               Ingredients:
             </h1>
-            <div className="font-poppins md:leading-[35px]  md:text-justify md:text-[25px]">
+            <div className="font-inter md:leading-[35px]  md:text-justify md:text-[25px]">
               {Post.ingredients}
             </div>
           </div>
 
-          <div className="font-poppins">
-            <h2 className="font-bold font-poppins md:text-[35px] md:font-medium">
+          <div className="font-inter">
+            <h2 className="font-bold font-inter md:text-[30px] md:font-medium">
               How to prepare:
             </h2>
-            <ul className="list-disc pl-6 px-4 font-poppins md:pl-[2.5rem] md:leading-[35px] md:text-[25px] ">
+            <ul className="list-disc pl-6 px-4 font-inter md:pl-[2.5rem] md:leading-[35px] md:text-[25px] ">
               {stepsArray.map((step, index) => (
                 <li key={index} className="mt-2 ">
                   {step}

@@ -49,11 +49,11 @@ export default function ReviewForm({ id }) {
         name="text"
         id=""
         placeholder="Leave us a review"
-        className="h-[150px] w-[60%] p-3 font-poppins bg-[#F7EEEE] rounded-xl md:w-[500px] md:h-[394px] md:rounded-[14px]"
+        className="h-[150px] w-[60%] p-3 font-inter bg-[#F7EEEE] rounded-xl md:w-[500px] md:h-[394px] md:rounded-[14px]"
         value={text}
         onChange={(e) => setReply(e.target.value)}
       ></textarea>
-      <p className="font-poppins text-[#32201C] md:text-[20px] md:font-normal">
+      <p className="font-inter text-[#32201C] md:text-[20px] md:font-normal">
         Do you recommend this recipe?
       </p>
       <div className="flex gap-10 w-[50%]">
