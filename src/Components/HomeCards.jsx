@@ -8,7 +8,7 @@ export default function HomeCards({title , recipeImg , steps , review}) {
   return (
     <div
       id="card"
-      className="border-[1px] solid border-black bg-[#F7EEEE] rounded-[1rem] pb-2 h-[40vh] sm:min-h-[65vh]"
+      className="border-[1px] solid border-black bg-[#F7EEEE] rounded-[1rem]  h-[40vh] sm:min-h-[65vh]"
     >
       <figure className="h-[75%] sm:h-[75%]">
         <img
@@ -28,7 +28,7 @@ export default function HomeCards({title , recipeImg , steps , review}) {
         <p className="text-[10px] w-[60%] font-inter font-light sm:text-[14px] ">
          {steps}
         </p>
-        <div className="absolute bottom-[3%] right-4 gap-1 flex items-center md:bottom-0 p-2"> 
+        <div className="absolute bottom-[10%] right-4 gap-1 flex items-center md:bottom-[10%] "> 
           {review}
           <img src={comment} alt="" className="h-[1rem]"/>
         </div>

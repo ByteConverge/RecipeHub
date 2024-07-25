@@ -68,6 +68,7 @@ export default function AllRecipes() {
         {filteredPosts.length > 0 ? (
           [...filteredPosts].reverse().map((post) => {
             let slicedSteps = post.text.slice(0, 10);
+            let slicedTitle = post.title.slice(0, 25);
 
             let img;
             if (!post.img && post.category === "rice") {
@@ -83,7 +84,8 @@ export default function AllRecipes() {
             return (
               <Link key={post._id} to={`/loggedIn/recipeDetails/${post._id}`}>
                 <HomeCards
-                  title={post.title}
+                  key={post._id}
+                  title={slicedTitle}
                   recipeImg={img}
                   steps={slicedSteps}
                   review={post.replies.length}

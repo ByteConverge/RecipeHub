@@ -60,6 +60,7 @@ export default function RiceRecipes() {
                 .reverse()
                 .map((post) => {
                   let slicedSteps = post.text.slice(0, 50);
+                  let slicedTitle = post.title.slice(0, 25);
 
                   let img;
                   if (!post.img && post.category === "rice") {
@@ -78,8 +79,8 @@ export default function RiceRecipes() {
                       to={`/loggedIn/recipeDetails/${post._id}`}
                     >
                       <HomeCards
-                        key={post.id}
-                        title={post.title}
+                        key={post._id}
+                        title={slicedTitle}
                         recipeImg={img}
                         steps={slicedSteps}
                         review={post.replies.length}

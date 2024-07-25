@@ -74,7 +74,7 @@ export default function LoggedIn() {
               return (
                 <Link key={post._id} to={`/loggedIn/recipeDetails/${post._id}`}>
                   <HomeCards
-                    key={post.id}
+                    key={post._id}
                     title={slicedTitle}
                     recipeImg={img}
                     steps={slicedSteps}
