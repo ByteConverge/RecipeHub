@@ -47,6 +47,7 @@ export default function LoggedIn() {
   
 
   const stepsArray = getStepsArray(Post.text);
+     
 
   return (
     <>

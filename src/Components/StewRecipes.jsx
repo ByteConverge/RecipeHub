@@ -82,6 +82,7 @@ export default function RiceRecipes() {
                         title={post.title}
                         recipeImg={img}
                         steps={slicedSteps}
+                        review={post.replies.length}
                       />
                     </Link>
                   );

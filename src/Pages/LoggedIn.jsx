@@ -77,6 +77,8 @@ export default function LoggedIn() {
                     title={post.title}
                     recipeImg={img}
                     steps={slicedSteps}
+                    review={post.replies.length}
+
                   />
                 </Link>
               );

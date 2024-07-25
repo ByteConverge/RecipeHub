@@ -86,6 +86,7 @@ export default function AllRecipes() {
                   title={post.title}
                   recipeImg={img}
                   steps={slicedSteps}
+                  review={post.replies.length}
                 />
               </Link>
             );
