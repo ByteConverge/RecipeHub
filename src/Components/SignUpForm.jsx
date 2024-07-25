@@ -6,170 +6,167 @@ import googleImg from "../Recidish_Images/googleLogo.svg";
 import facebookImg from "../Recidish_Images/fb-sign.svg";
 
 export default function SignUpForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    password: "",
+    confirmPassword: "",
+    email: "",
+  });
 
-       const [formData, setFormData] = useState({
-         name: "",
-         password: "",
-         confirmPassword: "",
-         email: "",
-       });
+  const [errors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-       const [errors, setErrors] = useState({});
-       const [isSubmitted, setIsSubmitted] = useState(false);
-       const [isModalOpen, setIsModalOpen] = useState(false);
-       const [showPassword, setShowPassword] = useState(false);
-       const [isLoading, setIsLoading] = useState(false);
-      
-       const navigate = useNavigate();
+  const navigate = useNavigate();
 
-       const validateEmail = (email) => {
-         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-         return emailPattern.test(email);
-       };
+  const validateEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
 
-       const validatePassword = (password) => {
-         const passwordPattern =
-           /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/;
-         return passwordPattern.test(password);
-       };
+  const validatePassword = (password) => {
+    const passwordPattern =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~=`{}[\]:";'<>?,./])[A-Za-z\d!@#$%^&*()_+|~=`{}[\]:";'<>?,./]{6,10}$/;
+    return passwordPattern.test(password);
+  };
 
-       const validate = () => {
-         let tempErrors = {};
+  //  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
-         if (!validateEmail(formData.email)) {
-           tempErrors.email = "Email is not valid.";
-         }
+  const validate = () => {
+    let tempErrors = {};
 
-         if (!validatePassword(formData.password)) {
-           tempErrors.password =
-             "Password must be 6-10 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.";
-         }
+    if (!validateEmail(formData.email)) {
+      tempErrors.email = "Email is not valid.";
+    }
 
-         if (formData.password !== formData.confirmPassword) {
-           tempErrors.confirmPassword = "Passwords do not match.";
-         }
+    if (!validatePassword(formData.password)) {
+      tempErrors.password =
+        "Password must be 6-10 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.";
+    }
 
-         setErrors(tempErrors);
-         return Object.keys(tempErrors).length === 0;
-       };
+    if (formData.password !== formData.confirmPassword) {
+      tempErrors.confirmPassword = "Passwords do not match.";
+    }
 
-       const handleChange = (e) => {
-         let { name, value } = e.target;
-         setFormData({ ...formData, [name]: value });
-       };
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
 
-       const handleBlur = (e) => {
-         const { name, value } = e.target;
-         let tempErrors = { ...errors };
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-         if (name === "email" && !validateEmail(value)) {
-           tempErrors.email = "Email is not valid.";
-         } else {
-           delete tempErrors.email;
-         }
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    let tempErrors = { ...errors };
 
-         if (name === "password" && !validatePassword(value)) {
-           tempErrors.password =
-             "Password must be 6-10 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.";
-         } else {
-           delete tempErrors.password;
-         }
+    if (name === "email" && !validateEmail(value)) {
+      tempErrors.email = "Email is not valid.";
+    } else {
+      delete tempErrors.email;
+    }
 
-         setErrors(tempErrors);
-       };
+    if (name === "password" && !validatePassword(value)) {
+      tempErrors.password =
+        "Password must be 6-10 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.";
+    } else {
+      delete tempErrors.password;
+    }
 
-       const handleSubmit = async (e) => {
-         e.preventDefault();
-         const { name, email, password, confirmPassword } = formData;
+    setErrors(tempErrors);
+  };
 
-         // Basic validation
-         if (!name || !email || !password || !confirmPassword) {
-           setErrors((prevErrors) => ({
-             ...prevErrors,
-             form: "All fields are required",
-           }));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { name, email, password, confirmPassword } = formData;
 
-           setTimeout(() => {
-             setErrors((prevErrors) => ({
-               ...prevErrors,
-               form: "",
-             }));
-           }, 2000);
-           return;
-         }
-         if (!validateEmail(email)) {
-           return;
-         }
-         if (!validatePassword(password)) {
-           return;
-         }
+    // Basic validation
+    if (!name || !email || !password || !confirmPassword) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        form: "All fields are required",
+      }));
 
-         if (password !== confirmPassword) {
-           setErrors((prevErrors) => ({
-             ...prevErrors,
-             confirmPassword: "Passwords do not match",
-           }));
-           setFormData((prevData) => ({
-             ...prevData,
-             confirmPassword: "",
-           }));
-           return;
-         } else {
-           setErrors((prevErrors) => ({
-             ...prevErrors,
-             confirmPassword: "",
-           }));
-           setErrors((prevErrors) => ({
-             ...prevErrors,
-             form: "",
-           }));
-         }
+      setTimeout(() => {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          form: "",
+        }));
+      }, 2000);
+      return;
+    }
+    if (!validateEmail(email)) {
+      return;
+    }
+    if (!validatePassword(password)) {
+      return;
+    }
 
-       
+    if (password !== confirmPassword) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        confirmPassword: "Passwords do not match",
+      }));
+      setFormData((prevData) => ({
+        ...prevData,
+        confirmPassword: "",
+      }));
+      return;
+    } else {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        confirmPassword: "",
+      }));
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        form: "",
+      }));
+    }
 
-         if (validate()) {
-           setIsLoading(true);
-           try {
-             const response = await fetch(
-               "https://recidishbackend.onrender.com/api/auth/register",
-               {
-                 method: "POST",
-                 headers: {
-                   "Content-Type": "application/json",
-                 },
-                 body: JSON.stringify(formData),
-               }
-             );
+    if (validate()) {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          "https://recidishbackend.onrender.com/api/auth/register",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
 
-             setIsLoading(false);
+        setIsLoading(false);
 
-             if (response.ok) {
-               setIsSubmitted(true);
-               setIsModalOpen(true);
-               window.localStorage.setItem("isLoggedIn", "true");
-               setTimeout(() => {
-                 navigate("/signIn");
-               }, 3000);
-             } else {
-               setErrors({ api: "User with Email already exist" });
-               setTimeout(() => {
-                 setErrors({ api: "" });
-               }, 6000);
-               console.log(response);
-             }
+        if (response.ok) {
+          setIsSubmitted(true);
+          setIsModalOpen(true);
+          window.localStorage.setItem("isLoggedIn", "true");
+          setTimeout(() => {
+            navigate("/signIn");
+          }, 3000);
+        } else {
+          setErrors({ api: "User with Email already exist" });
+          setTimeout(() => {
+            setErrors({ api: "" });
+          }, 6000);
+          console.log(response);
+        }
 
-             const data = await response.json();
+        const data = await response.json();
 
-             console.log(data);
-           } catch (error) {
-             setIsLoading(false);
-             setErrors({ api: "failed to signup " });
-             console.log(error);
-           }
-         }
-       };
-
-
+        console.log(data);
+      } catch (error) {
+        setIsLoading(false);
+        setErrors({ api: "failed to signup " });
+        console.log(error);
+      }
+    }
+  };
 
   return (
     <>

@@ -37,20 +37,20 @@ export default function SignInForm() {
     return emailPattern.test(email);
   };
 
-  const validatePassword = (password) => {
-    const passwordPattern =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/;
-    return passwordPattern.test(password);
-  };
+  // const validatePassword = (password) => {
+  //   const passwordPattern =
+  //     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,10}$/;
+  //   return passwordPattern.test(password);
+  // };
 
   const validate = () => {
     let tempErrors = {};
     if (!validateEmail(formData.email)) {
       tempErrors.email = "Email is not valid.";
     }
-    if (!validatePassword(formData.password)) {
-      tempErrors.password = "Password is not valid.";
-    }
+    // if (!validatePassword(formData.password)) {
+    //   tempErrors.password = "Password is not valid.";
+    // }
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
