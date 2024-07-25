@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
+// src/components/ProtectedRoute.js
 
 import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
-  const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
+  const token = localStorage.getItem("token");
 
-  if (!isAuthenticated) {
-    return <Navigate to="/" />;
+  if (!token) {
+    
+    return <Navigate to="/signIn" replace />;
   }
 
+  
   return children;
 };
 

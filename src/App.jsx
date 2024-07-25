@@ -1,3 +1,5 @@
+// src/App.js
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./Pages/Homepage";
 import SignInPage from "./Pages/SignInPage";
@@ -15,8 +17,7 @@ import RecipeDetails from "./Pages/RecipeDetails";
 import ResetPassword from "./Pages/ResetPassword";
 import AboutPage from "./Pages/AboutPage";
 import Profile from "./Pages/Profile";
-
-
+import ProtectedRoute from "./Components/AuthRoutes/ProtectedRoutes";
 
 function App() {
   return (
@@ -28,16 +29,16 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
         </Route>
 
-        {/* Logged In */}
+        {/* Protected routes */}
         <Route
           path="/loggedIn"
           element={
-           
+            <ProtectedRoute>
               <LoggedInLayout />
-         
+            </ProtectedRoute>
           }
         >
-          <Route index element= { <LoggedIn />} />
+          <Route index element={<LoggedIn />} />
           <Route path="/loggedIn/Recipes" element={<Recipes />}>
             <Route index element={<AllRecipes />} />
             <Route
@@ -55,42 +56,39 @@ function App() {
           </Route>
         </Route>
         {/* recipes Details */}
-            <Route path="/loggedIn/recipeDetails/:id" element={<RecipeDetails />} />
+        <Route
+          path="/loggedIn/recipeDetails/:id"
+          element={
+            <ProtectedRoute>
+              <RecipeDetails />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Pages details */}
         <Route
           path="/addRecipe"
           element={
-            
+            <ProtectedRoute>
               <AddRecipes />
-            
+            </ProtectedRoute>
           }
         />
 
-        {/* Redirect if authenticated */}
+        {/* Public pages */}
+        <Route path="/signIn" element={<SignInPage />} />
+        <Route path="/signUp" element={<SignUpPage />} />
+        <Route path="/reset/:reset" element={<ResetPassword />} />
+
+        {/* Profile */}
         <Route
-          path="/signIn"
+          path="/dashboard"
           element={
-          
-              <SignInPage />
-          
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
           }
         />
-        <Route
-          path="/signUp"
-          element={
-          
-              <SignUpPage />
-          
-          }
-        />
-        <Route path="/reset/:reset"  element={<ResetPassword />}/>
-        {/* profile */}
-        <Route path="/dashboard" element={<Profile />}>
-          
-         </Route>
-
-
       </Routes>
     </BrowserRouter>
   );
