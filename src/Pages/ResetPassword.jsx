@@ -11,7 +11,6 @@ const ResetPassword = () => {
 
   let { reset } = useParams();
   console.log("logged",reset);
-  console.log(useParams());
   let navigate = useNavigate();
 
   const validatePassword = (password) => {
