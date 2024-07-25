@@ -81,7 +81,7 @@ export default function AllRecipes() {
             }
 
             return (
-              <Link key={post._id} to={`/loggedIn/Recipes/${post._id}`}>
+              <Link key={post._id} to={`/loggedIn/recipeDetails/${post._id}`}>
                 <HomeCards
                   title={post.title}
                   recipeImg={img}

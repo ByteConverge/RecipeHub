@@ -48,9 +48,10 @@ function App() {
               path="/loggedIn/Recipes/stewRecipes"
               element={<StewRecipes />}
             />
-            <Route path="/loggedIn/Recipes/:id" element={<RecipeDetails />} />
           </Route>
         </Route>
+        {/* recipes Details */}
+            <Route path="/loggedIn/recipeDetails/:id" element={<RecipeDetails />} />
 
         {/* Pages details */}
         <Route

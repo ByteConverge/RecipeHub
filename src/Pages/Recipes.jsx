@@ -43,7 +43,7 @@ export default function Recipes() {
                 : linkClassNames
             }
           >
-            Recommended
+            All Recipes
           </NavLink>
         </li>
         <li>

@@ -73,7 +73,10 @@ export default function RiceRecipes() {
                   }
 
                   return (
-                    <Link key={post._id} to={`/loggedIn/Recipes/${post._id}`}>
+                    <Link
+                      key={post._id}
+                      to={`/loggedIn/recipeDetails/${post._id}`}
+                    >
                       <HomeCards
                         key={post.id}
                         title={post.title}

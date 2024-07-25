@@ -3,49 +3,54 @@
 import { useState, useEffect } from "react";
 
 export default function ReviewForm({ id }) {
-  const [reply, setReply] = useState("");
-   let jwt = localStorage.getItem("token");
+  const [text, setReply] = useState("");
+  let jwt = localStorage.getItem("token");
+
   useEffect(() => {
     console.log(id);
   }, [id]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    
-   let   replies = [reply] // Wrapping the single reply in an array
-  
+    console.log(Text);
 
     try {
       const response = await fetch(
         `https://recidishbackend.onrender.com/post/reply/${id}`,
         {
-         
-          method: "PATCH",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${jwt}`,
           },
-          body: JSON.stringify(replies),
+          body: JSON.stringify({ text }), // Directly sending the text
         }
       );
+
+      console.log(response);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
       console.log("Success:", data);
+
       // Clear the input field after successful submission
       setReply("");
     } catch (error) {
-      console.error(error);
+      console.error("Error:", error);
     }
   };
 
   return (
-    <form className="mt-9 mx-auto pl-3 " onSubmit={handleSubmit}>
+    <form className="mt-9 mx-auto" onSubmit={handleSubmit}>
       <textarea
-        name="reply"
+        name="text"
         id=""
         placeholder="Leave us a review"
         className="h-[150px] w-[60%] p-3 font-poppins bg-[#F7EEEE] rounded-xl md:w-[500px] md:h-[394px] md:rounded-[14px]"
-        value={reply}
+        value={text}
         onChange={(e) => setReply(e.target.value)}
       ></textarea>
       <p className="font-poppins text-[#32201C] md:text-[20px] md:font-normal">
