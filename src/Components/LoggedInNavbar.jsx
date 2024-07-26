@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import profile from "../Recidish_Images/ProfileIcon.svg";
 import logo from "../Recidish_Images/RecidishLogo.png";
-import logo2 from "../Recidish_Images/logoWhite.png";
+// import logo2 from "../Recidish_Images/logoWhite.png";
 
 const LoggedInNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +34,7 @@ const LoggedInNavbar = () => {
           <img src={logo} alt="" className="h-[100%] w-[100%]" />
         </figure>
         <figure className="h-[3rem] w-[3.4rem] sm:h-[4.1rem] sm:w-[6rem] sm:block hidden">
-          <img src={logo2} alt="" className="h-[100%] w-[100%]" />
+          <img src={logo} alt="" className="h-[100%] w-[100%]" />
         </figure>
       </div>
 

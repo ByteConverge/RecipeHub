@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import logo from "../Recidish_Images/RecidishLogo.png"
-import logo2 from "../Recidish_Images/recipeHub.png"
+// import logo2 from "../Recidish_Images/recipeHub.png"
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -33,7 +33,7 @@ const Navbar = () => {
           <img src={logo} alt="" className="h-[100%] w-[100%] " />
         </figure>
         <figure className="h-[3rem] w-[3.4rem] md:h-[4.1rem] md:w-[6rem] sm:block hidden">
-          <img src={logo2} alt="" className="h-[100%] w-[100%] " />
+          <img src={logo} alt="" className="h-[100%] w-[100%] " />
         </figure>
       </div>
       {/* Links */}

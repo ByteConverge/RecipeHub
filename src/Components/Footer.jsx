@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Xlogo from "../Recidish_Images/Xlogo.svg";
 import facebookLogo from "../Recidish_Images/facebookLogo.svg";
 import googleLogo from "../Recidish_Images/googleLogo.svg";
-import logoWhite from "../Recidish_Images/logoWhite.png";
+import logo from "../Recidish_Images/RecidishLogo.png";
 
 let currentYear = new Date().getFullYear();
 
@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="flex w-full flex-col md:flex-row items-center justify-between sm:justify-start md:pl-16 gap-4 md:gap-4 mb-6">
         <figure className=" md:w-28   h-[3rem] w-[3.4rem] sm:h-[4.1rem] sm:w-[6rem] grid place-items-center">
           <img
-            src={logoWhite}
+            src={logo}
             alt="Recidish Logo"
             className="h-[3ren] w-[4rem] sm:w-[7rem] sm:h-[5rem]"
           />
