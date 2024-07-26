@@ -28,7 +28,7 @@ export default function HomeCards({title , recipeImg , steps , review}) {
         <p className="text-[10px] w-[60%] font-inter font-light sm:text-[14px] ">
          {steps}
         </p>
-        <div className=" p-3 pr-6 absolute bottom-[10%] right-4 gap-1 flex items-center md:bottom-[10%] "> 
+        <div className=" p-3 pr-3 absolute bottom-[10%] right-4 gap-1 flex items-center md:bottom-[10%] "> 
           {review}
           <img src={comment} alt="" className="h-[1rem]"/>
         </div>
