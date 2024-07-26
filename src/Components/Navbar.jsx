@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav
       className={`flex ${isMenuOpen && "sticky top-0 "} px-[4%]
-       bg-[#ffffff] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter md:px-[10.5%] md:absolute md:w-[100%] md:pt-6 md:min-h-[11dvh] md:py-2 shadow-sm shadow-black md:shadow-none`}
+       bg-[#ffffff] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter md:px-[10.5%] md:absolute md:w-[100%] md:pt-6 md:min-h-[11dvh] md:py-2 shadow-sm shadow-black md:shadow-none z-50`}
     >
       <div className="flex items-center ">
         <figure className="h-[2rem] w-[2rem] sm:h-[3rem] sm:w-[3.7rem] sm:block ">
