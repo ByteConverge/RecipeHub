@@ -2,11 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  FaFacebook,
-  FaCheckCircle,
-  FaExclamationCircle,
-} from "react-icons/fa";
+import { FaFacebook, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import ForgotPasswordModal from "./ForgotPasswordModal";
 import Modal from "./Modal";
 import googleImg from "../Recidish_Images/googleLogo.svg";
@@ -28,7 +24,7 @@ export default function SignInForm() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [isForgotPwdModal , setisForgotPwdModal] = useState(false)
+  const [isForgotPwdModal, setisForgotPwdModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -113,7 +109,12 @@ export default function SignInForm() {
         }
         const data = await response.json();
         console.log(data);
+
         localStorage.setItem("token", data.accessToken);
+
+        console.log(data.user._id);
+
+        localStorage.setItem("userId", data.user._id);
       } catch (error) {
         setIsLoading(false);
         setErrors({ api: "Poor Network. Try again! " });
@@ -230,7 +231,14 @@ export default function SignInForm() {
                   Show password
                 </label>
               </span>
-              <span className="font-poppins text-[13px] cursor-pointer" onClick={()=>{setisForgotPwdModal(true)}}>Forgot password?</span>
+              <span
+                className="font-poppins text-[13px] cursor-pointer"
+                onClick={() => {
+                  setisForgotPwdModal(true);
+                }}
+              >
+                Forgot password?
+              </span>
             </div>
           </div>
           {/* Sign Up button */}
@@ -255,18 +263,12 @@ export default function SignInForm() {
           </div>
         </div>
       </form>
-     { isModalOpen &&
-
-       <Modal
-         topMessage="Success"
-         message="Login successful."
-       />
-
-     }
-     {isForgotPwdModal &&
-      <ForgotPasswordModal closeModal={setisForgotPwdModal} />
-     }
-      
+      {isModalOpen && (
+        <Modal topMessage="Success" message="Login successful." />
+      )}
+      {isForgotPwdModal && (
+        <ForgotPasswordModal closeModal={setisForgotPwdModal} />
+      )}
     </>
   );
 }
