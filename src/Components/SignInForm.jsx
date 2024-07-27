@@ -112,6 +112,7 @@ export default function SignInForm() {
           console.log(response);
         }
         const data = await response.json();
+        console.log(data);
         localStorage.setItem("token", data.accessToken);
       } catch (error) {
         setIsLoading(false);

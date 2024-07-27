@@ -158,6 +158,8 @@ export default function SignUpForm() {
         }
 
         const data = await response.json();
+        console.log(data.newUser._id);
+        localStorage.setItem("userId", data.newUser._id);
 
         console.log(data);
       } catch (error) {
