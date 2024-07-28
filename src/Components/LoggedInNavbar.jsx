@@ -119,7 +119,7 @@ const LoggedInNavbar = () => {
         </li>
         <li className="nav-item sm:hidden">
           <NavLink
-           
+           to='/payment'
             // onClick={toggleMenu}
           >
             Premium
