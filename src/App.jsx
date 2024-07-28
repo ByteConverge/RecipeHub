@@ -19,6 +19,8 @@ import ResetPassword from "./Pages/ResetPassword";
 import AboutPage from "./Pages/AboutPage";
 import Profile from "./Pages/Profile";
 import ProtectedRoute from "./Components/AuthRoutes/ProtectedRoutes";
+import Payment from "./Components/PaymentComponents/InitializePayment";
+import VerifyPayment from "./Components/PaymentComponents/Verify";
 
 function App() {
   return (
@@ -90,6 +92,17 @@ function App() {
             </ProtectedRoute>
           }
         />
+        {/* paymentRoutes */}
+        <Route path="/payment" element={
+          <ProtectedRoute>
+            <Payment />
+          </ProtectedRoute>
+          }/>
+        <Route path="/verify" element={
+          <ProtectedRoute>
+            <VerifyPayment />
+          </ProtectedRoute>
+          } />
       </Routes>
     </BrowserRouter>
   );

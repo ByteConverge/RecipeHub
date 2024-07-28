@@ -61,7 +61,7 @@ const LoggedInNavbar = () => {
         </li>
         <li className="sm:text-[20px] sm:font-normal">
           <NavLink
-          to=""
+          to="/payment"
             className={ "text-[#fff]"
             }
           >
