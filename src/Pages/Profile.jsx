@@ -41,7 +41,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gradient-to-r from-[#DEAA72] to-[#996D3e] p-4">
+    <div className="min-h-screen flex flex-col items-center bg-gradient-to-r bg-[#f3e2d0]  p-4">
       <div className="w-full md:max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden">
         <div className="flex flex-col md:flex-row md:items-center p-6 bg-[#DEAA72] text-white">
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0 md:w-1/2">
