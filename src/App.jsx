@@ -9,7 +9,8 @@ import LoggedInLayout from "./Pages/LoggedInLayout";
 import Recipes from "./Pages/Recipes";
 import LoggedIn from "./Pages/LoggedIn";
 import AddRecipes from "./Pages/AddRecipes";
-import AllRecipes from "./Components/AllRecipes";
+// import AllRecipes from "./Components/AllRecipes";
+import Recommended from "./Components/AllRecipes";
 import StewRecipes from "./Components/StewRecipes";
 import SoupRecipes from "./Components/SoupRecipes";
 import RiceRecipes from "./Components/RiceRecipes";
@@ -40,7 +41,7 @@ function App() {
         >
           <Route index element={<LoggedIn />} />
           <Route path="/loggedIn/Recipes" element={<Recipes />}>
-            <Route index element={<AllRecipes />} />
+            <Route index element={<Recommended />} />
             <Route
               path="/loggedIn/Recipes/riceRecipes"
               element={<RiceRecipes />}

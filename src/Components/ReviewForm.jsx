@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import Recommend from "./Recommend";
 
 export default function ReviewForm({ id , modal }) {
   const [text, setReply] = useState("");
+  const [isloading , setIsLoading] = useState(false)
 
   let jwt = localStorage.getItem("token");
 
@@ -11,10 +13,14 @@ export default function ReviewForm({ id , modal }) {
     console.log('Id' , id);
 
 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(text);
-
+    if(text.trim().length === 0){
+       return
+    }
+      setIsLoading(true)
     try {
       const response = await fetch(
         `https://recidishbackend.onrender.com/api/post/reply/${id}`,
@@ -33,6 +39,7 @@ export default function ReviewForm({ id , modal }) {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }else if (response.ok){
+        setIsLoading(false)
         modal(true)
         setTimeout(() => {
           modal(false)
@@ -62,21 +69,15 @@ export default function ReviewForm({ id , modal }) {
       <p className="font-inter text-[#32201C] md:text-[20px] md:font-normal">
         Do you recommend this recipe?
       </p>
-      <div className="flex gap-10 w-[50%]">
-        <div id="no" className="flex gap-1">
-          <p>No</p>
-          <input type="radio" name="recommendation" value="no" />
-        </div>
-        <div id="yes" className="flex gap-1">
-          <p>Yes</p>
-          <input type="radio" name="recommendation" value="yes" />
-        </div>
-      </div>
+      <Recommend id={id} />
       <button
+        disabled={isloading ? true : false}
         type="submit"
-        className="bg-[#996D3E] h-[2rem] w-[50%] text-white rounded-[1rem] md:h-[41px] md:text-[15px]"
+        className={`${
+          isloading ? "bg-[#ddb284]" : "bg-[#996D3E]"
+        } h-[2rem] w-[50%] text-white rounded-[1rem] md:h-[41px] md:text-[15px]`}
       >
-        Submit
+        {isloading ? "submiting " : "submit"}
       </button>
     </form>
   );

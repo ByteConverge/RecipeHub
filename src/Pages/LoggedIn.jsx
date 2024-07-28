@@ -4,16 +4,18 @@ import HomeCards from "../Components/HomeCards";
 import riceGeneral from "../Recidish_Images/CoconutRice.jpg";
 import soupGeneral from "../Recidish_Images/BitterLeafSoup.jpg";
 import stew from "../Recidish_Images/stew.jpg";
-
 import { useEffect, useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 export default function LoggedIn() {
-  const [Posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
   let jwt = localStorage.getItem("token");
 
   useEffect(() => {
-    async function fetchBored() {
+    async function fetchPosts() {
       const response = await fetch(
         `https://recidishbackend.onrender.com/api/post/`,
         {
@@ -23,71 +25,76 @@ export default function LoggedIn() {
         }
       );
 
-      //   console.log(response);
-
       const data = await response.json();
-
-      console.log(data.posts);
       setPosts(data.posts);
+      setFilteredPosts(data.posts);
     }
 
-    fetchBored();
+    fetchPosts();
   }, [jwt]);
+
+  useEffect(() => {
+    if (searchTerm) {
+      const filtered = posts.filter((post) =>
+        post.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredPosts(filtered);
+    } else {
+      setFilteredPosts(posts);
+    }
+  }, [searchTerm, posts]);
 
   return (
     <Body>
-      <div
-        id="Recipes"
-        className="px-[4%] min-h-[5vh]   mt-[1rem] flex gap-4 justify-center items-center   md:mx-auto md:w-[95%] md:flex md:justify-start md:gap-3 md:min-h-[10vh] "
-      >
-        <h1 className="text-[20px] text-[#996D3E] font-semibold md:font-inter md:text-[50px]  md:font-normal  md:min-h-3">
-          Recent Recipes
-        </h1>
-      
+      <div className="px-[6%] min-h-[1vh] my-3 flex justify-start gap-2 sm:w-[95%] sm:mx-auto sm:my-7 sm:gap-[7px] sm:flex">
+        <div className="relative w-full sm:w-[30rem]">
+          <input
+            type="text"
+            placeholder="Search recipes..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full sm:h-[8vh] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-[#966d59] sm:text-[24px] sm:font-poppins"
+          />
+          <FaSearch className="absolute top-3 right-3 text-gray-500" />
+        </div>
       </div>
-      {/*  */}
+
       <div
         id="cards"
-        className={`px-[4%] min-h-[10vh] my-2  mb-[1rem] flex flex-col gap-2  sm:mx-auto sm:w-[95%] sm:grid ${
-          Posts.length === 0 ? "sm:grid-cols-1" : "sm:grid-cols-3"
-        } sm:gap-x-16 sm:gap-y-8 `}
+        className={`px-[4%] min-h-[10vh] my-2 mb-[1rem] flex flex-col gap-2 sm:mx-auto sm:w-[95%] sm:grid ${
+          filteredPosts.length === 0 ? "sm:grid-cols-1" : "sm:grid-cols-3"
+        } sm:gap-x-16 sm:gap-y-8`}
       >
-        {Posts &&
-          [...Posts]
-            .reverse()
-            .slice(0, 4)
-            .map((post) => {
-              let slicedSteps = post.text.slice(0, 50);
-              let slicedTitle = post.title.slice(0,25)
+        {filteredPosts.length > 0 ? (
+          [...filteredPosts].reverse().map((post) => {
+            let slicedSteps = post.text.slice(0, 10);
+            let slicedTitle = post.title.slice(0, 25);
 
-              let img;
-              if (!post.img && post.category === "rice") {
-                img = riceGeneral;
-              } else if (!post.img && post.category == "soup") {
-                img = soupGeneral;
-              } else if (!post.img && post.category == "stew") {
-                img = stew;
-              } else if (post.img) {
-                img = post.img;
-              }
+            let img;
+            if (!post.img && post.category === "rice") {
+              img = riceGeneral;
+            } else if (!post.img && post.category === "soup") {
+              img = soupGeneral;
+            } else if (!post.img && post.category === "stew") {
+              img = stew;
+            } else if (post.img) {
+              img = post.img;
+            }
 
-              return (
-                <Link key={post._id} to={`/loggedIn/recipeDetails/${post._id}`}>
-                  <HomeCards
-                    key={post._id}
-                    title={slicedTitle}
-                    recipeImg={img}
-                    steps={slicedSteps}
-                    review={post.replies.length}
-
-                  />
-                </Link>
-              );
-            })}
-        {Posts.length === 0 && (
-          <p className="text-center text-[1rem] mt-[1rem] font-poppins block  w-[100%] sm:w-[100%]">
-            Loading Posts...
-          </p>
+            return (
+              <Link key={post._id} to={`/loggedIn/recipeDetails/${post._id}`}>
+                <HomeCards
+                  key={post._id}
+                  title={slicedTitle}
+                  recipeImg={img}
+                  steps={slicedSteps}
+                  review={post.replies.length}
+                />
+              </Link>
+            );
+          })
+        ) : (
+          <p className="text-center text-lg mt-4">No search results found</p>
         )}
       </div>
     </Body>
