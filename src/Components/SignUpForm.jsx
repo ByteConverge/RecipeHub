@@ -149,7 +149,7 @@ export default function SignUpForm() {
           setTimeout(() => {
             navigate("/signIn");
           }, 3000);
-        } else {
+        } else if (!response.ok){
           setErrors({ api: "User with Email already exist" });
           setTimeout(() => {
             setErrors({ api: "" });
@@ -164,6 +164,7 @@ export default function SignUpForm() {
         console.log(data);
       } catch (error) {
         setIsLoading(false);
+        
         setErrors({ api: "failed to signup " });
         console.log(error);
       }

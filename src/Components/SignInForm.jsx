@@ -117,7 +117,7 @@ export default function SignInForm() {
         localStorage.setItem("userId", data.user._id);
       } catch (error) {
         setIsLoading(false);
-        setErrors({ api: "Poor Network. Try again! " });
+        setErrors({ api: "Failed to login " });
         setTimeout(() => {
           setErrors({ api: " " });
         }, 3000);
