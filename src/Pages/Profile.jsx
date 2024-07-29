@@ -75,7 +75,7 @@ const Profile = () => {
         </div>
         <div className="p-6">
           <h3 className="text-lg md:text-2xl font-semibold text-gray-800 font-inter mb-4">
-            Favorite Recipes
+            
           </h3>
           {/* <ul className="mt-2 space-y-2">
             <li className="p-2 bg-gray-100 rounded-md">Spaghetti Carbonara</li>
