@@ -65,6 +65,7 @@ export default function SignInForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = formData;
+
     if (!email || !password) {
       setErrors((prevErrors) => ({
         ...prevErrors,
@@ -92,7 +93,11 @@ export default function SignInForm() {
             body: JSON.stringify(formData),
           }
         );
+
         setIsLoading(false);
+
+        const data = await response.json();
+
         if (response.ok) {
           setIsSubmitted(true);
           setIsModalOpen(true);
@@ -100,26 +105,20 @@ export default function SignInForm() {
           setTimeout(() => {
             navigate("/loggedIn");
           }, 3000);
+
+          localStorage.setItem("token", data.accessToken);
+          localStorage.setItem("userId", data.user._id);
         } else {
-          setErrors({ api: "Incorrect Email or password" });
+          setErrors({ api: data.message || "Incorrect Email or password" });
           setTimeout(() => {
             setErrors({ api: "" });
           }, 6000);
-          console.log(response);
         }
-        const data = await response.json();
-        console.log(data);
-
-        localStorage.setItem("token", data.accessToken);
-
-        console.log(data.user._id);
-
-        localStorage.setItem("userId", data.user._id);
       } catch (error) {
         setIsLoading(false);
-        setErrors({ api: "Failed to login " });
+        setErrors({ api: "Failed to login" });
         setTimeout(() => {
-          setErrors({ api: " " });
+          setErrors({ api: "" });
         }, 3000);
         console.log(error);
       }

@@ -14,6 +14,7 @@ export default function SignUpForm() {
   });
 
   const [errors, setErrors] = useState({});
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -71,7 +72,7 @@ export default function SignUpForm() {
 
     if (name === "password" && !validatePassword(value)) {
       tempErrors.password =
-        "Password must be 6-10 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.";
+        "Password must be 6-15 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.";
     } else {
       delete tempErrors.password;
     }
@@ -79,97 +80,96 @@ export default function SignUpForm() {
     setErrors(tempErrors);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { name, email, password, confirmPassword } = formData;
+ const handleSubmit = async (e) => {
+   e.preventDefault();
+   const { name, email, password, confirmPassword } = formData;
 
-    // Basic validation
-    if (!name || !email || !password || !confirmPassword) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        form: "All fields are required",
-      }));
+   // Basic validation
+   if (!name || !email || !password || !confirmPassword) {
+     setErrors((prevErrors) => ({
+       ...prevErrors,
+       form: "All fields are required",
+     }));
 
-      setTimeout(() => {
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          form: "",
-        }));
-      }, 2000);
-      return;
-    }
-    if (!validateEmail(email)) {
-      return;
-    }
-    if (!validatePassword(password)) {
-      return;
-    }
+     setTimeout(() => {
+       setErrors((prevErrors) => ({
+         ...prevErrors,
+         form: "",
+       }));
+     }, 2000);
+     return;
+   }
+   if (!validateEmail(email)) {
+     return;
+   }
+   if (!validatePassword(password)) {
+     return;
+   }
 
-    if (password !== confirmPassword) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        confirmPassword: "Passwords do not match",
-      }));
-      setFormData((prevData) => ({
-        ...prevData,
-        confirmPassword: "",
-      }));
-      return;
-    } else {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        confirmPassword: "",
-      }));
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        form: "",
-      }));
-    }
+   if (password !== confirmPassword) {
+     setErrors((prevErrors) => ({
+       ...prevErrors,
+       confirmPassword: "Passwords do not match",
+     }));
+     setFormData((prevData) => ({
+       ...prevData,
+       confirmPassword: "",
+     }));
+     return;
+   } else {
+     setErrors((prevErrors) => ({
+       ...prevErrors,
+       confirmPassword: "",
+     }));
+     setErrors((prevErrors) => ({
+       ...prevErrors,
+       form: "",
+     }));
+   }
 
-    if (validate()) {
-      setIsLoading(true);
-      try {
-        const response = await fetch(
-          "https://recidishbackend.onrender.com/api/auth/register",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          }
-        );
+   if (validate()) {
+     setIsLoading(true);
+     try {
+       const response = await fetch(
+         "https://recidishbackend.onrender.com/api/auth/register",
+         {
+           method: "POST",
+           headers: {
+             "Content-Type": "application/json",
+           },
+           body: JSON.stringify(formData),
+         }
+       );
 
-        setIsLoading(false);
+       setIsLoading(false);
 
-        if (response.ok) {
-          setIsSubmitted(true);
-          setIsModalOpen(true);
-          window.localStorage.setItem("isLoggedIn", "true");
-          setTimeout(() => {
-            navigate("/signIn");
-          }, 3000);
-        } else if (!response.ok){
-          setErrors({ api: "User with Email already exist" });
-          setTimeout(() => {
-            setErrors({ api: "" });
-          }, 6000);
-          console.log(response);
-        }
+       const data = await response.json();
 
-        const data = await response.json();
-        console.log(data.newUser._id);
-        localStorage.setItem("userId", data.newUser._id);
+       if (response.ok) {
+         setIsSubmitted(true);
+         setIsModalOpen(true);
 
-        console.log(data);
-      } catch (error) {
-        setIsLoading(false);
-        
-        setErrors({ api: "failed to signup " });
-        console.log(error);
-      }
-    }
-  };
+         window.localStorage.setItem("isLoggedIn", "true");
+
+         setTimeout(() => {
+           navigate("/loggedIn");
+         }, 3000);
+
+         localStorage.setItem("userId", data.newUser._id);
+         localStorage.setItem("token", data.accessToken);
+       } else {
+         setErrors({ api: data.message || "User already exist" });
+         setTimeout(() => {
+           setErrors({ api: "" });
+         }, 6000);
+       }
+     } catch (error) {
+       setIsLoading(false);
+       setErrors({ api: "Failed to sign up" });
+       console.log(error);
+     }
+   }
+ };
 
   return (
     <>

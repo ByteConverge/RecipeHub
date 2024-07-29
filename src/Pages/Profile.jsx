@@ -6,6 +6,7 @@ const Profile = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({ name: "", email: "" });
   const [showModal, setShowModal] = useState(false);
+  const [loading , setIsLoading] = useState(true)
   let jwt = localStorage.getItem("token");
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const Profile = () => {
         .then((user) => {
           setUser(user.data);
           console.log(user.data);
+          setIsLoading(false)
         })
         .catch((error) => console.error("Error fetching user data:", error));
     }
@@ -39,6 +41,13 @@ const Profile = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+   if (loading) {
+     return (
+       <div className="flex items-center justify-center min-h-screen">
+         <div className="w-12 h-12 border-t-4 border-b-4 border-gray-900 rounded-full animate-spin"></div>
+       </div>
+     );
+   }
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-r bg-[#f3e2d0]  p-4">
