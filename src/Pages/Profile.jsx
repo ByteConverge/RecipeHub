@@ -10,6 +10,7 @@ const Profile = () => {
   let jwt = localStorage.getItem("token");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const userId = localStorage.getItem("userId");
 
     if (userId) {
