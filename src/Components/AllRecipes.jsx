@@ -7,7 +7,7 @@ import stew from "../Recidish_Images/stew.jpg";
 import { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
-export default function RiceRecipes() {
+export default function Recommended() {
   const [Posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -55,8 +55,8 @@ export default function RiceRecipes() {
           </p>
         ) : (
           <>
-            {Posts.filter((post) => post.likes.length > 5 ).length > 0 ? (
-              Posts.filter((post) => post.likes.length > 5)
+            {Posts.filter((post) => post.likes.length > 0 ).length > 0 ? (
+              Posts.filter((post) => post.likes.length > 0)
                 .reverse()
                 .map((post) => {
                   let slicedSteps = post.text.slice(0, 50);

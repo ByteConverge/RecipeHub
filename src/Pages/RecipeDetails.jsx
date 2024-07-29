@@ -11,6 +11,7 @@ export default function LoggedIn() {
   const [ReviewModal , SetReviewModal] =useState(false)
 
   let { id } = useParams();
+  console.log(useParams());
 
   let jwt = localStorage.getItem("token");
 
