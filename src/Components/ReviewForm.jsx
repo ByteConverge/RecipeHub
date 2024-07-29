@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Recommend from "./Recommend";
 
 export default function ReviewForm({ id , modal }) {
+
   const [text, setReply] = useState("");
   const [isloading , setIsLoading] = useState(false)
+  let navigate = useNavigate()
 
   let jwt = localStorage.getItem("token");
 
@@ -39,6 +42,7 @@ export default function ReviewForm({ id , modal }) {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }else if (response.ok){
+        navigate(`/loggedIn/recipeDetails/${id}`); 
         setIsLoading(false)
         modal(true)
         setTimeout(() => {
