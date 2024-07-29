@@ -105,7 +105,7 @@ export default function RecipeDetails() {
                   </h1>
                 </div>
                 <ul className="px-4 md:px-6 lg:px-8 space-y-4 font-inter">
-                  {Post.replies.map((reply) => (
+                  {[...Post.replies].reverse().map((reply) => (
                     <li
                       key={reply.userId}
                       className="p-4 pl-4 border-b border-gray-300 bg-white rounded-md shadow-sm transition hover:bg-gray-100 font-inter md:text-[21px]"
