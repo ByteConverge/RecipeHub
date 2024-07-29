@@ -24,7 +24,7 @@ export default function Homepage() {
           {/* welcome Flavors one */}
           <div
             id="welcomeFlavors"
-            className=" min-h-[50vh] mb-2  flex flex-col gap-2 md:flex  md:mb-[10px] md:w-[100%] md:gap-3  md:h-[80vh] md:justify-between "
+            className=" min-h-[50vh] mb-2  flex flex-col md:flex-row gap-2 md:flex  md:mb-[10px] md:w-[100%] md:gap-3  md:h-[80vh] md:justify-between "
           >
             {/* texts */}
             <div
