@@ -28,7 +28,7 @@ const VerifyPayment = () => {
           console.log(data);
           setMessage("Payment verified successfully!");
           setTimeout(() => {
-            navigate("/loggedIn");
+            navigate("/premium");
           }, 2000);
         } else if (data.data.status === "abandoned") {
           setMessage("Payment verification failed. Please try again.");
