@@ -46,7 +46,7 @@ export default function LoggedIn() {
 
   return (
     <Body>
-      <div className="px-[6%] min-h-[1vh] my-3 flex justify-start gap-2 sm:w-[95%] sm:mx-auto sm:my-7 sm:gap-[7px] sm:flex">
+      <div className="px-[6%] min-h-[10vh] my-3 flex justify-start gap-2 sm:w-[95%] sm:mx-auto sm:my-7 sm:gap-[7px] sm:flex">
         <div className="relative w-full sm:w-[30rem]">
           <input
             type="text"
@@ -94,7 +94,7 @@ export default function LoggedIn() {
             );
           })
         ) : (
-          <p className="text-center text-lg mt-4">No search results found</p>
+          <p className="text-center text-lg mt-4">loading...</p>
         )}
       </div>
     </Body>

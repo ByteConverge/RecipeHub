@@ -7,6 +7,9 @@ const VerifyPayment = () => {
   const navigate = useNavigate();
 
   let ref = localStorage.getItem("reference");
+  let paystack = localStorage.getItem("paystack");
+  console.log(ref);
+  console.log(paystack);
 
   const handleVerifyPayment = () => {
     setLoading(true);
@@ -60,6 +63,16 @@ const VerifyPayment = () => {
           {loading ? "Verifying..." : "Verify Payment"}
         </button>
         {message && <p className="mt-4 text-center text-gray-700">{message}</p>}
+        <div className="">
+          <p>Not Redirected to paystack?</p>
+          <a
+            href={paystack}
+            target="_blank"
+            className=" underline w-full mt-[3rem]"
+          >
+            click to make payment
+          </a>
+        </div>
       </div>
     </div>
   );

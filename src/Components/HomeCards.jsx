@@ -17,7 +17,7 @@ export default function HomeCards({title , recipeImg , steps , review}) {
           className="rounded-tr-[1rem] rounded-tl-[1rem] w-[100%] h-[100%] object-cover"
         />
       </figure>
-      <div id="lowerSection" className="p-2 relative ">
+      <div id="lowerSection" className="p-2 relative h-[30%] flex flex-col justify-end pb-7">
         <div id="title-text" className="flex justify-start m-w-1/3 gap-3">
           <h1 className="font-bold font-poppins sm:text-[19px]">{title}</h1>
           <figure className="flex items-center gap-1">
@@ -28,7 +28,7 @@ export default function HomeCards({title , recipeImg , steps , review}) {
         <p className="text-[10px] w-[60%] font-inter font-light sm:text-[14px] ">
           {steps}
         </p>
-        <div className=" p-3 pr-1 absolute bottom-[10%] right-4 gap-1 flex items-center md:bottom-[10%] ">
+        <div className=" p-3 pr-1 absolute bottom-[1rem] right-4 gap-1 flex items-center md:bottom-[1.2rem]">
           {review}
           <img src={comment} alt="" className="h-[1rem]" />
         </div>
