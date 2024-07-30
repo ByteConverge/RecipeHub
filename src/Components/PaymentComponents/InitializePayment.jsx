@@ -58,21 +58,21 @@ const Payment = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
       <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-lg">
-        <h3 className="text-3xl font-bold mb-6 text-center text-teal-600">
+        <h3 className="text-3xl font-bold mb-6 text-center text-teal-600 font-inter">
           Payment Form
         </h3>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label
               htmlFor="email"
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-gray-700 text-sm font-bold mb-2 font-inter"
             >
               Email Address
             </label>
             <input
               type="email"
               id="email"
-              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="font-inter w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -81,7 +81,7 @@ const Payment = () => {
           <div>
             <label
               htmlFor="amount"
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="font-inter block text-gray-700 text-sm font-bold mb-2"
             >
               Amount to be Paid
             </label>
@@ -89,13 +89,13 @@ const Payment = () => {
               type="text"
               id="amount"
               value="₦200"
-              className="w-full px-4 py-3 border rounded-lg bg-gray-200 cursor-not-allowed"
+              className="font-inter w-full px-4 py-3 border rounded-lg bg-gray-200 cursor-not-allowed"
               readOnly
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-teal-500 text-white py-3 rounded-lg font-semibold hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="font-inter w-full bg-teal-500 text-white py-3 rounded-lg font-semibold hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={isLoading}
           >
             {isLoading ? "Initializing..." : "Initialize Payment"}
@@ -106,7 +106,7 @@ const Payment = () => {
                 isError
                   ? "bg-red-100 text-red-700"
                   : "bg-green-100 text-green-700"
-              } flex items-center`}
+              } flex items-center font-inter`}
             >
               {isError ? (
                 <FaExclamationCircle className="mr-2 text-xl" />

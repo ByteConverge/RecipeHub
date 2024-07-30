@@ -6,16 +6,20 @@ import soupGeneral from "../Recidish_Images/BitterLeafSoup.jpg";
 import stew from "../Recidish_Images/stew.jpg";
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import ClipLoader from "react-spinners/ClipLoader";
 
 export default function LoggedIn() {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
   let jwt = localStorage.getItem("token");
 
+
   useEffect(() => {
     async function fetchPosts() {
+       setLoading(true);
       const response = await fetch(
         `https://recidishbackend.onrender.com/api/post/`,
         {
@@ -28,12 +32,14 @@ export default function LoggedIn() {
       const data = await response.json();
       setPosts(data.posts);
       setFilteredPosts(data.posts);
+       setLoading(false);
     }
 
     fetchPosts();
   }, [jwt]);
 
   useEffect(() => {
+     
     if (searchTerm) {
       const filtered = posts.filter((post) =>
         post.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -43,6 +49,8 @@ export default function LoggedIn() {
       setFilteredPosts(posts);
     }
   }, [searchTerm, posts]);
+  console.log(posts);
+  console.log(posts.length);
 
   return (
     <Body>
@@ -94,7 +102,9 @@ export default function LoggedIn() {
             );
           })
         ) : (
-          <p className="text-center text-lg mt-4">loading...</p>
+          <div className="flex justify-center items-center min-h-[20vh]">
+            <ClipLoader size={50} color={"black"} loading={loading} />
+          </div>
         )}
       </div>
     </Body>

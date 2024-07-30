@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom"
 import Navbar from "../Components/Navbar"
 import HeroSection from "../Components/HeroSection"
 import Footer from "../Components/Footer"
-import NumberData from "../Components/NumberData"
+import NumberDataNot from "../Components/NumberDataNot"
 
 
 export default function Layout() {
@@ -11,7 +11,7 @@ export default function Layout() {
     <>
     <Navbar />
     <HeroSection />
-    <NumberData />
+    <NumberDataNot />
     <Outlet />
 
     <Footer />

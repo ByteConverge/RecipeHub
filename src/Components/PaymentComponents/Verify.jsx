@@ -45,10 +45,10 @@ const VerifyPayment = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800 text-center">
+        <h2 className="text-2xl font-bold mb-4 text-gray-800 text-center font-inter">
           Verify Payment
         </h2>
-        <p className="mb-6 text-center text-gray-600">
+        <p className="font-inter mb-6 text-center text-gray-600 ">
           Click the button below to verify your payment.
         </p>
         <button
@@ -58,17 +58,17 @@ const VerifyPayment = () => {
             loading
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-blue-500 hover:bg-blue-700"
-          } text-white font-semibold transition duration-300 ease-in-out`}
+          } text-white font-semibold transition duration-300 ease-in-out font-inter`}
         >
           {loading ? "Verifying..." : "Verify Payment"}
         </button>
         {message && <p className="mt-4 text-center text-gray-700">{message}</p>}
         <div className="text-center mt-2">
-          <p>Not Redirected to paystack?</p>
+          <p className="font-inter">Not Redirected to paystack?</p>
           <a
             href={paystack}
             target="_blank"
-            className=" underline w-full mt-[3rem] text-green-500"
+            className=" underline w-full mt-[3rem] text-green-500 font-inter"
           >
             click to make payment
           </a>
