@@ -1,13 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const VerifyPayment = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   let ref = localStorage.getItem("reference");
-  let paystack = localStorage.getItem("paystack");
-  console.log(ref);
-  console.log(paystack);
 
   const handleVerifyPayment = () => {
     setLoading(true);
@@ -25,6 +24,9 @@ const VerifyPayment = () => {
         if (data.data.status === "success") {
           console.log(data);
           setMessage("Payment verified successfully!");
+          setTimeout(() => {
+            navigate("/loggedIn");
+          }, 2000);
         } else if (data.data.status === "abandoned") {
           setMessage("Payment verification failed. Please try again.");
           console.log(data);
@@ -40,22 +42,16 @@ const VerifyPayment = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
-        <a
-          href={paystack}
-          target="_blank"
-          className=" underline w-[1rem] mt-[3rem]"
-        >
-          click to make payment
-        </a>
-
-        {/*  */}
-        <h2 className="text-2xl font-bold mb-2 text-gray-800">
+        <h2 className="text-2xl font-bold mb-4 text-gray-800 text-center">
           Verify Payment
         </h2>
+        <p className="mb-6 text-center text-gray-600">
+          Click the button below to verify your payment.
+        </p>
         <button
           onClick={handleVerifyPayment}
           disabled={loading}
-          className={`w-full py-2 px-4 rounded ${
+          className={`w-full py-3 px-4 rounded ${
             loading
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-blue-500 hover:bg-blue-700"

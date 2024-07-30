@@ -55,8 +55,8 @@ export default function Recommended() {
           </p>
         ) : (
           <>
-            {Posts.filter((post) => post.likes.length > 0 ).length > 0 ? (
-              Posts.filter((post) => post.likes.length > 0)
+            {Posts.filter((post) => post.likes.length > 5 ).length > 0 ? (
+              Posts.filter((post) => post.likes.length > 5)
                 .reverse()
                 .map((post) => {
                   let slicedSteps = post.text.slice(0, 50);

@@ -7,7 +7,7 @@ const Payment = () => {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,13 +23,10 @@ const Payment = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             email: email,
-            amount: 100,
+            amount: 200,
           }),
         }
       );
-      setTimeout(() => {
-        navigate("/verify");
-      }, 3000);
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -43,6 +40,12 @@ const Payment = () => {
       console.log(data.data.reference);
       localStorage.setItem("reference", data.data.reference);
       localStorage.setItem("paystack", data.data.authorization_url);
+
+      window.open(`${data.data.authorization_url}`, "_blank");
+
+      setTimeout(() => {
+        navigate("/verify");
+      }, 4000);
     } catch (error) {
       console.error("Error sending request:", error);
       setMessage("An error occurred. Please try again later.");
@@ -53,18 +56,18 @@ const Payment = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#ede3d7] ">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-[95%] md:w-full max-w-md">
-        <h3 className="text-2xl font-bold mb-6 text-center text-teal-600">
-         Payment form
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+      <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-lg">
+        <h3 className="text-3xl font-bold mb-6 text-center text-teal-600">
+          Payment Form
         </h3>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label
               htmlFor="email"
               className="block text-gray-700 text-sm font-bold mb-2"
             >
-              Email Address:
+              Email Address
             </label>
             <input
               type="email"
@@ -75,12 +78,27 @@ const Payment = () => {
               required
             />
           </div>
+          <div>
+            <label
+              htmlFor="amount"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              Amount to be Paid
+            </label>
+            <input
+              type="text"
+              id="amount"
+              value="₦200"
+              className="w-full px-4 py-3 border rounded-lg bg-gray-200 cursor-not-allowed"
+              readOnly
+            />
+          </div>
           <button
             type="submit"
             className="w-full bg-teal-500 text-white py-3 rounded-lg font-semibold hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={isLoading}
           >
-            {isLoading ? "Initializing..." : "Initialize payment"}
+            {isLoading ? "Initializing..." : "Initialize Payment"}
           </button>
           {message && (
             <div
