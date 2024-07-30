@@ -7,6 +7,15 @@ import logo from "../Recidish_Images/RecidishLogo.png";
 
 const LoggedInNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  let payment = localStorage.getItem("premium")
+  console.log(payment);
+  let premium;
+
+  if(payment === "paid"){
+    premium = "/premium"
+  }else {
+    premium  = "/payment"
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,8 +39,6 @@ const LoggedInNavbar = () => {
        bg-[#ffffff] sticky top-0 sm:bg-transparent justify-between items-center  h-[10dvh] font-inter  sm:px-[10.5%] sm:absolute sm:w-[100%] sm:pt-6 sm:min-h-[11dvh] sm:py-2 z-30 shadow-sm shadow-black sm:shadow-none`}
     >
       <div className="flex items-center">
-      
-        
         <figure className="h-[2rem] w-[2rem] sm:h-[3rem] sm:w-[3.7rem] sm:block ">
           <img src={logo} alt="" className="h-[100%] w-[100%]" />
         </figure>
@@ -40,7 +47,7 @@ const LoggedInNavbar = () => {
       <ul className="hidden sm:flex sm:px-3 sm:self-center sm:justify-start sm:min-w-[50%] sm:gap-5 font-poppins">
         <li className="sm:text-[20px]">
           <NavLink
-          end
+            end
             className={({ isActive }) =>
               isActive ? "text-[#fff]  underline" : "text-[#fff]"
             }
@@ -61,8 +68,9 @@ const LoggedInNavbar = () => {
         </li>
         <li className="sm:text-[20px] sm:font-normal">
           <NavLink
-          to="/payment"
-            className={ "text-[#fff]"
+            to={premium}
+            className={({ isActive }) =>
+              isActive ? " text-white underline" : "text-[#fff]"
             }
           >
             Premium
@@ -100,37 +108,25 @@ const LoggedInNavbar = () => {
         } sm:flex sm:flex-row sm:w-30 sm:gap-[30px]`}
       >
         <li className="nav-item sm:hidden">
-          <NavLink
-            to="/loggedIn"
-           
-            onClick={toggleMenu}
-          >
+          <NavLink to="/loggedIn" onClick={toggleMenu}>
             Home
           </NavLink>
         </li>
         <li className="nav-item sm:hidden">
-          <NavLink
-            to="/loggedIn/Recipes"
-           
-            onClick={toggleMenu}
-          >
+          <NavLink to="/loggedIn/Recipes" onClick={toggleMenu}>
             Recipes
           </NavLink>
         </li>
         <li className="nav-item sm:hidden">
           <NavLink
-           to='/payment'
+            to={premium}
             // onClick={toggleMenu}
           >
             Premium
           </NavLink>
         </li>
         <li className="nav-item sm:hidden">
-          <NavLink
-            to="/addRecipe"
-           
-            onClick={toggleMenu}
-          >
+          <NavLink to="/addRecipe" onClick={toggleMenu}>
             Add Recipes
           </NavLink>
         </li>
@@ -139,7 +135,10 @@ const LoggedInNavbar = () => {
           id="navItem"
           className="nav-item flex gap-2 sm:w-[8rem] sm:h-[3rem] sm:items-center"
         >
-          <Link to='/dashboard' className="font-bold flex h-[100%] w-[100%] sm:h-[2.5rem] sm:w-[2.5rem]">
+          <Link
+            to="/dashboard"
+            className="font-bold flex h-[100%] w-[100%] sm:h-[2.5rem] sm:w-[2.5rem]"
+          >
             <img
               src={profile}
               alt=""

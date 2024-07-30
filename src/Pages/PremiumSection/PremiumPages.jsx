@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Body from "../../Components/Body";
 import HomeCards from "../../Components/HomeCards";
+import HeroSection from "../../Components/LoggedInHeroSection";
+import LoggedInNavbar from "../../Components/LoggedInNavbar";
 
 import { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -37,45 +39,51 @@ export default function PremiumPages() {
   console.log(Posts);
 
   return (
-    <Body>
-      <div
-        id="cards"
-        className={`px-[4%] min-h-[10vh] my-2 mb-[1rem] flex flex-col gap-2 sm:mx-auto sm:w-[95%] sm:grid ${
-          Posts.length === 0 ? "sm:grid-cols-1" : "sm:grid-cols-3"
-        } sm:gap-x-16 sm:gap-y-8`}
-      >
-        {loading ? (
-          <div className="flex justify-center items-center min-h-[20vh]">
-            <ClipLoader size={50} color={"black"} loading={loading} />
-          </div>
-        ) : Posts.length === 0 ? (
-          <p className="text-center text-black text-[1rem]  mt-[1rem] font-poppins font-light block w-[100%]  md:text-[2rem] md:w-[100%]">
-            No Recipe found
-          </p>
-        ) : (
-          <>
-            {[...Posts].map((post) => {
-              let slicedSteps = post.text.slice(0, 50);
-              let slicedTitle = post.title.slice(0, 25);
+    <>
+    <LoggedInNavbar />
+    <HeroSection />
 
-              return (
-                <Link
-                  key={post._id}
-                  to={`/loggedIn/PremiumRecipeDetails/${post._id}`}
-                >
-                  <HomeCards
+
+      <Body>
+        <div
+          id="cards"
+          className={`px-[4%] min-h-[10vh] my-2 mb-[1rem] flex flex-col gap-2 sm:mx-auto sm:w-[95%] sm:grid ${
+            Posts.length === 0 ? "sm:grid-cols-1" : "sm:grid-cols-3"
+          } sm:gap-x-16 sm:gap-y-8`}
+        >
+          {loading ? (
+            <div className="flex justify-center items-center min-h-[20vh]">
+              <ClipLoader size={50} color={"black"} loading={loading} />
+            </div>
+          ) : Posts.length === 0 ? (
+            <p className="text-center text-black text-[1rem]  mt-[1rem] font-poppins font-light block w-[100%]  md:text-[2rem] md:w-[100%]">
+              No Recipe found
+            </p>
+          ) : (
+            <>
+              {[...Posts].map((post) => {
+                let slicedSteps = post.text.slice(0, 50);
+                let slicedTitle = post.title.slice(0, 25);
+
+                return (
+                  <Link
                     key={post._id}
-                    title={slicedTitle}
-                    recipeImg={post.img}
-                    steps={slicedSteps}
-                    review={post.replies.length}
-                  />
-                </Link>
-              );
-            })}
-          </>
-        )}
-      </div>
-    </Body>
+                    to={`/loggedIn/PremiumRecipeDetails/${post._id}`}
+                  >
+                    <HomeCards
+                      key={post._id}
+                      title={slicedTitle}
+                      recipeImg={post.img}
+                      steps={slicedSteps}
+                      review={post.replies.length}
+                    />
+                  </Link>
+                );
+              })}
+            </>
+          )}
+        </div>
+      </Body>
+    </>
   );
 }

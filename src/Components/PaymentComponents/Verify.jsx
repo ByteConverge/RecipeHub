@@ -27,6 +27,7 @@ const VerifyPayment = () => {
         if (data.data.status === "success") {
           console.log(data);
           setMessage("Payment verified successfully!");
+          localStorage.setItem("premium" , "paid")
           setTimeout(() => {
             navigate("/premium");
           }, 2000);
