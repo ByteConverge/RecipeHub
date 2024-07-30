@@ -63,12 +63,12 @@ const VerifyPayment = () => {
           {loading ? "Verifying..." : "Verify Payment"}
         </button>
         {message && <p className="mt-4 text-center text-gray-700">{message}</p>}
-        <div className="">
+        <div className="text-center mt-2">
           <p>Not Redirected to paystack?</p>
           <a
             href={paystack}
             target="_blank"
-            className=" underline w-full mt-[3rem]"
+            className=" underline w-full mt-[3rem] text-green-500"
           >
             click to make payment
           </a>
