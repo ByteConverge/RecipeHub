@@ -67,7 +67,7 @@ export default function RecipeDetails() {
         ></div>
         <div
           id="card"
-          className="px-[4.5%] md:px-[6%] min-h-[10vh] mt-10 flex flex-col py-4 md:gap-2 md:py-[6%] md:w-[85%] mx-auto md:items-start bg-white w-[85%] -translate-y-[7rem] rounded-tl-[60px] rounded-tr-[60px]"
+          className="px-[4.5%] md:px-[6%] min-h-[10vh] mt-10 flex flex-col py-4 md:gap-2 md:py-[6%] md:w-[85%] mx-auto md:items-start bg-white w-[88%] -translate-y-[7rem] rounded-tl-[60px] rounded-tr-[60px]"
         >
           <h1 className="text-xl text-[27px] md:text-[30px] text-center lg:text-left font-inter font-bold md:font-bold my-2 sm:mt-4 lg:mt-4 text-gray-800 italic md:mb-[2rem] ">
             {Post.title}
