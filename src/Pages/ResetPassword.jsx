@@ -16,7 +16,7 @@ const ResetPassword = () => {
 
   const validatePassword = (password) => {
     const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~=`{}[\]:";'<>?,./])[A-Za-z\d!@#$%^&*()_+|~=`{}[\]:";'<>?,./]{6,10}$/;
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+|~=`{}[\]:";'<>?,./])[A-Za-z\d!@#$%^&*()_+|~=`{}[\]:";'<>?,./]{6,15}$/;
     return passwordRegex.test(password);
   };
 
@@ -27,7 +27,7 @@ const ResetPassword = () => {
 
     if (!validatePassword(password)) {
       setError(
-        "Password must be 6-10 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character."
+        "Password must be 6-10 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character"
       );
       return;
     }
@@ -63,7 +63,7 @@ const ResetPassword = () => {
       }, 2000);
     } catch (err) {
       console.error("Error resetting password:", err);
-      setError(err.message || "Error resetting password");
+      setError("Error resetting password");
     }
   };
 

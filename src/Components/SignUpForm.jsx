@@ -157,6 +157,7 @@ export default function SignUpForm() {
 
          localStorage.setItem("userId", data.newUser._id);
          localStorage.setItem("token", data.accessToken);
+         console.log(data);
        } else {
          setErrors({ api: data.message || "User already exist" });
          setTimeout(() => {

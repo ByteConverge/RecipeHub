@@ -21,6 +21,8 @@ import Profile from "./Pages/Profile";
 import ProtectedRoute from "./Components/AuthRoutes/ProtectedRoutes";
 import Payment from "./Components/PaymentComponents/InitializePayment";
 import VerifyPayment from "./Components/PaymentComponents/Verify";
+import Premium from "./Pages/PremiumPages";
+
 
 function App() {
   return (
@@ -93,16 +95,24 @@ function App() {
           }
         />
         {/* paymentRoutes */}
-        <Route path="/payment" element={
-          <ProtectedRoute>
-            <Payment />
-          </ProtectedRoute>
-          }/>
-        <Route path="/verify" element={
-          <ProtectedRoute>
-            <VerifyPayment />
-          </ProtectedRoute>
-          } />
+        <Route
+          path="/payment"
+          element={
+            <ProtectedRoute>
+              <Payment />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/verify"
+          element={
+            <ProtectedRoute>
+              <VerifyPayment />
+            </ProtectedRoute>
+          }
+        />
+        {/* Premium pages */}
+        <Route path="/premium" element={<Premium />} />
       </Routes>
     </BrowserRouter>
   );

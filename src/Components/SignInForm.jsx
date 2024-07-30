@@ -108,6 +108,7 @@ export default function SignInForm() {
 
           localStorage.setItem("token", data.accessToken);
           localStorage.setItem("userId", data.user._id);
+          console.log(data);
         } else {
           setErrors({ api: data.message || "Incorrect Email or password" });
           setTimeout(() => {
