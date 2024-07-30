@@ -152,7 +152,7 @@ export default function SignUpForm() {
          window.localStorage.setItem("isLoggedIn", "true");
 
          setTimeout(() => {
-           navigate("/signIn");
+          navigate("/loggedIn");
          }, 3000);
 
          localStorage.setItem("userId", data.newUser._id);

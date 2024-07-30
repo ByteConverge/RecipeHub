@@ -23,6 +23,7 @@ import Payment from "./Components/PaymentComponents/InitializePayment";
 import VerifyPayment from "./Components/PaymentComponents/Verify";
 import Premium from "./Pages/PremiumSection/PremiumPages";
 import PremiumRecipeDetails from "./Pages/PremiumSection/PremiumRecipeDetails";
+import Paid from "./Components/AuthRoutes/Paid";
 
 
 function App() {
@@ -113,10 +114,20 @@ function App() {
           }
         />
         {/* Premium pages */}
-        <Route path="/premium" element={<Premium />} />
+        <Route path="/premium" element={
+          <Paid>
+            <Premium />
+
+          </Paid>
+          } />
         <Route
           path="/loggedIn/PremiumRecipeDetails/:id"
-          element={<PremiumRecipeDetails />}
+          element={
+          <Paid>
+            <PremiumRecipeDetails />
+
+          </Paid>
+        }
         />
       </Routes>
     </BrowserRouter>
