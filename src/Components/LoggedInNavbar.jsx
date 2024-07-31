@@ -120,7 +120,7 @@ const LoggedInNavbar = () => {
         <li className="nav-item sm:hidden">
           <NavLink
             to={premium}
-            // onClick={toggleMenu}
+            onClick={toggleMenu}
           >
             Premium
           </NavLink>
