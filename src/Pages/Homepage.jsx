@@ -47,14 +47,9 @@ export default function Homepage() {
                 Plan your meals with ease using our integrated meal planning
                 tool. Select recipes for the week, generate shopping lists, and
                 stay organized in the kitchen. Eating well has never been so
-                effortless. Plus, our instructional videos offer additional
-                guidance and inspiration.
+                effortless. 
               </p>
-              <p className="text-left font-poppins text-[.8rem]  md:text-left md:text-[21px] md:font-normal md:leading-[35px]mb-3  ">
-                Plan your meals with ease using our integrated meal planning
-                tool. Select recipes for the week, generate shopping lists, and
-                stay organized in the kitchen. 
-              </p>
+             
             </div>
             {/* imageFlavorOne */}
             <figure
