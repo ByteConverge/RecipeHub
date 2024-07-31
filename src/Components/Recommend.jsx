@@ -44,13 +44,18 @@ async function unlikeHandle() {
 
 
   return (
-    <div className="flex gap-10 w-[50%]">
-      <div id="no" className="flex gap-1">
-        <p>No</p>
-        <input type="radio" name="recommendation" value="no"  onClick={unlikeHandle}/>
+    <div className="md:self-start flex gap-2 md:gap-10 w-[50%] ml-8 md:ml-0">
+      <div id="no" className="flex gap-2 items-center">
+        <p className="text-[.8rem] md:text-[20px]">No</p>
+        <input
+          type="radio"
+          name="recommendation"
+          value="no"
+          onClick={unlikeHandle}
+        />
       </div>
-      <div id="yes" className="flex gap-1">
-        <p>Yes</p>
+      <div id="yes" className="flex gap-2 items-center">
+        <p className="text-[.8rem] md:text-[20px]">Yes</p>
         <input
           type="radio"
           name="recommendation"

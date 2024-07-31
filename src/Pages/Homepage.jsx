@@ -42,11 +42,18 @@ export default function Homepage() {
                 inspire and assist you in creating mouth-watering dishes right
                 from the comfort of your home.
               </p>
+
               <p className="text-left font-poppins text-[.8rem]  md:text-left md:text-[21px] md:font-normal md:leading-[35px]mb-3  ">
                 Plan your meals with ease using our integrated meal planning
                 tool. Select recipes for the week, generate shopping lists, and
                 stay organized in the kitchen. Eating well has never been so
-                effortless.
+                effortless. Plus, our instructional videos offer additional
+                guidance and inspiration.
+              </p>
+              <p className="text-left font-poppins text-[.8rem]  md:text-left md:text-[21px] md:font-normal md:leading-[35px]mb-3  ">
+                Plan your meals with ease using our integrated meal planning
+                tool. Select recipes for the week, generate shopping lists, and
+                stay organized in the kitchen. 
               </p>
             </div>
             {/* imageFlavorOne */}

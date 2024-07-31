@@ -59,16 +59,16 @@ export default function ReviewForm({ id, modal }) {
   };
 
   return (
-    <form className="mt-9 mx-auto" onSubmit={handleSubmit}>
+    <form className="mt-9 mx-auto  flex flex-col items-center md:items-left gap-2" onSubmit={handleSubmit}>
       <textarea
         name="text"
         id=""
         placeholder="Leave us a review"
-        className="h-[150px] w-[60%] p-3 font-inter bg-[#F7EEEE] rounded-xl md:w-[500px] md:h-[200px] md:rounded-[14px]"
+        className="font-inter h-[200px] w-[100%] p-3  bg-[#F7EEEE] rounded-xl md:w-[500px] md:h-[300px] md:rounded-[14px] md:text-[19px]"
         value={text}
         onChange={(e) => setReply(e.target.value)}
       ></textarea>
-      <p className="font-inter text-[#32201C] md:text-[20px] md:font-normal">
+      <p className="font-inter text-[#32201C] md:text-[20px] md:font-normal md:self-start">
         Do you recommend this recipe?
       </p>
       <Recommend id={id} />
@@ -77,7 +77,7 @@ export default function ReviewForm({ id, modal }) {
         type="submit"
         className={`${
           isLoading ? "bg-[#ddb284]" : "bg-[#996D3E]"
-        } h-[2rem] w-[50%] text-white rounded-[1rem] md:h-[41px] md:text-[15px]`}
+        } h-[2rem] w-[50%] text-white rounded-[1rem] md:h-[41px] md:text-[15px] md:self-start`}
       >
         {isLoading ? "Submitting..." : "Submit"}
       </button>
