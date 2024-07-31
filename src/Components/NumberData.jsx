@@ -5,11 +5,11 @@ let jwt = localStorage.getItem("token");
 
 export default function NumberData() {
   const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchPosts() {
-      setIsLoading(true);
+      // setIsLoading(true);
       try {
         const response = await fetch(
           `https://recidishbackend.onrender.com/api/post/`,
@@ -25,7 +25,7 @@ export default function NumberData() {
       } catch (error) {
         console.error("Error fetching posts:", error);
       } finally {
-        setIsLoading(false);
+        // setIsLoading(false);
       }
     }
 
@@ -42,11 +42,9 @@ export default function NumberData() {
       id="numbers"
       className="px-[6%] min-h-[4vh] my-2 flex justify-between gap-2 sm:w-[95%] sm:mx-auto sm:my-7"
     >
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : posts.length === 0 ? (
-        <p>No posts available</p>
-      ) : (
+      
+        
+    
         <>
           <NumbersRates
             num={posts.length}
@@ -56,7 +54,7 @@ export default function NumberData() {
           <NumbersRates num={totalReviews} text={"Reviews"} color={"blue"} />
           <NumbersRates num={"..."} text={"re-cooked recipes"} color={"blue"} />
         </>
-      )}
+    
     </div>
   );
 }
