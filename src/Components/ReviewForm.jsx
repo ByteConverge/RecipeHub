@@ -64,7 +64,7 @@ export default function ReviewForm({ id, modal }) {
         name="text"
         id=""
         placeholder="Leave us a review"
-        className="font-inter h-[200px] w-[100%] p-3  bg-[#F7EEEE] rounded-xl md:w-[500px] md:h-[300px] md:rounded-[14px] md:text-[19px]"
+        className="font-inter h-[200px] w-[100%] p-3  bg-[#F7EEEE] rounded-xl md:w-[500px] md:h-[300px] md:rounded-[14px] md:text-[19px] md:self-start"
         value={text}
         onChange={(e) => setReply(e.target.value)}
       ></textarea>
