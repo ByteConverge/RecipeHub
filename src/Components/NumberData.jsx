@@ -51,7 +51,9 @@ export default function NumberData() {
             text={"Original recipes"}
             color={"red"}
           />
+
           <NumbersRates num={totalReviews} text={"Reviews"} color={"blue"} />
+          
           <NumbersRates num={"..."} text={"re-cooked recipes"} color={"blue"} />
         </>
     

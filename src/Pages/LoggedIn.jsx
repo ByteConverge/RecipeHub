@@ -12,14 +12,14 @@ export default function LoggedIn() {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   let jwt = localStorage.getItem("token");
 
-
-  useEffect(() => {
-    async function fetchPosts() {
-       setLoading(true);
+  // Move the fetchPosts function outside of useEffect
+  const fetchPosts = async (jwt) => {
+    try {
+      setLoading(true);
       const response = await fetch(
         `https://recidishbackend.onrender.com/api/post/`,
         {
@@ -29,17 +29,27 @@ export default function LoggedIn() {
         }
       );
 
+      if (!response.ok) {
+        throw new Error("Failed to fetch posts");
+      }
+
       const data = await response.json();
       setPosts(data.posts);
       setFilteredPosts(data.posts);
-       setLoading(false);
+    } catch (error) {
+      console.error(error.message);
+    } finally {
+      setLoading(false);
     }
+  };
 
-    fetchPosts();
+  useEffect(() => {
+    if (jwt) {
+      fetchPosts(jwt); // Call the function inside the useEffect
+    }
   }, [jwt]);
 
   useEffect(() => {
-     
     if (searchTerm) {
       const filtered = posts.filter((post) =>
         post.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -49,8 +59,6 @@ export default function LoggedIn() {
       setFilteredPosts(posts);
     }
   }, [searchTerm, posts]);
-  console.log(posts);
-  console.log(posts.length);
 
   return (
     <Body>
@@ -73,7 +81,11 @@ export default function LoggedIn() {
           filteredPosts.length === 0 ? "sm:grid-cols-1" : "sm:grid-cols-3"
         } sm:gap-x-16 sm:gap-y-8`}
       >
-        {filteredPosts.length > 0 ? (
+        {loading ? (
+          <div className="flex justify-center items-center min-h-[20vh]">
+            <ClipLoader size={50} color={"black"} loading={loading} />
+          </div>
+        ) : filteredPosts.length > 0 ? (
           [...filteredPosts].reverse().map((post) => {
             let slicedSteps = post.text.slice(0, 10);
             let slicedTitle = post.title.slice(0, 25);
@@ -103,7 +115,7 @@ export default function LoggedIn() {
           })
         ) : (
           <div className="flex justify-center items-center min-h-[20vh]">
-            <ClipLoader size={50} color={"black"} loading={loading} />
+            No posts available.
           </div>
         )}
       </div>

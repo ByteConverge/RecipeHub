@@ -16,7 +16,9 @@ export default function SignInForm() {
 
   const handleChange = (e) => {
     let { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData(prevFormData => {
+    return  { ...prevFormData, [name]: value }
+    });
   };
 
   const [errors, setErrors] = useState({});
@@ -28,10 +30,10 @@ export default function SignInForm() {
 
   const navigate = useNavigate();
 
-  const validateEmail = (email) => {
+  function validateEmail(email) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
-  };
+  }
 
   // const validatePassword = (password) => {
   //   const passwordPattern =
@@ -42,7 +44,7 @@ export default function SignInForm() {
   const validate = () => {
     let tempErrors = {};
     if (!validateEmail(formData.email)) {
-      tempErrors.email = "Email is not valid.";
+      tempErrors.email = "Email is not valid."
     }
     // if (!validatePassword(formData.password)) {
     //   tempErrors.password = "Password is not valid.";
